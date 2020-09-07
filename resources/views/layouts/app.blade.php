@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>App Name - @yield('title')</title>
+    <title>@yield('title')</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
 
@@ -38,8 +38,6 @@
 
   <body>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top flex-md-nowrap">
-      <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
-  <!-- <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a> -->
   <a class="navbar-brand" href="#">Xceed Electrical</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -79,7 +77,7 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="/dashboard">
               <span data-feather="home"></span>
               Dashboard <span class="sr-only">(current)</span>
             </a>
