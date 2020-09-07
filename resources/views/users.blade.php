@@ -28,7 +28,8 @@
           <tbody>
             <tr>
             @foreach($users as $user)
-            <td>{{ $user }}</tr>
+            <td>{{ $user }}</td>
+          </tr>
         @endforeach
               <td>1,001</td>
               <td>Lorem</td>
