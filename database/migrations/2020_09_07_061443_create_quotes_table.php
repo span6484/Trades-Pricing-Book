@@ -22,7 +22,7 @@ class CreateQuotesTable extends Migration
             $table->foreignId('pk_status_id')->constrained();
             $table->int('quote_number');
             $table->int('quote_revisionnumber');
-            $table->string('quote_comment');
+            $table->string('quote_comment')->nullable();
             $table->double('quote_discountrate');
             $table->string('quote_termbody');
             $table->timestamps();
