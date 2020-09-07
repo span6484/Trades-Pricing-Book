@@ -10,6 +10,13 @@ class UserController extends Controller
     {
         $pageHeading = 'Users';
 
-        return view('users', compact('pageHeading'));
+        $users = [
+            'User 1',
+            'User 2',
+            'User 3',
+            'User 4'
+        ];
+
+        return view('users', compact('users'));
     }
 }
