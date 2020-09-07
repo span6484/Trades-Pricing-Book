@@ -21,11 +21,7 @@ Route::get('/customers', function() {
     return view('customers');
 });
 
-Route::get('/users', function() {
-    $pageHeading = 'This is the USERS PAGE.';
-
-    return view('users', compact('pageHeading'));
-});
+Route::get('/users', 'UserController@index');
 
 Route::get('/suppliers', function() {
     return view('suppliers');
