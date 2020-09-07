@@ -20,7 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('customer_phone')->nullable();
             $table->string('customer_email')->nullable();
             $table->string('customer_address')->nullable();
-            $table->foreignId('pk_discount_id')->constrained();
+            $table->foreignId('fk_discount_id')->references('pk_discount_id')->on('discounts');
             $table->tinyInteger('customer_archived');
             $table->timestamps();
         });

@@ -15,10 +15,10 @@ class CreateMaterialsTable extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id('pk_material_id');
-            $table->foreignId('pk_supplier_id')->constrained();
+            $table->foreignId('fk_supplier_id')->references('pk_supplier_id')->on('suppliers');
             $table->string('material_itemcode')->nullable();
             $table->string('material_description');
-            $table->foreignId('pk_gm_id')->constrained();
+            $table->foreignId('fk_gm_id')->references('pk_gm_id')->on('grossmargins');
             $table->tinyInteger('material_archived');
             $table->timestamps();
         });

@@ -15,12 +15,12 @@ class CreateQuoteitemsTable extends Migration
     {
         Schema::create('quoteitems', function (Blueprint $table) {
             $table->id('pk_quoteitem_id');
-            $table->foreignId('pk_item_id')->constrained();
-            $table->foreignId('pk_quoteitemmaterial_id')->constrained();
+            $table->foreignId('fk_item_id')->references('pk_item_id')->on('items');
+            $table->foreignId('fk_quoteitemmaterial_id')->references('pk_quoteitemmaterial_id')->on('quoteitemmaterials');
             $table->string('quoteitem_number');
             $table->string('quoteitem_jobtype');
-            $table->int('quoteitem_category_id');
-            $table->int('quoteitem_subcategory_id');
+            $table->integer('quoteitem_category_id');
+            $table->integer('quoteitem_subcategory_id');
             $table->string('quoteitem_description');
             $table->double('quoteitem_labourcost');
             $table->double('quoteitem_estimatedtime');

@@ -15,13 +15,13 @@ class CreateQuotesTable extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id('pk_quote_id');
-            $table->foreignId('pk_businessdetail_id')->constrained();
-            $table->foreignId('pk_customer_id')->constrained();
-            $table->foreignId('pk_quoteitem_id')->constrained();
-            $table->foreignId('pk_user_id')->constrained();
-            $table->foreignId('pk_status_id')->constrained();
-            $table->int('quote_number');
-            $table->int('quote_revisionnumber');
+            $table->foreignId('fk_businessdetail_id')->references('pk_businessdetail_id')->on('businessdetails');
+            $table->foreignId('fk_customer_id')->references('pk_customer_id')->on('customers');
+            $table->foreignId('fk_quoteitem_id')->references('pk_quoteitem_id')->on('quoteitems');
+            $table->foreignId('fk_user_id')->references('pk_user_id')->on('users');
+            $table->foreignId('fk_status_id')->references('pk_status_id')->on('statuses');
+            $table->integer('quote_number');
+            $table->integer('quote_revisionnumber');
             $table->string('quote_comment')->nullable();
             $table->double('quote_discountrate');
             $table->string('quote_termbody');

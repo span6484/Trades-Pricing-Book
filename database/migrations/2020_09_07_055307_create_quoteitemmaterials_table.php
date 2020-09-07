@@ -15,7 +15,7 @@ class CreateQuoteitemmaterialsTable extends Migration
     {
         Schema::create('quoteitemmaterials', function (Blueprint $table) {
             $table->id('pk_quoteitemmaterial_id');
-            $table->foreignId('pk_material_id')->constrained();
+            $table->foreignId('fk_material_id')->references('pk_material_id')->on('materials');
             $table->double('quoteitemmaterial_cost');
             $table->string('quoteitemmaterial_description');
             $table->double('quoteitemmaterial_gmrate');

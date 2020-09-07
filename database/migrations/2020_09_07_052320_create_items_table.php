@@ -17,9 +17,9 @@ class CreateItemsTable extends Migration
             $table->id('pk_item_id');
             $table->string('item_number');
             $table->string('item_jobtype');
-            $table->foreignId('pk_subcategory_id')->constrained();
+            $table->foreignId('fk_subcategory_id')->references('pk_subcategory_id')->on('itemsubcategories');
             $table->string('item_description');
-            $table->foreignId('pk_material_id')->constrained();
+            $table->foreignId('fk_material_id')->referencess('pk_material_id')->on('materials');
             $table->double('item_estimatedtime');
             $table->double('item_servicecall');
             $table->tinyInteger('item_archived');
