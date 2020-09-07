@@ -2,10 +2,10 @@
 
 @section('title', 'Customers')
 
-@section('sidebar')
-    @parent
-
+@section('heading')
+    <h1 class="h2">Customers</h1>
 @stop
 
 @section('content')
+    
 @stop

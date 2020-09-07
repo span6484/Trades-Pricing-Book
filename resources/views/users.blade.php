@@ -2,6 +2,10 @@
 
 @section('title', 'Users')
 
+@section('heading')
+    <h1 class="h2">Users</h1>
+@stop
+
 @section('content')
 
     <!-- <ul>
