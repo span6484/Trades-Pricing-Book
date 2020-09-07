@@ -17,10 +17,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function() {
+    return view('dashboard');
+});
+
 Route::get('/customers', function() {
     return view('customers');
 });
 
-Route::get('/users', function() {
-    return view('users');
+Route::get('/users', 'UserController@index');
+
+Route::get('/suppliers', function() {
+    return view('suppliers');
+});
+
+Route::get('/materials', function() {
+    return view('materials');
+});
+
+Route::get('/quoting', function() {
+    return view('quoting');
+});
+
+Route::get('/admin', function() {
+    return view('admin');
+});
+
+Route::get('/expenses', function() {
+    return view('expenses');
 });
