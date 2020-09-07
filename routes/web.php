@@ -22,5 +22,27 @@ Route::get('/customers', function() {
 });
 
 Route::get('/users', function() {
-    return view('users');
+    $pageHeading = 'This is the USERS PAGE.';
+
+    return view('users', compact('pageHeading'));
+});
+
+Route::get('/suppliers', function() {
+    return view('suppliers');
+});
+
+Route::get('/materials', function() {
+    return view('materials');
+});
+
+Route::get('/quoting', function() {
+    return view('quoting');
+});
+
+Route::get('/admin', function() {
+    return view('admin');
+});
+
+Route::get('/expenses', function() {
+    return view('expenses');
 });
