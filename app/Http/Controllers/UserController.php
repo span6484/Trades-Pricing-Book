@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $pageHeading = 'Hello from UserController.';
+        $pageHeading = 'Users';
 
         return view('users', compact('pageHeading'));
     }
