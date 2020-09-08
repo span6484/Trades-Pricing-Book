@@ -2,10 +2,6 @@
 
 @section('title', 'Users')
 
-@section('heading')
-  
-@stop
-
 @section('content')
 
     <div class="table-responsive">

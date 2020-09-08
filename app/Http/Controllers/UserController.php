@@ -6,12 +6,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    // public function index(){
-    //    return $this->pageHeading();
-    //     return $this->sidebarItems();
-    // }
 
-    public function pageHeading()
+    public function index()
     {
         $pageHeading = 'Users';
 
@@ -32,18 +28,6 @@ class UserController extends Controller
         ];
 
         return view('users', compact('pageHeading', 'sidebarItems'));
-    }
-
-    public function sidebarItems()
-    {
-        $sidebarItems = [
-            'Add User',
-            'Edit User',
-            'Delete User',
-            'Fuck a suers'
-        ];
-
-        return view('users', compact('sidebarItems'));
     }
 
 }

@@ -21,15 +21,9 @@ Route::get('/dashboard', function() {
     return view('dashboard');
 });
 
-Route::get('/customers', function() {
-    return view('customers');
-});
+Route::get('/customers', 'CustomerController@index');
 
-Route::get('/users', 'UserController@pageHeading');
-
-//Route::get('/users', 'UserController@sidebarItems', 'UserController@pageHeading');
-
-// Route::get('/users', 'UserController@index');
+Route::get('/users', 'UserController@index');
 
 Route::get('/suppliers', function() {
     return view('suppliers');
