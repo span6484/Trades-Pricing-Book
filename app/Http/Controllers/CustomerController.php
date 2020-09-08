@@ -9,7 +9,9 @@ class CustomerController extends Controller
     public function index()
     {
         $pageHeading = 'Customers';
+
+        $customers = \App\Customer::all();
   
-        return view('users', compact('pageHeading'));
+        return view('customers', compact('pageHeading', 'customers'));
     }
 }
