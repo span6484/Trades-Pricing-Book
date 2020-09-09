@@ -21,9 +21,7 @@ Route::get('/dashboard', function() {
     return view('dashboard');
 });
 
-Route::get('/customers', function() {
-    return view('customers');
-});
+Route::get('/customers', 'CustomerController@index');
 
 Route::get('/users', 'UserController@index');
 

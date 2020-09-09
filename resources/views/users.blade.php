@@ -2,17 +2,7 @@
 
 @section('title', 'Users')
 
-@section('heading')
-    <h1 class="h2">Users</h1>
-@stop
-
 @section('content')
-
-    <!-- <ul>
-        @foreach($users as $user)
-            <li>{{ $user }}</li>
-        @endforeach
-    </ul> -->
 
     <div class="table-responsive">
         <table class="table table-striped table-sm">
@@ -27,10 +17,6 @@
           </thead>
           <tbody>
             <tr>
-            @foreach($users as $user)
-            <td>{{ $user }}</td>
-          </tr>
-        @endforeach
               <td>1,001</td>
               <td>Lorem</td>
               <td>ipsum</td>
