@@ -43,7 +43,7 @@
                             </div>
                         </div>
 
-                        <h5 class="pt-3">Annual Expenses</h5>
+                        <h5 class="pt-3 pb-1">Annual Expenses</h5>
                         <div class="form-row">
                             
                             <div class="form-group col-md-6">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        <h5 class="pt-3">Totals</h5>
+                        <h5 class="pt-3 pb-1">Totals</h5>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="employeeweeklypay">Weekly Pay</label>
@@ -211,7 +211,7 @@
                             </div>
                         </div>
 
-                        <h5 class="pt-3">Annual Expenses</h5>
+                        <h5 class="pt-3 pb-1">Annual Expenses</h5>
                         <div class="form-row">
                             
                             <div class="form-group col-md-6">
@@ -276,7 +276,7 @@
                             
                         </div>
 
-                        <h5 class="pt-3">Totals</h5>
+                        <h5 class="pt-3 pb-1">Totals</h5>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="subcontractorweeklyrate">Weekly Rate</label>
