@@ -3,7 +3,7 @@
         <img src="images/Xceed_logo_small_01-copy1.png" class="img-fluid" width="200px" alt="Responsive image">
     </div>
     <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light  border-0">Dashboard</a>
+        <a href="{{ 'dashboard' }}" class="list-group-item list-group-item-action bg-light  border-0">Dashboard</a>
         <a href="#quotesSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Quotes</a>
         <ul class="collapse list-unstyled border-0 small" id="quotesSubmenu">
@@ -59,7 +59,7 @@
             </li>
         </ul>
         <a href="{{ 'customers' }}" class="list-group-item list-group-item-action bg-light border-0">Customers</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
+        <a href="{{ 'materials' }}" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
+        <a href="{{ 'suppliers' }}" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
     </div>
 </div>
