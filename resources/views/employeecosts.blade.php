@@ -4,14 +4,14 @@
 
 @section('content')
 
-<!-- Button trigger modal -->
+<!-- Button trigger Employee modal -->
 <div class=" p-3 mb-5 bg-white rounded border">
     <h3 class="mb-4 float-left">Full-Time Employees</h3>
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
         Add Employee
     </button>
 
-    <!-- Modal -->
+    <!-- Full Employee Modal -->
     <div class="modal fade" id="fullemployeeModal" tabindex="-1" role="dialog" aria-labelledby="fullemployeeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
