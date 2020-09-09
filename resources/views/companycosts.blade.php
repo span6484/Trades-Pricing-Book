@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Costs & Expenses')
+@section('title', 'Company Costs')
 
 @section('content')
 

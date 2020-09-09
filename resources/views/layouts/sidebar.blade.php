@@ -39,23 +39,23 @@
             & Expenses</a>
         <ul class="collapse list-unstyled border-0 small" id="costsSubmenu">
             <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Gross
+                <a href="{{ 'grossmargin' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Gross
                     Margin</a>
             </li>
             <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Total
+                <a href="{{ 'totalcosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Total
                     Business & Employee Costs</a>
             </li>
             <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Employee
+                <a href="{{ 'employeecosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Employee
                     Costs</a>
             </li>
             <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Company
+                <a href="{{ 'companycosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Company
                     Costs</a>
             </li>
             <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Discounts</a>
+                <a href="{{ 'discounts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Discounts</a>
             </li>
         </ul>
         <a href="#" class="list-group-item list-group-item-action bg-light border-0">Customers</a>

@@ -3,15 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\EmployeeCost;
 
 class CostController extends Controller
 {
-       public function index()
+       public function grossMargin()
     {
-        $pageHeading = 'Costs & Expenses';
+        $pageHeading = 'Gross Margin';
+        $uncollapsed = 'true';
 
-        // $customers = Customer::all();
+        return view('grossmargin', compact('pageHeading', 'uncollapsed'));
+    }
+
+    public function totalCosts()
+    {
+        $pageHeading = 'Total Business Costs';
+
+        return view('totalcosts', compact('pageHeading'));
+    }
+
+    public function employeeCosts()
+    {
+        $pageHeading = 'Employee Costs';
+
+        $employeeCosts = EmployeeCost::all();
+
+        return view('employeecosts', compact('pageHeading', 'employeeCosts'));
+    }
+
+    public function companyCosts()
+    {
+        $pageHeading = 'Company Costs';
+
+        return view('companycosts', compact('pageHeading'));
+    }
+
+    public function discounts()
+    {
+        $pageHeading = 'Discounts';
   
-        return view('costs', compact('pageHeading', 'customers'));
+        return view('discounts', compact('pageHeading'));
     }
 }

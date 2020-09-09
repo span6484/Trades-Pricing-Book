@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Customers')
+@section('title', 'Total Business Costs')
 
 @section('content')
-
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#customerModal">
     Add Customer
@@ -69,7 +68,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($customers as $customer)
+            <!-- @foreach($customers as $customer)
             <tr>
                 <td>{{$customer->customer_name}}</td>
                 <td>{{$customer->customer_company}}</td>
@@ -78,9 +77,8 @@
                 <td>{{$customer->customer_address}}</td>
                 <td>{{$customer->fk_discount_id}}</td>
             </tr>
-            @endforeach
+            @endforeach -->
         </tbody>
     </table>
 </div>
-
 @stop
