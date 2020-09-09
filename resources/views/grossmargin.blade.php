@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Panel')
+@section('title', 'Gross Margin')
 
 @section('content')
 
