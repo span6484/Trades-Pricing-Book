@@ -22,8 +22,8 @@ class Customer extends Model
     //     echo $customer->name;
     // }
 
-    public function discount(){
-        return $this->belongsTo('App\Discount', 'pk_discount_id', 'pk_customer_id');
-    }
+    // public function discount(){
+    //     return $this->belongsTo('App\Discount', 'pk_discount_id', 'pk_customer_id');
+    // }
 
 }

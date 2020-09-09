@@ -77,7 +77,7 @@
 
 <div class='table-responsive'>
     <table class="table table-hover table-sm mt-1">
-        <thead class="thead-dark">
+        <thead>
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Company</th>
