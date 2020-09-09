@@ -40,6 +40,6 @@ Route::get('/quoting', function() {
 
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/expenses', function() {
+Route::get('/costs', function() {
     return view('expenses');
 });
