@@ -27,32 +27,47 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="input">Employee Name</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Employee name">
+                            <input type="text" class="form-control" id="employeeName" placeholder="Employee Name">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Base Hourly</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            <label for="baseHourly">Base Hourly</label>
+                            <input type="email" class="form-control" id="baseHourly" placeholder="$">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Phone</label>
-                        <input type="text" class="form-control" id="inputPhone" placeholder="Phone">
+                    <div class="form-group col-md-6">
+                        <label for="vehicle">Vehicle</label>
+                        <input type="text" class="form-control" id="vehicle" placeholder="$">
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress2">Address </label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                        <label for="otherWeekly">Other Weekly Cost</label>
+                        <input type="text" class="form-control" id="otherWeekly" placeholder="$">
                     </div>
                     <div class="form-group">
-                        <select id="inputDiscount" class="form-control">
-                            <option selected>NORMAL PRICING - NO DISCOUNT</option>
-                            <option>MATES RATES CATEGORY 1</option>
-                        </select>
+                        <label for="phoneutAddress2">Phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="$">
                     </div>
+                    <div class="form-group">
+                        <label for="workersComp">Workers Comp</label>
+                        <input type="text" class="form-control" id="workersComp" placeholder="$">
+                    </div>
+                    <div class="form-group">
+                        <label for="super">Super</label>
+                        <input type="text" class="form-control" id="super" placeholder="$" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalPackage">Total Package Cost</label>
+                        <input type="text" class="form-control" id="totalPackage" placeholder="$" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalLessSuper">Total Cost Less Super</label>
+                        <input type="text" class="form-control" id="totalLessSuper" placeholder="$" readonly>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save Customer</button>
+                <button type="button" class="btn btn-primary">Save Employee</button>
             </div>
         </div>
     </div>
