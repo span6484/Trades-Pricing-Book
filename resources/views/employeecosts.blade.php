@@ -71,7 +71,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_vehiclecost" placeholder="Vehicle">
+                                        name="employee_vehiclecost" placeholder="Vehicle" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -82,7 +82,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_otherweeklycost" placeholder="eTag, etc">
+                                        name="employee_otherweeklycost" placeholder="eTag, etc" value="0">
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_phone" placeholder="Phone">
+                                        name="employee_phone" placeholder="Phone" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -106,7 +106,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_workercomp" placeholder="Workers Comp">
+                                        name="employee_workercomp" placeholder="Workers Comp" value="0">
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_vehiclecost"
-                                        placeholder="Vehicle">
+                                        placeholder="Vehicle" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -250,7 +250,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_otherweeklycost"
-                                        placeholder="eTag, etc">
+                                        placeholder="eTag, etc" value="0">
                                 </div>
                             </div>
                         </div>
@@ -263,7 +263,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_phone"
-                                        placeholder="Phone">
+                                        placeholder="Phone" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -274,7 +274,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_workercomp"
-                                        placeholder="Workers Comp">
+                                        placeholder="Workers Comp" value="0">
                                 </div>
                             </div>
                         </div>
@@ -287,7 +287,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        placeholder="Cash">
+                                        placeholder="Cash" value="0">
                                 </div>
                             </div>
 
