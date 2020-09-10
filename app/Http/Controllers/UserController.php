@@ -23,8 +23,7 @@ class UserController extends Controller
             'Delete User',
             'Delete User',
             'Delete User',
-            'Delete User',
-            'Fuck a suers'
+            'Delete User'
         ];
 
         return view('users', compact('pageHeading', 'sidebarItems'));
