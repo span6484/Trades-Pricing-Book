@@ -17,7 +17,11 @@ class Customer extends Model
             'customer_phone',
             'customer_email', 
             'customer_address', 
-            'customer_discount'
+            'fk_discount_id'
+        ];
+
+    protected $attributes = [
+        'customer_archived' => 0
         ];
     // protected $attributes = [
     //     'fk_discount_id' => 1,

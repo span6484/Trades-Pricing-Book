@@ -38,7 +38,7 @@ class CustomerController extends Controller
             'customer_name' => 'required'
         ]);
 
-        $customer = new Customer([
+        $newCustomer = new Customer([
             'customer_name' => $request->get('customer_name'),
             'customer_company' => $request->get('customer_company'),
             'customer_phone' => $request->get('customer_phone'),
@@ -46,8 +46,9 @@ class CustomerController extends Controller
             'customer_address' => $request->get('customer_address'),
             'fk_discount_id' => $request->get('customer_discount'),
         ]);
-        $customer->save();
-        return redirect()->route('customers')->with('success', 'Data Added');
+        $newCustomer->save();
+        // return view('customers')->with('success', 'Data Added');
+        // return view('customers');
     }
     
 }

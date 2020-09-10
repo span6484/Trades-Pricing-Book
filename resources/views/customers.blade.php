@@ -21,21 +21,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-                @if(\Session::has('success'))
-                <div class="alert alert-success">
-                    <p>{{ \Session::get('success') }}</p>
-                </div>
-                @endif
+
                 <form method="post" action="{{url('customers')}}">
+                {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-sm">
                             <!-- <label for="input">Name</label> -->
@@ -68,19 +56,34 @@
                             @foreach($discounts as $discount)    
                             <option selected>{{ $discount->pk_discount_id }}</option>
                             @endforeach
-                                <option>MATES RATES CATEGORY 1</option>
                             </select>
                         </div>
                     </div>
-                </form>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-primary">Save Customer</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
+
+@if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if(\Session::has('success'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                </div>
+                @endif
 
 <div class='table-responsive'>
     <table class="table table-hover table-sm mt-1">
