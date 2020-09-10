@@ -1,5 +1,6 @@
 <?php
 
+use App\EmployeeCost;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CostController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,6 @@ Route::get('/dashboard', function() {
 });
 
 Route::get('/customers', 'CustomerController@index');
-
 Route::resource('customers', 'CustomerController');
 
 Route::get('/users', 'UserController@index');
@@ -45,6 +45,7 @@ Route::get('/admin', 'AdminController@index');
 
 Route::get('/grossmargin', 'CostController@grossMargin')->name('grossmargin');
 Route::get('/totalcosts', 'CostController@totalCosts')->name('totalcosts');
-Route::get('/employeecosts', 'CostController@employeeCosts')->name('employeecosts');
+Route::get('/employeecosts', 'CostController@index')->name('employeecosts');
+Route::resource('employeecosts', 'CostController');
 Route::get('/companycosts', 'CostController@companyCosts')->name('companycosts');
 Route::get('/discounts', 'CostController@discounts')->name('discounts');

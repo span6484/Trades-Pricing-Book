@@ -23,7 +23,7 @@ class CostController extends Controller
         return view('totalcosts', compact('pageHeading'));
     }
 
-    public function employeeCosts()
+    public function index()
     {
         $pageHeading = 'Employee Costs';
 
@@ -46,5 +46,24 @@ class CostController extends Controller
         $discounts = Discount::all();
   
         return view('discounts', compact('pageHeading', 'discounts'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'employee_name' => 'required'
+        ]);
+
+        $newEmployee = new EmployeeCost([
+            'employee_name' => $request->get('employee_name'),
+            'employee_basehourly'=> $request->get('employee_basehourly'),
+            'employee_vehiclecost' => $request->get('employee_vehiclecost'),
+            'employee_otherweeklycost' => $request->get('employee_otherweeklycost'),
+            'employee_phone' => $request->get('employee_phone'),
+            'employee_workercomp' => $request->get('employee_workercomp')
+        ]);
+
+        $newEmployee->save();
+        return back()->with('success', 'Employee added');
     }
 }

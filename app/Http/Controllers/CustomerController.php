@@ -15,19 +15,6 @@ class CustomerController extends Controller
         $customers = Customer::all();
 
         $discounts = Discount::all();
-        // $customers = Customer::with('getCustomerRelation')->get();
-
-        // dd($customers);
-
-        // $insertCustomer = Customer::table('customers')->insert(
-        //     [
-        //         'customer_name' => 'Hunky Dory',
-        //         'customer_email' => 'john@example.com',
-        //         'customer_phone' => '9999999999',
-        //         'customer_address' => '123 crazy town',
-        //         'fk_discount_id' => '1'
-        //     ]
-        // );
   
         return view('customers', compact('pageHeading', 'customers', 'discounts'));
     }
@@ -47,7 +34,7 @@ class CustomerController extends Controller
             'fk_discount_id' => $request->get('customer_discount'),
         ]);
         $newCustomer->save();
-        return back()->with('success', 'Data Added');
+        return back()->with('success', 'Customer added');
         // return view('customers')->with('success', 'Data Added');
         // return view('customers');
     }

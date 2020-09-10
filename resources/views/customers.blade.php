@@ -5,22 +5,22 @@
 @section('content')
 
 <!-- Button trigger modal -->
-
+<div class=" p-3 mb-5 bg-white rounded border">
 <div>
-@if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-                @if(\Session::has('success'))
-                <div class="alert alert-success">
-                    <p>{{ \Session::get('success') }}</p>
-                </div>
-                @endif
+    @if(count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    @if(\Session::has('success'))
+    <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+    </div>
+    @endif
 </div>
 
 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#customerModal">
@@ -40,44 +40,49 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="{{url('customers')}}">
-                {{ csrf_field() }}
+                <form method="post" action="{{ url('customers') }}">
+                    {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-sm">
                             <!-- <label for="input">Name</label> -->
-                            <input type="text" class="form-control" id="inputName" name="customer_name" placeholder="Customer name">
+                            <input type="text" class="form-control" id="inputName" name="customer_name"
+                                placeholder="Customer name">
                         </div>
                         <div class="form-group col-sm">
                             <!-- <label for="inputAddress">Phone</label> -->
-                            <input type="text" class="form-control" id="inputCompany" name="customer_company" placeholder="Company name">
+                            <input type="text" class="form-control" id="inputCompany" name="customer_company"
+                                placeholder="Company name">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
                             <!-- <label for="inputAddress">Phone</label> -->
-                            <input type="text" class="form-control" id="inputPhone" name="customer_phone" placeholder="Phone">
+                            <input type="text" class="form-control" id="inputPhone" name="customer_phone"
+                                placeholder="Phone">
                         </div>
                         <div class="form-group col-sm">
                             <!-- <label for="inputEmail4">Email</label> -->
-                            <input type="email" class="form-control" id="inputEmail" name="customer_email" placeholder="Email">
+                            <input type="email" class="form-control" id="inputEmail" name="customer_email"
+                                placeholder="Email">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
                             <!-- <label for="inputAddress2">Address </label> -->
-                            <input type="text" class="form-control" id="inputAddress" name="customer_address" placeholder="Address">
+                            <input type="text" class="form-control" id="inputAddress" name="customer_address"
+                                placeholder="Address">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
                             <select id="inputDiscount" name="customer_discount" class="form-control">
-                            @foreach($discounts as $discount)    
-                            <option selected>{{ $discount->pk_discount_id }}</option>
-                            @endforeach
+                                @foreach($discounts as $discount)
+                                <option selected>{{ $discount->pk_discount_id }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -113,6 +118,7 @@
             @endforeach
         </tbody>
     </table>
+</div>
 </div>
 
 @stop
