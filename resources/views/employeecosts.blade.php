@@ -213,7 +213,6 @@
 
                         <h5 class="pt-3 pb-1">Annual Expenses</h5>
                         <div class="form-row">
-                            
                             <div class="form-group col-md-6">
                                 <label for="input">Vehicle</label>
                                 <label class="sr-only" for="inlineFormInputGroup">Vehicle</label>

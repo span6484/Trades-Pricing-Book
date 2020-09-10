@@ -6814,6 +6814,18 @@ button.bg-dark:focus {
   background-color: transparent !important;
 }
 
+.bg-xceednavy {
+  background-color: #004271 !important;
+}
+
+.bg-xceedlightblue {
+  background-color: #94c94a !important;
+}
+
+.bg-xceedgreen {
+  background-color: #00a5e5 !important;
+}
+
 .border {
   border: 1px solid #dee2e6 !important;
 }

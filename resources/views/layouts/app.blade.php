@@ -37,7 +37,7 @@
 
       <div class="container-fluid">
       <h1 class="mt-3 mb-4">{{$pageHeading}}</h1>
-        <div class="shadow p-3 mb-5 bg-white rounded border">
+        <div class="p-3 mb-5 bg-white">
         @yield('content')
 </div>
       </div>

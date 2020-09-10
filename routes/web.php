@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CostController;
 use Illuminate\Support\Facades\Route;
 
+use function App\Http\Controllers\index;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,9 +37,7 @@ Route::get('/materials', function() {
     return view('materials');
 });
 
-Route::get('/quoting', function() {
-    return view('quoting');
-});
+Route::get('/quoting', 'QuoteController@index');
 
 Route::get('/admin', 'AdminController@index');
 
