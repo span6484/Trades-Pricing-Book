@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EmployeeCost;
+use App\Discount;
 
 class CostController extends Controller
 {
@@ -41,7 +42,9 @@ class CostController extends Controller
     public function discounts()
     {
         $pageHeading = 'Discounts';
+
+        $discounts = Discount::all();
   
-        return view('discounts', compact('pageHeading'));
+        return view('discounts', compact('pageHeading', 'discounts'));
     }
 }

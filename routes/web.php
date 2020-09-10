@@ -27,6 +27,8 @@ Route::get('/dashboard', function() {
 
 Route::get('/customers', 'CustomerController@index');
 
+Route::resource('customers', 'CustomerController');
+
 Route::get('/users', 'UserController@index');
 
 Route::get('/suppliers', function() {

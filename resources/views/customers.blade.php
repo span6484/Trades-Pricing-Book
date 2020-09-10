@@ -21,36 +21,62 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if(\Session::has('success'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                </div>
+                @endif
+                <form method="post" action="{{url('customers')}}">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-sm">
                             <!-- <label for="input">Name</label> -->
-                            <input type="text" class="form-control" id="inputName" placeholder="Customer name">
+                            <input type="text" class="form-control" id="inputName" name="customer_name" placeholder="Customer name">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-sm">
+                            <!-- <label for="inputAddress">Phone</label> -->
+                            <input type="text" class="form-control" id="inputCompany" name="customer_company" placeholder="Company name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm">
+                            <!-- <label for="inputAddress">Phone</label> -->
+                            <input type="text" class="form-control" id="inputPhone" name="customer_phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group col-sm">
                             <!-- <label for="inputEmail4">Email</label> -->
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            <input type="email" class="form-control" id="inputEmail" name="customer_email" placeholder="Email">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <!-- <label for="inputAddress">Phone</label> -->
-                        <input type="text" class="form-control" id="inputPhone" placeholder="Phone">
+                    <div class="form-row">
+                        <div class="form-group col-sm">
+                            <!-- <label for="inputAddress2">Address </label> -->
+                            <input type="text" class="form-control" id="inputAddress" name="customer_address" placeholder="Address">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <!-- <label for="inputAddress2">Address </label> -->
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Address">
-                    </div>
-                    <div class="form-group">
-                        <select id="inputDiscount" class="form-control">
-                            <option selected>NORMAL PRICING - NO DISCOUNT</option>
-                            <option>MATES RATES CATEGORY 1</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group col-sm">
+                            <select id="inputDiscount" name="customer_discount" class="form-control">
+                            @foreach($discounts as $discount)    
+                            <option selected>{{ $discount->pk_discount_id }}</option>
+                            @endforeach
+                                <option>MATES RATES CATEGORY 1</option>
+                            </select>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save Customer</button>
+                <button type="submit" class="btn btn-primary">Save Customer</button>
             </div>
         </div>
     </div>
@@ -71,12 +97,12 @@
         <tbody>
             @foreach($customers as $customer)
             <tr>
-                <td>{{$customer->customer_name}}</td>
-                <td>{{$customer->customer_company}}</td>
-                <td>{{$customer->customer_phone}}</td>
-                <td>{{$customer->customer_email}}</td>
-                <td>{{$customer->customer_address}}</td>
-                <td>{{$customer->fk_discount_id}}</td>
+                <td>{{ $customer->customer_name }}</td>
+                <td>{{ $customer->customer_company }}</td>
+                <td>{{ $customer->customer_phone }}</td>
+                <td>{{ $customer->customer_email }}</td>
+                <td>{{ $customer->customer_address }}</td>
+                <td>{{ $customer->fk_discount_id }}</td>
             </tr>
             @endforeach
         </tbody>
