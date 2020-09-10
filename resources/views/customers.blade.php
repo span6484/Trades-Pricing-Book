@@ -5,6 +5,24 @@
 @section('content')
 
 <!-- Button trigger modal -->
+
+<div>
+@if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if(\Session::has('success'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                </div>
+                @endif
+</div>
+
 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#customerModal">
     Add Customer
 </button>
@@ -69,21 +87,6 @@
         </div>
     </div>
 </div>
-
-@if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-                @if(\Session::has('success'))
-                <div class="alert alert-success">
-                    <p>{{ \Session::get('success') }}</p>
-                </div>
-                @endif
 
 <div class='table-responsive'>
     <table class="table table-hover table-sm mt-1">
