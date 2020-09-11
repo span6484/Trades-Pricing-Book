@@ -43,9 +43,12 @@ Route::get('/quoting', 'QuoteController@index');
 
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/grossmargin', 'CostController@grossMargin')->name('grossmargin');
+Route::get('/grossmargin', 'GrossMarginController@grossMargin')->name('grossmargin');
+Route::resource('grossmargin', 'GrossMarginController');
 Route::get('/totalcosts', 'CostController@totalCosts')->name('totalcosts');
 Route::get('/employeecosts', 'CostController@index')->name('employeecosts');
 Route::resource('employeecosts', 'CostController');
-Route::get('/companycosts', 'CostController@companyCosts')->name('companycosts');
-Route::get('/discounts', 'CostController@discounts')->name('discounts');
+Route::get('/discounts', 'DiscountController@index')->name('discounts');
+Route::resource('discounts', 'DiscountController');
+Route::get('/companycosts', 'CompanyCostController@index')->name('companycosts');
+Route::resource('companycosts', 'CompanyCostController');      
