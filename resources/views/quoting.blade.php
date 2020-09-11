@@ -67,11 +67,17 @@
                 <div class="form row border-top">
                     <div class="form-group col-md-2">
                     </div>
-                    <h6 class="pt-3 pb-1 pl-3">Item</h6>
+                    <h6 class="pt-3 pb-1 ml-2 pl-1">Product</h6>
                 </div>
                 <div class="form-row">
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-1">
+                    </div>
+
+                    <div class="form-group col-md-1">
+                        <label for="itemNo">#</label>
+                        <input type="text" class="form-control" id="itemNo" placeholder="#" readonly>
+
                     </div>
                     <div class="form-group col-md">
                         <label for="selectCategory">Category</label>
@@ -113,7 +119,7 @@
 
                 </div>
 
-                <div class="form-row border-bottom pb-2">
+                <div class="form-row pb-2">
                     <div class="form-group col-md-2">
                     </div>
 
@@ -176,7 +182,7 @@
                 <div class="form row">
                     <div class="form-group col-md-4">
                     </div>
-                    <h6 class="pt-3 pb-1 pl-2 ml-1">Materials</h6>
+                    <h6 class="pt-3 pb-1 pl-1 ml-1">Materials</h6>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -191,7 +197,7 @@
                     </div>
 
                 </div>
-                <div class="form-row border-bottom pb-2">
+                <div class="form-row pb-2">
                     <div class="form-group col-md-4">
                     </div>
 
@@ -237,9 +243,10 @@
                 <div class="form row">
                     <div class="form-group col-md-6">
                     </div>
-                    <h6 class="pt-3 pb-1 pl-2">Totals</h6>
+                    <h6 class="pt-3 pb-1 pl-1">Total Labour & Materials Cost</h6>
                 </div>
-                <div class="form-row">
+                <!-- DISCOUNT ROW -->
+                <!-- <div class="form-row">
                     <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md">
@@ -250,12 +257,12 @@
                             <option>########</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-row">
+                </div> -->
+                <div class="form-row border-bottom pb-2">
                     <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md">
-                        <label for="input">Total Labour & Materials Cost</label>
+                        <label for="input">Pre-margin</label>
                         <label class="sr-only" for="inlineFormInputGroup">2</label>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
@@ -267,7 +274,7 @@
                     </div>
 
                     <div class="form-group col-md">
-                        <label for="input">Total Labour & Materials Charge</label>
+                        <label for="input">Post-Margin</label>
                         <label class="sr-only" for="inlineFormInputGroup">2</label>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
@@ -278,9 +285,70 @@
                         </div>
                     </div>
 
+                    <div class="form-group col-md">
+                        <label for="input">Profit</label>
+                        <label class="sr-only" for="inlineFormInputGroup">2</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_basehourly"
+                                placeholder="Total Profit" readonly>
+                        </div>
+                    </div>
+
                 </div>
+
+                <div class="form row">
+                    <div class="form-group col-md-8">
+                    </div>
+                    <h6 class="pt-3 pb-1">Grand Total</h6>
+                </div>
+
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-8">
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="selectCategory">Discount</label>
+                        <select class="form-control" id="selectCategory">
+                            <option>Normal Pricing - No Discount</option>
+                            <option>########</option>
+                            <option>########</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                <div class="form-group col-md-8">
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="input">GST</label>
+                        <label class="sr-only" for="inlineFormInputGroup">2</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_basehourly"
+                                placeholder="" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="input">Price Inc GST</label>
+                        <label class="sr-only" for="inlineFormInputGroup">2</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_basehourly"
+                                placeholder="" readonly>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- GST row -->
+                <!-- <div class="form-row">
+                    <div class="form-group col-md-8">
                     </div>
                     <div class="form-group col-md">
                         <label for="input">GST</label>
@@ -306,7 +374,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
             </form>
         </div>
 
