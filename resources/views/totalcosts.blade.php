@@ -1,84 +1,87 @@
 @extends('layouts.app')
 
-@section('title', 'Total Business Costs')
+@section('title', 'Total Business & Employee Costs')
 
 @section('content')
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#customerModal">
-    Add Customer
-</button>
+<div class=" p-3 mb-5 bg-white rounded border">
+    <!-- <div>
+        @if(count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        @if(\Session::has('success'))
+        <div class="alert alert-success">
+            <p>{{ \Session::get('success') }}</p>
+        </div>
+        @endif
+    </div> -->
+    <h3 class="mb-4 float-left">Total Bussiness </h3>
+    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
+        Add
+    </button>
 
-<!-- Modal -->
-<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="customerModalLabel">Enter customer details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <!-- <label for="input">Name</label> -->
-                            <input type="text" class="form-control" id="inputName" placeholder="Customer name">
+    <!-- GrossMargin table -->
+    <div class="modal fade" id="fullemployeeModal" tabindex="-1" role="dialog" aria-labelledby="fullemployeeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="fullemployeeModalLabel">Quote pending</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{ url('totalcosts') }}">
+                        {{ csrf_field() }}
+                        <div class="form-row border-bottom pb-2">
+                            <div class="form-group col-md-6">
+                                <label for="input">Quote pending</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Quote pending</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        name="totalcost" placeholder="Quote pending">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <!-- <label for="inputEmail4">Email</label> -->
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="Submit" class="btn btn-primary">Save Company Cost</button>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <!-- <label for="inputAddress">Phone</label> -->
-                        <input type="text" class="form-control" id="inputPhone" placeholder="Phone">
-                    </div>
-                    <div class="form-group">
-                        <!-- <label for="inputAddress2">Address </label> -->
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Address">
-                    </div>
-                    <div class="form-group">
-                        <select id="inputDiscount" class="form-control">
-                            <option selected>NORMAL PRICING - NO DISCOUNT</option>
-                            <option>MATES RATES CATEGORY 1</option>
-                        </select>
-                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save Customer</button>
             </div>
         </div>
     </div>
-</div>
 
-<div class='table-responsive'>
-    <table class="table table-hover table-sm mt-1">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Company</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Address</th>
-                <th scope="col">Discount</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- @foreach($customers as $customer)
-            <tr>
-                <td>{{$customer->customer_name}}</td>
-                <td>{{$customer->customer_company}}</td>
-                <td>{{$customer->customer_phone}}</td>
-                <td>{{$customer->customer_email}}</td>
-                <td>{{$customer->customer_address}}</td>
-                <td>{{$customer->fk_discount_id}}</td>
-            </tr>
-            @endforeach -->
-        </tbody>
-    </table>
+    <div class='table-responsive'>
+        <table class="table table-hover table-sm mt-1">
+            <thead>
+                <tr>
+                    <th scope="col">quotes pending</th>
+                    <th scope="col">Jobs Won</th>
+                    <th scope="col">Jobs Los</th>
+                    <th scope="col">Jobs quoting</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>xx</td>
+                    <td>xx</td>
+                    <td>xx</td>
+                    <td>xx</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 @stop
