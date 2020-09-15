@@ -15,8 +15,14 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    
+    protected $table = 'users';
+    protected $primaryKey = 'pk_user_id';
     protected $fillable = [
-        'name', 'email', 'password',
+        'user_name',
+        'user_firstlast',
+        'user_password',
     ];
 
     /**
@@ -36,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $attributes = [
+        'user_archived' => 0
+        ];
+
 }
