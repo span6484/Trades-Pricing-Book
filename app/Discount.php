@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discount extends Model
 {
-    // public function getCustomerRelation()
-    // {
-    //     return $this->morphTo();
-    // }
+    protected $table = 'discounts';
+    protected $primaryKey = 'pk_discount_id';
+    protected $fillable = [
+            'discount_name', 
+            'discount_rate',
+            'discount_archived'	
+        ];
+
 }
