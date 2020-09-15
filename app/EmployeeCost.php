@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -24,7 +25,7 @@ class EmployeeCost extends Model
         // 'employee_otherweeklycost' => 0,
         // 'employee_phone' => 0,
         // 'employee_workercomp' => 0,
-        // 'employee_cash' => 0,
+        'employee_cash' => 0,
         'employee_archived' => 0
         ];
 }

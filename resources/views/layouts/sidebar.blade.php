@@ -8,7 +8,7 @@
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Quotes</a>
         <ul class="collapse list-unstyled border-0 small" id="quotesSubmenu">
             <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0">Create
+                <a href="{{ 'quoting' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0">Create
                     Quote</a>
             </li>
             <li>
