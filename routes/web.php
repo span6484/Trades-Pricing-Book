@@ -3,6 +3,7 @@
 use App\EmployeeCost;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CostController;
+use App\Http\Controllers\MaterialController;
 use Illuminate\Support\Facades\Route;
 
 use function App\Http\Controllers\index;
@@ -35,9 +36,8 @@ Route::resource('users', 'UserController');
 Route::get('/suppliers', 'SupplierController@index');
 Route::resource('suppliers', 'SupplierController');
 
-Route::get('/materials', function() {
-    return view('materials');
-});
+Route::get('/materials', 'MaterialController@index');
+Route::resource('materials', 'MaterialController');
 
 Route::get('/quoting', 'QuoteController@index');
 
@@ -45,10 +45,17 @@ Route::get('/admin', 'AdminController@index');
 
 Route::get('/grossmargin', 'GrossMarginController@grossMargin')->name('grossmargin');
 Route::resource('grossmargin', 'GrossMarginController');
+
 Route::get('/employeecosts', 'CostController@index')->name('employeecosts');
 Route::resource('employeecosts', 'CostController');
+
 Route::get('/discounts', 'DiscountController@index')->name('discounts');
 Route::resource('discounts', 'DiscountController');
+
 Route::get('/companycosts', 'CompanyCostController@index')->name('companycosts');
 Route::resource('companycosts', 'CompanyCostController');
+
 Route::get('/totalcosts', 'TotalCostsController@index')->name('totalcosts');
+
+Route::get('/categories', 'CategoryController@index');
+Route::resource('categories', 'CategoryController');

@@ -33,6 +33,7 @@ class CustomerController extends Controller
             'customer_address' => $request->get('customer_address'),
             'fk_discount_id' => $request->get('customer_discount'),
         ]);
+        
         $newCustomer->save();
         return back()->with('success', 'Customer added');
         // return view('customers')->with('success', 'Data Added');
