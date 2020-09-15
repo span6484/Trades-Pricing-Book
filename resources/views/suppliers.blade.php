@@ -44,21 +44,21 @@
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-sm">
-                            <input type="text" class="form-control" id="inputName" name="supplier_companyname"
+                            <input type="text" class="form-control" id="companyName" name="supplier_companyname"
                                 placeholder="Company Name">
                         </div>
                         <div class="form-group col-sm">
-                            <input type="text" class="form-control" id="inputCompany" name="supplier_contactname"
+                            <input type="text" class="form-control" id="contactName" name="supplier_contactname"
                                 placeholder="Contact Name">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
-                            <input type="text" class="form-control" id="inputPhone" name="supplier_phone"
+                            <input type="text" class="form-control" id="supplierPhone" name="supplier_phone"
                                 placeholder="Phone">
                         </div>
                         <div class="form-group col-sm">
-                            <input type="text" class="form-control" id="inputPhone" name="supplier_email"
+                            <input type="text" class="form-control" id="supplierEmail" name="supplier_email"
                                 placeholder="Email">
                         </div>
                     </div>
