@@ -30,10 +30,10 @@ Route::get('/customers', 'CustomerController@index');
 Route::resource('customers', 'CustomerController');
 
 Route::get('/users', 'UserController@index');
+Route::resource('users', 'UserController');
 
-Route::get('/suppliers', function() {
-    return view('suppliers');
-});
+Route::get('/suppliers', 'SupplierController@index');
+Route::resource('suppliers', 'SupplierController');
 
 Route::get('/materials', function() {
     return view('materials');
