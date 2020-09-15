@@ -302,7 +302,7 @@
                 <div class="form row">
                     <div class="form-group col-md-8">
                     </div>
-                    <h6 class="pt-3 pb-1">Grand Total</h6>
+                    <h6 class="pt-3 pb-1 mt-2">Grand Total</h6>
                 </div>
 
                 <div class="form-row">
