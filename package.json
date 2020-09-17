@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "datatables.net": "^1.10.21",
-        "datatables.net-dt": "^1.10.21"
+        "datatables.net-dt": "^1.10.21",
+        "node-forge": "^0.10.0"
     }
 }
