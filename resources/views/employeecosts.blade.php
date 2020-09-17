@@ -190,9 +190,9 @@
     </div>
 </div>
 
-<!-- Button trigger modal -->
 <div class=" p-3 mb-5 bg-white rounded border">
     <h3 class="mb-4 float-left">Sub-Contractors</h3>
+    <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#subcontractorModal">
         Add Sub-Contractor
     </button>
