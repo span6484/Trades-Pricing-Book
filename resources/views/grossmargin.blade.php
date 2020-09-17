@@ -67,14 +67,14 @@
             <thead>
                 <tr>
                     <th scope="col">Gross Margin</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($grossmargin as $grossMargin)
+                @foreach($grossmargin as $grossmargin)
                 <tr>
-                    <td>{{$grossMargin->gm_rate}}</td>
-
-
+                    <td>{{$grossmargin->gm_rate}}</td>
+                    <td><a href="{{ action('GrossMarginController@edit', $grossmargin->pk_gm_id) }}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -95,7 +95,7 @@
 </div>
 
 <div class='table-responsive'>
-    <table class="table table-hover table-sm mt-1">
+    <table id="customer_table" class="display table table-hover table-sm mt-1">
         <thead>
             <tr>
                 <th scope="col">Name</th>

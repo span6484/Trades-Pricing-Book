@@ -36,7 +36,7 @@
       <!-- Content -->
 
       <div class="container-fluid">
-      <h1 class="mt-3 mb-4">{{$pageHeading}}</h1>
+      <h1 class="mt-3 mb-4">{{ $pageHeading }}</h1>
         <div class="p-3 mb-5 bg-white">
         @yield('content')
 </div>
@@ -47,7 +47,7 @@
   </div>
   <!-- /#wrapper -->
 
-  <!-- Bootstrap core JavaScript -->
+  <!-- Bootstrap core JasvaScript -->
   <script src="jquery/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
 
