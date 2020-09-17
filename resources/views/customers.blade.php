@@ -44,37 +44,38 @@
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-sm">
-                            <!-- <label for="input">Name</label> -->
+                            <label for="input">Customer name</label>
                             <input type="text" class="form-control" id="inputName" name="customer_name"
-                                placeholder="Customer name">
+                                placeholder="John Smith">
                         </div>
                         <div class="form-group col-sm">
-                            <!-- <label for="inputAddress">Phone</label> -->
+                            <label for="input">Company name</label>
                             <input type="text" class="form-control" id="inputCompany" name="customer_company"
-                                placeholder="Company name">
+                                placeholder="Acme Industries">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
-                            <!-- <label for="inputAddress">Phone</label> -->
+                            <label for="input">Phone</label>
                             <input type="text" class="form-control" id="inputPhone" name="customer_phone"
-                                placeholder="Phone">
+                                placeholder="0412345678">
                         </div>
                         <div class="form-group col-sm">
-                            <!-- <label for="inputEmail4">Email</label> -->
+                            <label for="input">Email</label>
                             <input type="email" class="form-control" id="inputEmail" name="customer_email"
-                                placeholder="Email">
+                                placeholder="johnsmith@customer.com">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
-                            <!-- <label for="inputAddress2">Address </label> -->
+                            <label for="input">Address</label>
                             <input type="text" class="form-control" id="inputAddress" name="customer_address"
-                                placeholder="Address">
+                                placeholder="123 Fake St, Sydney NSW 2000">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
+                        <label for="input">Discount tier</label>
                             <select id="inputDiscount" name="customer_discount" class="form-control">
                                 @foreach($discounts as $discount)
                                 <option value="{{ $discount->pk_discount_id }}">{{ $discount->discount_name }}</option>

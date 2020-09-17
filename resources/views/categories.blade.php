@@ -46,8 +46,9 @@
                         {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group col-sm">
+                            <label for="input">Category name</label>
                                 <input type="text" class="form-control" id="categoryName" name="category_name"
-                                    placeholder="Category name">
+                                    placeholder="Lighting">
                             </div>
                         </div>
                 </div>
@@ -100,12 +101,14 @@
                         {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group col-sm">
+                            <label for="input">Sub-Category name</label>
                                 <input type="text" class="form-control" id="subcategoryName" name="subcategory_name"
-                                    placeholder="Sub-Category name">
+                                    placeholder="Light Switches">
                             </div>
                         </div>
                         <div class="form-row">
                         <div class="form-group col-sm">
+                        <label for="input">Parent category</label>
                             <select id="categorySelect" name="parent_category_name" class="form-control">
                                 @foreach($categories as $category)
                                 <option value="{{ $category->pk_category_id }}">{{ $category->category_name }}</option>

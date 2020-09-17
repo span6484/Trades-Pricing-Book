@@ -4,7 +4,7 @@
 
 @section('content')
 <div class=" p-3 mb-5 bg-white rounded border">
-    <!-- <div>
+    <div>
         @if(count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -19,8 +19,8 @@
             <p>{{ \Session::get('success') }}</p>
         </div>
         @endif
-    </div> -->
-    <h3 class="mb-4 float-left">Total Bussiness </h3>
+    </div>
+    <h3 class="mb-4 float-left">Total Business Costs</h3>
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
         Add
     </button>

@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="materialModalLabel">Enter Material details</h5>
+                    <h5 class="modal-title" id="materialModalLabel">Enter material details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -43,32 +43,35 @@
                         {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group col-sm">
+                            <label for="input">Supplier item code</label>
                                 <input type="text" class="form-control" id="itemCode" name="material_itemcode"
-                                    placeholder="Item Code">
+                                    placeholder="ELI-001">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
+                            <label for="input">Material description</label>
                                 <input type="text" class="form-control" id="materialDescription"
-                                    name="material_description" placeholder="Material Description">
+                                    name="material_description" placeholder="LED EMERGENCY oyster light">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
-                        <label class="sr-only" for="inlineFormInputGroup">2</label>
+                            <label for="input">Material Cost</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Material cost</label>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>
                             </div>
                             <input type="text" class="form-control" id="materialCost" name="material_cost"
-                                placeholder="Material Cost">
+                                placeholder="0.00">
                         </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
+                            <label for="input">Select supplier</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="fk_supplier_id">
-                                    <option>Select supplier</option>
                                     @foreach($suppliers as $supplier)
                                     <option value="{{ $supplier -> pk_supplier_id }}">{{ $supplier -> supplier_companyname }}</option>
                                     @endforeach

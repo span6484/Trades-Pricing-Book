@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="fullemployeeModalLabel">Add New Employee</h4>
+                    <h4 class="modal-title" id="fullemployeeModalLabel">Enter employee details</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -43,24 +43,24 @@
                         {{ csrf_field() }}
                         <div class="form-row border-bottom pb-2">
                             <div class="form-group col-md-6">
-                                <label for="input">Employee Name</label>
+                                <label for="input">Employee name</label>
                                 <input type="text" class="form-control" id="employeeName" name="employee_name"
-                                    placeholder="Name">
+                                    placeholder="John Smith">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="input">Base Hourly</label>
-                                <label class="sr-only" for="inlineFormInputGroup">Base Hourly</label>
+                                <label for="input">Base hourly</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Base hourly</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_basehourly" placeholder="Base Hourly">
+                                        name="employee_basehourly" placeholder="0.00">
                                 </div>
                             </div>
                         </div>
 
-                        <h5 class="pt-3 pb-1">Annual Expenses</h5>
+                        <h5 class="pt-3 pb-1">Annual expenses</h5>
                         <div class="form-row">
 
                             <div class="form-group col-md-6">
@@ -71,18 +71,18 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_vehiclecost" placeholder="Vehicle" value="0">
+                                        name="employee_vehiclecost" placeholder="0.00" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="input">Other Costs</label>
-                                <label class="sr-only" for="inlineFormInputGroup">Other Costs</label>
+                                <label for="input">Other costs</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Other costs</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_otherweeklycost" placeholder="eTag, etc" value="0">
+                                        name="employee_otherweeklycost" placeholder="0.00" value="0">
                                 </div>
                             </div>
                         </div>
@@ -95,18 +95,18 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_phone" placeholder="Phone" value="0">
+                                        name="employee_phone" placeholder="0.00" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="input">Workers Comp</label>
-                                <label class="sr-only" for="inlineFormInputGroup">Workers Comp</label>
+                                <label for="input">Workers comp</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Workers comp</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="employee_workercomp" placeholder="Workers Comp" value="0">
+                                        name="employee_workercomp" placeholder="0.00" value="0">
                                 </div>
                             </div>
                         </div>
@@ -114,28 +114,56 @@
                         <h5 class="pt-3 pb-1">Totals</h5>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="employeeweeklypay">Weekly Pay</label>
-                                <input type="text" class="form-control" id="employeeweeklypay" placeholder="$" readonly>
+                                <label for="employeeweeklypay">Weekly pay</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="employeeweeklypay" placeholder="0.00"
+                                        readonly>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="yearlypay">Yearly Pay</label>
-                                <input type="text" class="form-control" id="yearlypay" placeholder="$" readonly>
+                                <label for="yearlypay">Yearly pay</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="yearlypay" placeholder="0.00" readonly>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="super">Super</label>
-                                <input type="text" class="form-control" id="super" placeholder="$" readonly>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="super" placeholder="0.00" readonly>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="totalLessSuper">Total Cost Less Super</label>
-                                <input type="text" class="form-control" id="totalLessSuper" placeholder="$" readonly>
+                                <label for="totalLessSuper">Total cost less super</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="totalLessSuper" placeholder="0.00"
+                                        readonly>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="totalPackage">Total Package Cost</label>
-                                <input type="text" class="form-control" id="totalPackage" placeholder="$" readonly>
+                                <label for="totalPackage">Total package cost</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="totalPackage" placeholder="0.00"
+                                        readonly>
+                                </div>
                             </div>
                         </div>
 
@@ -203,7 +231,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="subcontractorModalLabel">Add New Sub-Contracator</h4>
+                    <h4 class="modal-title" id="subcontractorModalLabel">Enter sub-contracator details</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -213,23 +241,24 @@
 
                         <div class="form-row border-bottom pb-2">
                             <div class="form-group col-md-6">
-                                <label for="input">Sub-Contractor Name</label>
-                                <input type="text" class="form-control" id="subcontractorName" name="employee_name" placeholder="Name">
+                                <label for="input">Sub-contractor name</label>
+                                <input type="text" class="form-control" id="subcontractorName" name="employee_name"
+                                    placeholder="John Smith">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="input">Hourly Rate</label>
-                                <label class="sr-only" for="inlineFormInputGroup">Hourly Rate</label>
+                                <label for="input">Hourly rate</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Hourly rate</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_basehourly"
-                                        placeholder="Hourly Rate">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        name="employee_basehourly" placeholder="0.00">
                                 </div>
                             </div>
                         </div>
 
-                        <h5 class="pt-3 pb-1">Annual Expenses</h5>
+                        <h5 class="pt-3 pb-1">Annual expenses</h5>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="input">Vehicle</label>
@@ -238,19 +267,19 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_vehiclecost"
-                                        placeholder="Vehicle" value="0">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        name="employee_vehiclecost" placeholder="Vehicle" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="input">Other Costs</label>
-                                <label class="sr-only" for="inlineFormInputGroup">Other Costs</label>
+                                <label for="input">Other costs</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Other costs</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_otherweeklycost"
-                                        placeholder="eTag, etc" value="0">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        name="employee_otherweeklycost" placeholder="eTag, etc" value="0">
                                 </div>
                             </div>
                         </div>
@@ -262,19 +291,19 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_phone"
-                                        placeholder="Phone" value="0">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        name="employee_phone" placeholder="Phone" value="0">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="input">Workers Comp</label>
-                                <label class="sr-only" for="inlineFormInputGroup">Workers Comp</label>
+                                <label for="input">Workers comp</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Workers comp</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_workercomp"
-                                        placeholder="Workers Comp" value="0">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        name="employee_workercomp" placeholder="Workers Comp" value="0">
                                 </div>
                             </div>
                         </div>
@@ -286,8 +315,8 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        placeholder="Cash" value="0">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Cash"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -296,44 +325,80 @@
                         <h5 class="pt-3 pb-1">Totals</h5>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="subcontractorweeklyrate">Weekly Rate</label>
-                                <input type="text" class="form-control" id="subcontractorweeklyrate" placeholder="$"
-                                    readonly>
+                                <label for="subcontractorweeklyrate">Weekly rate</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="subcontractorweeklyrate"
+                                        placeholder="0.00" readonly>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="subcontractoryearlyrate">Yearly Rate</label>
-                                <input type="text" class="form-control" id="subcontractoryearlyrate" placeholder="$"
-                                    readonly>
+                                <label for="subcontractoryearlyrate">Yearly rate</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="subcontractoryearlyrate"
+                                        placeholder="0.00" readonly>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="subcontractorsuper">Super</label>
-                                <input type="text" class="form-control" id="subcontractorsuper" placeholder="$"
-                                    readonly>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="subcontractorsuper" placeholder="0.00"
+                                        readonly>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="subcontractortotalLessSuper">Total Cost Less Super</label>
-                                <input type="text" class="form-control" id="subcontractortotalLessSuper" placeholder="$"
-                                    readonly>
+                                <label for="subcontractortotalLessSuper">Total cost less super</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="subcontractortotalLessSuper"
+                                        placeholder="0.00" readonly>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="subcontractorGst">GST</label>
-                                <input type="text" class="form-control" id="subcontractorGst" placeholder="$" readonly>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="subcontractorGst" placeholder="0.00"
+                                        readonly>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="subcontractorTotalIncGst">Total Including GST</label>
-                                <input type="text" class="form-control" id="subcontractorTotalIncGst" placeholder="$"
-                                    readonly>
+                                <label for="subcontractorTotalIncGst">Total including GST</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="subcontractorTotalIncGst"
+                                        placeholder="0.00" readonly>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="subcontractortotalPackage">Total Package Cost</label>
-                                <input type="text" class="form-control" id="subcontractortotalPackage" placeholder="$"
-                                    readonly>
+                                <label for="subcontractortotalPackage">Total package cost</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="subcontractortotalPackage"
+                                        placeholder="0.00" readonly>
+                                </div>
                             </div>
                         </div>
 

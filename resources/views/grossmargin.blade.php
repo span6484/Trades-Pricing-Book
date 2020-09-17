@@ -20,9 +20,9 @@
         </div>
         @endif
     </div>
-    <h3 class="mb-4 float-left">GrossMargin Rate</h3>
+    <h3 class="mb-4 float-left">Global GM Rate</h3>
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
-        Add GrossMargin
+        Add Gross Margin
     </button>
 
     <!-- GrossMargin table -->
@@ -39,8 +39,8 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('grossmargin') }}">
                         {{ csrf_field() }}
-                        <div class="form-row border-bottom pb-2">
-                            <div class="form-group col-md-6">
+                        <div class="form-row">
+                            <div class="form-group col-sm">
                                 <label for="input">Gross margin rate</label>
                                 <label class="sr-only" for="inlineFormInputGroup">Gross margin rate</label>
                                 <div class="input-group mb-2">

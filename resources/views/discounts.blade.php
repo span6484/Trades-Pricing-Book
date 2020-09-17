@@ -31,7 +31,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="fullemployeeModalLabel">Add New Discount</h4>
+                    <h4 class="modal-title" id="fullemployeeModalLabel">Add new discount</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -39,29 +39,30 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('discounts') }}">
                         {{ csrf_field() }}
-                        <div class="form-row border-bottom pb-2">
-                            <div class="form-group col-md-6">
+                        <div class="form-row">
+                            <div class="form-group col-sm">
                                 <label for="input">Discount Name</label>
-                                <input type="text" class="form-control" name="discount_name"
-                                    placeholder="Name">
+                                <input type="text" class="form-control" name="discount_name" placeholder="MATES RATES CATEGORY 2 - 10%">
                             </div>
-                            <div class="form-group col-md-6">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm">
                                 <label for="input">Discount Rate</label>
                                 <label class="sr-only" for="inlineFormInputGroup">Discount Rate</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
+                                        <div class="input-group-text">%</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="discount_rate" placeholder="Discount Rate">
+                                        name="discount_rate" placeholder="0.10">
                                 </div>
                             </div>
                         </div>
-                            </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="Submit" class="btn btn-primary">Save Discount</button>
-                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="Submit" class="btn btn-primary">Save Discount</button>
+                </div>
                 </form>
             </div>
         </div>
