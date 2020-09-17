@@ -20,9 +20,9 @@
         </div>
         @endif
     </div>
-    <h3 class="mb-4 float-left">GrossMargin Rate</h3>
+    <h3 class="mb-4 float-left">Global GM Rate</h3>
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
-        Add GrossMargin
+        Add Gross Margin
     </button>
 
     <!-- GrossMargin table -->
@@ -39,8 +39,8 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('grossmargin') }}">
                         {{ csrf_field() }}
-                        <div class="form-row border-bottom pb-2">
-                            <div class="form-group col-md-6">
+                        <div class="form-row">
+                            <div class="form-group col-sm">
                                 <label for="input">Gross margin rate</label>
                                 <label class="sr-only" for="inlineFormInputGroup">Gross margin rate</label>
                                 <div class="input-group mb-2">
@@ -67,14 +67,14 @@
             <thead>
                 <tr>
                     <th scope="col">Gross Margin</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($grossmargin as $grossMargin)
+                @foreach($grossmargin as $grossmargin)
                 <tr>
-                    <td>{{$grossMargin->gm_rate}}</td>
-
-
+                    <td>{{$grossmargin->gm_rate}}</td>
+                    <td><a href="{{ action('GrossMarginController@edit', $grossmargin->pk_gm_id) }}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

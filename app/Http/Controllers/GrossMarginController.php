@@ -28,7 +28,6 @@ class GrossMarginController extends Controller
 
     public function store(Request $request)
     {
-        //
         $this->validate($request,[
             'gm_rate' => 'required',
         ]);
@@ -40,4 +39,12 @@ class GrossMarginController extends Controller
         $newGrossMargin->save();
         return back()->with('success', 'gm_rate added');    
     }
+
+    public function edit($pk_gm_id)
+    {
+        $grossmargin = GrossMargin::find($pk_gm_id);
+
+        return view('grossmargin', compact('grossmargin', 'pk_gm_id'));
+    }
+
 }

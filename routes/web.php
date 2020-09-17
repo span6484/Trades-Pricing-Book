@@ -23,6 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/customers', 'CustomerController@index');
 Route::resource('customers', 'CustomerController');
@@ -49,14 +50,13 @@ Route::resource('employeecosts', 'CostController');
 Route::get('/discounts', 'DiscountController@index')->name('discounts');
 Route::resource('discounts', 'DiscountController');
 
-Route::get('/companycosts', 'CompanyCostController@index')->name('companycosts');
+Route::get('/companycosts', 'CostController@companyCosts')->name('companycosts');
 Route::resource('companycosts', 'CompanyCostController');
 
-Route::get('/totalcosts', 'TotalCostsController@index')->name('totalcosts');
+Route::get('/totalcosts', 'CostController@totalCosts')->name('totalcosts');
 
 Route::get('/categories', 'CategoryController@index');
 Route::resource('categories', 'CategoryController');
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
-//test
+Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
+Route::resource('quoteterms', 'QuoteTermsController');

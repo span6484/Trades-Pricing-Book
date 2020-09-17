@@ -11,11 +11,16 @@ class Material extends Model
     protected $fillable = [
         'material_itemcode',
         'material_description',
-        'supplier_phone',
-        'supplier_email'
+        'material_cost',
+        'fk_supplier_id'
     ];
 
     protected $attributes = [
         'material_archived' => 0
         ];
+
+    public function suppliers()
+    {
+        return $this->belongsTo('App\Supplier', 'fk_supplier_id', 'pk_supplier_id');
+    }
 }

@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="materialModalLabel">Enter Material details</h5>
+                    <h5 class="modal-title" id="materialModalLabel">Enter material details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -43,24 +43,38 @@
                         {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group col-sm">
+                            <label for="input">Supplier item code</label>
                                 <input type="text" class="form-control" id="itemCode" name="material_itemcode"
-                                    placeholder="Item Code">
+                                    placeholder="ELI-001">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
+                            <label for="input">Material description</label>
                                 <input type="text" class="form-control" id="materialDescription"
-                                    name="material_description" placeholder="Material Description">
+                                    name="material_description" placeholder="LED EMERGENCY oyster light">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
-                                <select class="form-control" id="exampleFormControlSelect1" name="material_supplier">
-                                    <option>Select supplier</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                            <label for="input">Material Cost</label>
+                                <label class="sr-only" for="inlineFormInputGroup">Material cost</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="text" class="form-control" id="materialCost" name="material_cost"
+                                placeholder="0.00">
+                        </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm">
+                            <label for="input">Select supplier</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="fk_supplier_id">
+                                    @foreach($suppliers as $supplier)
+                                    <option value="{{ $supplier -> pk_supplier_id }}">{{ $supplier -> supplier_companyname }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -80,17 +94,17 @@
                 <tr>
                     <th scope="col">Item Code</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Material Cost</th>
                     <th scope="col">Supplier</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($materials as $material)
                 <tr>
-                    <td>{{ $material->supplier_companyname }}</td>
-                    <td>{{ $material->supplier_contactname }}</td>
-                    <td>{{ $material->supplier_phone }}</td>
-                    <td>{{ $material->supplier_email }}</td>
+                    <td>{{ $material->material_itemcode }}</td>
+                    <td>{{ $material->material_description }}</td>
+                    <td>{{ $material->material_cost }}</td>
+                    <td>{{ $material->suppliers->supplier_companyname }}</td>
                 </tr>
                 @endforeach
             </tbody>

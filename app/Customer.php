@@ -36,4 +36,8 @@ class Customer extends Model
     //     return $this->belongsTo('App\Discount', 'pk_discount_id', 'pk_customer_id');
     // }
 
+    public function discount()
+    {
+        return $this->belongsTo('App\Discount', 'fk_discount_id', 'pk_discount_id');
+    }
 }
