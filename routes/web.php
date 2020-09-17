@@ -23,9 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function() {
-    return view('dashboard');
-});
 
 Route::get('/customers', 'CustomerController@index');
 Route::resource('customers', 'CustomerController');
@@ -59,3 +56,7 @@ Route::get('/totalcosts', 'TotalCostsController@index')->name('totalcosts');
 
 Route::get('/categories', 'CategoryController@index');
 Route::resource('categories', 'CategoryController');
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+//test
