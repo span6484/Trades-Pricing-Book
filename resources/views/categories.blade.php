@@ -127,12 +127,14 @@
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Category Name</th>
+                    <th scope="col">Sub-Category</th>
+                    <th scope="col">Parent Category</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $category)
+                @foreach($subcategories as $subcategory)
                 <tr>
+                    <td>{{ $subcategory->subcategory_name }}</td>
                     <td>{{ $category->category_name }}</td>
                 </tr>
                 @endforeach

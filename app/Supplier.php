@@ -19,4 +19,8 @@ class Supplier extends Model
         'supplier_archived' => 0
         ];
 
+    public function materials()
+    {
+        return $this->hasMany('App\Material', 'fk_supplier_id', 'pk_supplier_id');
+    }
 }

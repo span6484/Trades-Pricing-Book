@@ -70,7 +70,7 @@
                                 <select class="form-control" id="exampleFormControlSelect1" name="fk_supplier_id">
                                     <option>Select supplier</option>
                                     @foreach($suppliers as $supplier)
-                                    <option>{{ $supplier -> pk_supplier_id }}</option>
+                                    <option value="{{ $supplier -> pk_supplier_id }}">{{ $supplier -> supplier_companyname }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -101,7 +101,7 @@
                     <td>{{ $material->material_itemcode }}</td>
                     <td>{{ $material->material_description }}</td>
                     <td>{{ $material->material_cost }}</td>
-                    <td>{{ $material->fk_supplier_id }}</td>
+                    <td>{{ $material->suppliers->supplier_companyname }}</td>
                 </tr>
                 @endforeach
             </tbody>

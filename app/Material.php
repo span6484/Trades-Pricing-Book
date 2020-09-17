@@ -18,4 +18,9 @@ class Material extends Model
     protected $attributes = [
         'material_archived' => 0
         ];
+
+    public function suppliers()
+    {
+        return $this->belongsTo('App\Supplier', 'fk_supplier_id', 'pk_supplier_id');
+    }
 }

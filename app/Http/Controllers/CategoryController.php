@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\SubCategory;
 
 class CategoryController extends Controller
 {
@@ -12,8 +13,9 @@ class CategoryController extends Controller
         $pageHeading = 'Category Management';
 
         $categories = Category::all();
+        $subcategories = SubCategory::all();
   
-        return view('categories', compact('pageHeading', 'categories'));
+        return view('categories', compact('pageHeading', 'categories', 'subcategories'));
     }
 
     public function store(Request $request)
