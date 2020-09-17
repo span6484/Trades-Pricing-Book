@@ -19,7 +19,7 @@ class CompanyCostController extends Controller
      */
     public function index()
     {
-        $pageHeading = 'CompanyCost';
+        $pageHeading = 'Company Costs';
 
         $companycosts = CompanyCost::all();
   

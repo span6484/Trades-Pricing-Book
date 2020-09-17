@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ItemCategory extends Model
+class Category extends Model
 {
     protected $table = 'itemcategories';
     protected $primaryKey = 'pk_category_id';
@@ -15,4 +15,9 @@ class ItemCategory extends Model
     protected $attributes = [
         'category_archived' => 0
         ];
+
+    public function customers()
+    {
+        return $this->hasMany('App\SubCategory', 'fk_category_id', 'pk_category_id');
+    }
 }

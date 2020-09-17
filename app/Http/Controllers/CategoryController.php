@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ItemCategory;
+use App\Category;
+use App\SubCategory;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $pageHeading = 'Categories';
+        $pageHeading = 'Category Management';
 
-        $categories = ItemCategory::all();
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
   
-        return view('categories', compact('pageHeading', 'categories'));
+        return view('categories', compact('pageHeading', 'categories', 'subcategories'));
     }
 
     public function store(Request $request)
@@ -22,13 +24,11 @@ class CategoryController extends Controller
             'category_name' => 'required'
         ]);
 
-        $newCategory = new ItemCategory([
+        $newCategory = new Category([
             'category_name' => $request->get('category_name'),
         ]);
         
         $newCategory->save();
         return back()->with('success', 'Category added');
-        // return view('customers')->with('success', 'Data Added');
-        // return view('customers');
     }
 }

@@ -24,7 +24,7 @@ class CustomerController extends Controller
         $this->validate($request, [
             'customer_name' => 'required'
         ]);
-
+        
         $newCustomer = new Customer([
             'customer_name' => $request->get('customer_name'),
             'customer_company' => $request->get('customer_company'),

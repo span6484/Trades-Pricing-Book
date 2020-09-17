@@ -11,7 +11,15 @@ class Discount extends Model
     protected $fillable = [
             'discount_name', 
             'discount_rate',
-            'discount_archived'	
         ];
+
+    protected $attributes = [
+        'discount_archived' => 0
+        ];
+
+    public function customers()
+    {
+        return $this->hasMany('App\Customer', 'fk_discount_id', 'pk_discount_id');
+    }
 
 }

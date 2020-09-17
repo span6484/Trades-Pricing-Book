@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Users')
+@section('title', 'Quote Terms')
 
 @section('content')
 
@@ -23,46 +23,43 @@
     @endif
 </div>
 
-<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#userModal">
-    Add User
+<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#quoteTermModal">
+    Add Quote Terms
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
+<div class="modal fade" id="quoteTermModal" tabindex="-1" role="dialog" aria-labelledby="quoteTermModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="userModalLabel">Enter user details</h5>
+                <h5 class="modal-title" id="quoteTermModalLabel">Enter quote term body</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
 
-                <form method="post" action="{{ url('users') }}">
+                <form method="post" action="{{ url('quoteterms') }}">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-sm">
-                            <input type="text" class="form-control" id="inputName" name="user_name"
-                                placeholder="Username">
-                        </div>
-                        <div class="form-group col-sm">
-                            <input type="text" class="form-control" id="inputCompany" name="user_fullname"
-                                placeholder="Full Name">
+                            <label for="input">Term name</label>
+                            <input type="text" class="form-control" id="termName" name="term_name"
+                                placeholder="14 day account">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
-                            <input type="password" class="form-control" id="inputPhone" name="user_password"
-                                placeholder="Password">
+                            <label for="input">Quote terms description</label>
+                            <textarea class="form-control" id="termBody" name="term_body" rows="10" placeholder="Payment must be made within 14 days"></textarea>
                         </div>
                     </div>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary">Save User</button>
+                <button type="submit" class="btn btn-primary">Save Quote Terms</button>
             </div>
             </form>
         </div>
@@ -73,17 +70,15 @@
     <table class="table table-hover table-sm mt-1">
         <thead>
             <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Full Name</th>
-                <th scope="col">Password</th>
+                <th scope="col">Term Name</th>
+                <th scope="col">Term Description</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($users as $user)
+            @foreach($quoteterms as $quoteterm)
             <tr>
-                <td>{{ $user->user_name }}</td>
-                <td>{{ $user->user_firstlast }}</td>
-                <td>{{ $user->user_password }}</td>
+                <td>{{ $quoteterm->term_name }}</td>
+                <td>{{ $quoteterm->term_body }}</td>
             </tr>
             @endforeach
         </tbody>
