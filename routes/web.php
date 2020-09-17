@@ -59,3 +59,6 @@ Route::get('/totalcosts', 'CostController@totalCosts')->name('totalcosts');
 
 Route::get('/categories', 'CategoryController@index');
 Route::resource('categories', 'CategoryController');
+
+Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
+Route::resource('quoteterms', 'QuoteTermsController');
