@@ -22,7 +22,7 @@
     </div>
     <h3 class="mb-4 float-left">Discount</h3>
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
-        Add Employee
+        Add Discount
     </button>
 
     <!--- companycost table  -->
@@ -56,23 +56,11 @@
                                         name="discount_rate" placeholder="Discount Rate">
                                 </div>
                             </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="input">Discount Archived</label>
-                                <label class="sr-only" for="inlineFormInputGroup">Discount Archived</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="discount_archived" placeholder="discount_archived">
-                                </div>
-                            </div>
                         </div>
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="Submit" class="btn btn-primary">Save Employee</button>
+                            <button type="Submit" class="btn btn-primary">Save Discount</button>
                         </div>
                 </form>
             </div>
@@ -85,18 +73,13 @@
                 <tr>
                     <th scope="col">Discount Name</th>
                     <th scope="col">Discount Rate</th>
-                    <th scope="col">Discount Archived</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($discounts as $disCount)
                 <tr>
-                    <td>{{$disCount->discount_name}}</td>
-                    <td>{{$disCount->discount_rate}}</td>
-
-                    <td>{{$disCount->discount_archived}}</td>
-
-
+                    <td>{{ $disCount->discount_name }}</td>
+                    <td>{{ $disCount->discount_rate }}</td>
                 </tr>
                 @endforeach
             </tbody>

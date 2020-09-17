@@ -55,12 +55,23 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
-                                <select class="form-control" id="exampleFormControlSelect1" name="material_supplier">
+                        <label class="sr-only" for="inlineFormInputGroup">2</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="text" class="form-control" id="materialCost" name="material_cost"
+                                placeholder="Material Cost">
+                        </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm">
+                                <select class="form-control" id="exampleFormControlSelect1" name="fk_supplier_id">
                                     <option>Select supplier</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    @foreach($suppliers as $supplier)
+                                    <option>{{ $supplier -> pk_supplier_id }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -80,17 +91,17 @@
                 <tr>
                     <th scope="col">Item Code</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Material Cost</th>
                     <th scope="col">Supplier</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($materials as $material)
                 <tr>
-                    <td>{{ $material->supplier_companyname }}</td>
-                    <td>{{ $material->supplier_contactname }}</td>
-                    <td>{{ $material->supplier_phone }}</td>
-                    <td>{{ $material->supplier_email }}</td>
+                    <td>{{ $material->material_itemcode }}</td>
+                    <td>{{ $material->material_description }}</td>
+                    <td>{{ $material->material_cost }}</td>
+                    <td>{{ $material->fk_supplier_id }}</td>
                 </tr>
                 @endforeach
             </tbody>

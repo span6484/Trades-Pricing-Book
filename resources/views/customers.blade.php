@@ -77,7 +77,7 @@
                         <div class="form-group col-sm">
                             <select id="inputDiscount" name="customer_discount" class="form-control">
                                 @foreach($discounts as $discount)
-                                <option selected>{{ $discount->pk_discount_id }}</option>
+                                <option value="{{ $discount->pk_discount_id }}">{{ $discount->discount_name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -113,7 +113,7 @@
                 <td>{{ $customer->customer_phone }}</td>
                 <td>{{ $customer->customer_email }}</td>
                 <td>{{ $customer->customer_address }}</td>
-                <td>{{ $customer->fk_discount_id }}</td>
+                <td>{{ $customer->discount->discount_name }}</td>
             </tr>
             @endforeach
         </tbody>
