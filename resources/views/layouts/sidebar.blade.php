@@ -26,13 +26,10 @@
                     Management</a>
             </li>
             <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">FORELSE LOOP
+                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">FOR LOOP
                     CATEGORIES</a>
             </li>
-            <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">FORELSE LOOP
-                    NO CATEGORIES</a>
-            </li>
+            <!-- CATEGORY FOR LOOP GOES HERE -->
         </ul>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Costs
