@@ -21,24 +21,24 @@
         @endif
     </div>
     <h3 class="mb-4 float-left">Global GM Rate</h3>
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
+    <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#gmModal">
         Add Gross Margin
-    </button>
+    </button> -->
 
     <!-- GrossMargin table -->
-    <div class="modal fade" id="fullemployeeModal" tabindex="-1" role="dialog" aria-labelledby="fullemployeeModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="gmModal" tabindex="-1" role="dialog" aria-labelledby="gmModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="fullemployeeModalLabel">Add Rate</h4>
+                    <h4 class="modal-title" id="gmModalLabel">Edit GM rate</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ url('grossmargin') }}">
+                    <form method="post" action="{{action('GrossMarginController@update', 'gm_rate')}}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="PATCH">
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Gross margin rate</label>
@@ -47,16 +47,16 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">%</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="gm_rate" placeholder="Gross margin rate">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="gm_rate" 
+                                        placeholder="Gross margin rate">
                                 </div>
                             </div>
                         </div>
-                            </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="Submit" class="btn btn-primary">Save Company Cost</button>
-                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="Submit" class="btn btn-primary">Update GM rate</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -74,7 +74,8 @@
                 @foreach($grossmargin as $grossmargin)
                 <tr>
                     <td>{{$grossmargin->gm_rate}}</td>
-                    <td><a href="{{ action('GrossMarginController@edit', $grossmargin->pk_gm_id) }}">Edit</a></td>
+                    <!-- <td><a data-toggle="modal" data-target="#gmModal">Edit</a></td> -->
+                    <td><a href="{{action('GrossMarginController@edit', $grossmargin['pk_gm_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

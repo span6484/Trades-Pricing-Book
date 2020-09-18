@@ -1,6 +1,6 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">
-        <img src="images/Xceed_logo_small_01-copy1.png" class="img-fluid" width="200px" alt="Responsive image">
+        <img src="/images/Xceed_logo_small_01-copy1.png" class="img-fluid" width="200px" alt="Responsive image">
     </div>
     <div class="list-group list-group-flush">
         <a href="{{ 'dashboard' }}" class="list-group-item list-group-item-action bg-light  border-0">Dashboard</a>
@@ -30,6 +30,7 @@
                     CATEGORIES</a>
             </li>
             <!-- CATEGORY FOR LOOP GOES HERE -->
+            
         </ul>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Costs

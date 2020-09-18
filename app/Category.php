@@ -16,7 +16,7 @@ class Category extends Model
         'category_archived' => 0
         ];
 
-    public function customers()
+    public function subCategories()
     {
         return $this->hasMany('App\SubCategory', 'fk_category_id', 'pk_category_id');
     }

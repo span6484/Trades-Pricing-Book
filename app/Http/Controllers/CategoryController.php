@@ -31,4 +31,16 @@ class CategoryController extends Controller
         $newCategory->save();
         return back()->with('success', 'Category added');
     }
+
+    public function show($pk_category_id)
+    {
+
+        $categories = Category::find($pk_category_id);
+        $subcategories = $categories->subCategories;
+
+        $pageHeading = 'Category Management';
+  
+        return view('categories', compact('pageHeading', 'categories', 'subcategories'));
+    }
+
 }

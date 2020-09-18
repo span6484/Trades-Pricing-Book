@@ -27,7 +27,7 @@ class SubCategoryController extends Controller
 
         $newSubCategory = new SubCategory([
             'subcategory_name' => $request->get('subcategory_name'),
-            'fk_category_id' => $request->get('parent_category_name'),
+            'fk_category_id' => $request->get('fk_category_id'),
         ]);
         
         $newSubCategory->save();
