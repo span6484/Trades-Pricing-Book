@@ -26,8 +26,7 @@
     </button> -->
 
     <!-- GrossMargin table -->
-    <div class="modal fade" id="gmModal" tabindex="-1" role="dialog" aria-labelledby="gmModal"
-        aria-hidden="true">
+    <div class="modal fade" id="gmModal" tabindex="-1" role="dialog" aria-labelledby="gmModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -37,8 +36,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ action('GrossMarginController@edit', $grossmargin->pk_gm_id) }}>
+                    <form method="post" action="{{action('GrossMarginController@update', 'gm_rate')}}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="PATCH">
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Gross margin rate</label>
@@ -47,16 +47,16 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">%</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="gm_rate" placeholder="Gross margin rate">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="gm_rate" 
+                                        placeholder="Gross margin rate">
                                 </div>
                             </div>
                         </div>
-                            </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="Submit" class="btn btn-primary">Save Company Cost</button>
-                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="Submit" class="btn btn-primary">Update GM rate</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -74,7 +74,8 @@
                 @foreach($grossmargin as $grossmargin)
                 <tr>
                     <td>{{$grossmargin->gm_rate}}</td>
-                    <td><a data-toggle="modal" data-target="#gmModal">Edit</a></td>
+                    <!-- <td><a data-toggle="modal" data-target="#gmModal">Edit</a></td> -->
+                    <td><a href="{{action('GrossMarginController@edit', $grossmargin['pk_gm_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -26,19 +26,41 @@ class GrossMarginController extends Controller
     }
 
 
-    public function store(Request $request, $pk_gm_id)
+    // public function store(Request $request, $pk_gm_id)
+    // {
+    //     $this->validate($request,[
+    //         'gm_rate' => 'required',
+    //     ]);
+
+    //     $selectedgrossmargin = GrossMargin::find($pk_gm_id);
+    //     $newGrossMargin = new GrossMargin([
+    //         'gm_rate'  => $request->get('gm_rate'),
+    //     ]);
+
+    //     $newGrossMargin->save();
+    //     return back()->with('success', 'gm_rate added', 'selectedgrossmargin');    
+    // }
+
+    public function edit($pk_gm_id)
     {
+        $pageHeading = 'Gross Margin';
+        $grossmargin = GrossMargin::find($pk_gm_id);
+
+        return view('grossmargin.edit', compact('grossmargin', 'pk_gm_id', 'pageHeading'));
+    }
+
+    public function update(Request $request, $pk_gm_id)
+    {
+
         $this->validate($request,[
-            'gm_rate' => 'required',
-        ]);
+                    'gm_rate' => 'required',
+                ]);
 
-        $selectedgrossmargin = GrossMargin::find($pk_gm_id);
-        $newGrossMargin = new GrossMargin([
-            'gm_rate'  => $request->get('gm_rate'),
-        ]);
+        $grossmargin = GrossMargin::find($pk_gm_id);
+        $grossmargin->gm_rate = $request->get('gm_rate');
+        $grossmargin->save();
 
-        $newGrossMargin->save();
-        return back()->with('success', 'gm_rate added', 'selectedgrossmargin');    
+        return redirect()->route('grossmargin.index')->with('success', 'GM rate updated');
     }
 
 }

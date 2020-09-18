@@ -41,7 +41,8 @@ Route::get('/quoting', 'QuoteController@index');
 
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/grossmargin', 'GrossMarginController@grossMargin')->name('grossmargin');
+Route::get('/grossmargin', 'GrossMarginController@index')->name('grossmargin');
+Route::get('/grossmargin', 'GrossMarginController@edit')->name('grossmargin');
 Route::resource('grossmargin', 'GrossMarginController');
 
 Route::get('/employeecosts', 'CostController@index')->name('employeecosts');
