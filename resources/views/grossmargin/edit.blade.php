@@ -30,7 +30,7 @@
                     placeholder="0.00">
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Edit">
+                <input type="submit" class="btn btn-primary" value="Save">
             </div>
         </form>
     </div>
