@@ -97,7 +97,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ url('categories') }}">
+                    <form method="post" action="{{ url('subcategories') }}">
                         {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group col-sm">
@@ -109,7 +109,7 @@
                         <div class="form-row">
                         <div class="form-group col-sm">
                         <label for="input">Parent category</label>
-                            <select id="categorySelect" name="parent_category_name" class="form-control">
+                            <select id="categorySelect" name="fk_category_id" class="form-control">
                                 @foreach($categories as $category)
                                 <option value="{{ $category->pk_category_id }}">{{ $category->category_name }}</option>
                                 @endforeach
@@ -138,7 +138,7 @@
                 @foreach($subcategories as $subcategory)
                 <tr>
                     <td>{{ $subcategory->subcategory_name }}</td>
-                    <td>{{ $category->category_name }}</td>
+                    <td>{{ $subcategory->categories->category_name }}</td>
                 </tr>
                 @endforeach
             </tbody>

@@ -21,23 +21,23 @@
         @endif
     </div>
     <h3 class="mb-4 float-left">Global GM Rate</h3>
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#fullemployeeModal">
+    <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#gmModal">
         Add Gross Margin
-    </button>
+    </button> -->
 
     <!-- GrossMargin table -->
-    <div class="modal fade" id="fullemployeeModal" tabindex="-1" role="dialog" aria-labelledby="fullemployeeModalLabel"
+    <div class="modal fade" id="gmModal" tabindex="-1" role="dialog" aria-labelledby="gmModal"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="fullemployeeModalLabel">Add Rate</h4>
+                    <h4 class="modal-title" id="gmModalLabel">Edit GM rate</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ url('grossmargin') }}">
+                    <form method="post" action="{{ action('GrossMarginController@edit', $grossmargin->pk_gm_id) }}>
                         {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group col-sm">
@@ -74,7 +74,7 @@
                 @foreach($grossmargin as $grossmargin)
                 <tr>
                     <td>{{$grossmargin->gm_rate}}</td>
-                    <td><a href="{{ action('GrossMarginController@edit', $grossmargin->pk_gm_id) }}">Edit</a></td>
+                    <td><a data-toggle="modal" data-target="#gmModal">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>
