@@ -58,6 +58,8 @@ class CostController extends Controller
             'employee_name' => $request->get('employee_name'),
             'employee_basehourly'=> $request->get('employee_basehourly'),
             'employee_vehiclecost' => $request->get('employee_vehiclecost'),
+            'employee_hoursperweek' => $request->get('employee_hoursperweek'),
+            'employee_weeksperyear' => $request->get('employee_weeksperyear'),
             'employee_otherweeklycost' => $request->get('employee_otherweeklycost'),
             'employee_phone' => $request->get('employee_phone'),
             'employee_workercomp' => $request->get('employee_workercomp')

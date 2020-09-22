@@ -41,7 +41,7 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('employeecosts') }}">
                         {{ csrf_field() }}
-                        <div class="form-row border-bottom pb-2">
+                        <div class="form-row pb-2">
                             <div class="form-group col-md-6">
                                 <label for="input">Employee name</label>
                                 <input type="text" class="form-control" id="employeeName" name="employee_name"
@@ -56,6 +56,21 @@
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
                                         name="employee_basehourly" placeholder="0.00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row border-bottom pb-2">
+                            <div class="form-group col-md-6">
+                                <label for="input">Hours per week</label>
+                                <input type="text" class="form-control" id="hoursPerWeek" name="employee_hoursperweek"
+                                    placeholder="0">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="input">Weeks per year</label>
+                                
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" id="weeksPerYear"
+                                        name="employee_weeksperyear" placeholder="0">
                                 </div>
                             </div>
                         </div>
@@ -186,6 +201,8 @@
                     <th scope="col">Hourly</th>
                     <th scope="col">Weekly</th>
                     <th scope="col">Yearly</th>
+                    <th scope="col">Hours per week</th>
+                    <th scope="col">Weeks per year</th>
                     <th scope="col">Vehicle</th>
                     <th scope="col">Other Weekly</th>
                     <th scope="col">Phone</th>
@@ -204,6 +221,8 @@
                     <td>{{$employeeCost->employee_basehourly}}</td>
                     <td>Weekly</td>
                     <td>Yearly</td>
+                    <td>{{$employeeCost->employee_hoursperweek}}</td>
+                    <td>{{$employeeCost->employee_weeksperyear}}</td>
                     <td>{{$employeeCost->employee_vehiclecost}}</td>
                     <td>{{$employeeCost->employee_otherweeklycost}}</td>
                     <td>{{$employeeCost->employee_phone}}</td>
@@ -239,7 +258,7 @@
                 <div class="modal-body">
                     <form>
 
-                        <div class="form-row border-bottom pb-2">
+                        <div class="form-row pb-2">
                             <div class="form-group col-md-6">
                                 <label for="input">Sub-contractor name</label>
                                 <input type="text" class="form-control" id="subcontractorName" name="employee_name"
@@ -254,6 +273,21 @@
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
                                         name="employee_basehourly" placeholder="0.00">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row border-bottom pb-2">
+                            <div class="form-group col-md-6">
+                                <label for="input">Hours per week</label>
+                                <input type="text" class="form-control" id="hoursPerWeek" name="employee_hoursperweek"
+                                    placeholder="0">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="input">Weeks per year</label>                            
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" id="weeksPerYear"
+                                        name="employee_weeksperyear" placeholder="0">
                                 </div>
                             </div>
                         </div>
@@ -420,6 +454,8 @@
                     <th scope="col">Hourly</th>
                     <th scope="col">Weekly</th>
                     <th scope="col">Yearly</th>
+                    <th scope="col">Hours per week</th>
+                    <th scope="col">Weeks per year</th>
                     <th scope="col">Vehicle</th>
                     <th scope="col">Other Weekly</th>
                     <th scope="col">Cash</th>
@@ -441,6 +477,8 @@
                     <td>${{$employeeCost->employee_basehourly}}</td>
                     <td>Weekly</td>
                     <td>Yearly</td>
+                    <td>{{$employeeCost->employee_hoursperweek}}</td>
+                    <td>{{$employeeCost->employee_weeksperyear}}</td>
                     <td>${{$employeeCost->employee_vehiclecost}}</td>
                     <td>${{$employeeCost->employee_otherweeklycost}}</td>
                     <td>${{$employeeCost->employee_cash}}</td>
