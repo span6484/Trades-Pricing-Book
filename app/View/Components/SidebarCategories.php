@@ -9,8 +9,6 @@ use App\Category;
 class SidebarCategories extends Component
 {
 
-    public $title;
-
     /**
      * Create a new component instance.
      *
@@ -31,11 +29,5 @@ class SidebarCategories extends Component
         $categories = Category::all();
         return view('components.sidebar-categories', ['categories' => $categories]);
     }
-
-    // public function categories()
-    // {
-    //     $categories = Category::all();
-    //     return ((compact('categories')));
-    // }
 
 }
