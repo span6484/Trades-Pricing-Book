@@ -28,8 +28,8 @@ class SidebarCategories extends Component
      */
     public function render()
     {
-        $category = Category::all()->pluck('category_name');
-        return view('components.sidebar-categories', ['category' => $category]);
+        $categories = Category::all()->pluck('category_name');
+        return view('components.sidebar-categories', ['categories' => $categories]);
     }
 
     // public function categories()
