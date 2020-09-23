@@ -26,7 +26,7 @@
                     Management</a>
             </li>
             <!-- CATEGORY FOR LOOP GOES HERE -->
-            <x-sidebarCategories title="My Sidebar" />
+            <x-sidebarCategories/>
             
         </ul>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
