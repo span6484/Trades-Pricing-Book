@@ -25,11 +25,8 @@
                 <a href="categories" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Category
                     Management</a>
             </li>
-            <li>
-                <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">FOR LOOP
-                    CATEGORIES</a>
-            </li>
             <!-- CATEGORY FOR LOOP GOES HERE -->
+            <x-sidebarCategories title="My Sidebar" />
             
         </ul>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
