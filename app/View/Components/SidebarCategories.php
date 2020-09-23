@@ -28,7 +28,8 @@ class SidebarCategories extends Component
      */
     public function render()
     {
-        $categories = Category::all()->pluck('category_name');
+        // Forget pluck. It is good when you want just one column, but not multiple 
+        $categories = Category::all();
         return view('components.sidebar-categories', ['categories' => $categories]);
     }
 
