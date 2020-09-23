@@ -77,8 +77,10 @@
                         <div class="form-group col-sm">
                         <label for="input">Discount tier</label>
                             <select id="inputDiscount" name="customer_discount" class="form-control">
-                                @foreach($customers as $customer)
-                                <option value="{{ $customer->discount->pk_discount_id }}">{{ $customer->discount->discount_name }}</option>
+                                @foreach($discounts as $discount)
+                                <option value="{{ $discount->pk_discount_id }}">
+                                    {{ $discount->discount_name }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
