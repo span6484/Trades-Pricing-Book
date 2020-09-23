@@ -201,16 +201,16 @@
                 @if ($employeeCost->employee_type == 'Employee')
                 <tr>
                     <td>{{$employeeCost->employee_name}}</td>
-                    <td>{{$employeeCost->employee_basehourly}}</td>
-                    <td>Weekly</td>
-                    <td>Yearly</td>
-                    <td>{{$employeeCost->employee_vehiclecost}}</td>
-                    <td>{{$employeeCost->employee_otherweeklycost}}</td>
-                    <td>{{$employeeCost->employee_phone}}</td>
-                    <td>Super</td>
-                    <td>{{$employeeCost->employee_workercomp}}</td>
-                    <td>Total Package</td>
-                    <td>Total Cost Less Super</td>
+                    <td>${{$employeeCost->employee_basehourly}}</td>
+                    <td>$Weekly</td>
+                    <td>$Yearly</td>
+                    <td>${{$employeeCost->employee_vehiclecost}}</td>
+                    <td>${{$employeeCost->employee_otherweeklycost}}</td>
+                    <td>${{$employeeCost->employee_phone}}</td>
+                    <td>$Super</td>
+                    <td>${{$employeeCost->employee_workercomp}}</td>
+                    <td>$Total Package</td>
+                    <td>$Total Cost Less Super</td>
                     <td><a href="{{action('CostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif

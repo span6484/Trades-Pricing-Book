@@ -80,7 +80,6 @@
                                 @foreach($customers as $customer)
                                 <option value="{{ $customer->discount->pk_discount_id }}">{{ $customer->discount->discount_name }}</option>
                                 @endforeach
-
                             </select>
                         </div>
                     </div>
