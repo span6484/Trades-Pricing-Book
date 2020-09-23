@@ -42,6 +42,7 @@
                     <form method="post" action="{{ url('employeecosts') }}">
                         {{ csrf_field() }}
                         <input type="hidden" name="employee_type" value="Employee">
+                        <input type="hidden" name="employee_cash" value="0">
                         <div class="form-row border-bottom pb-2">
                             <div class="form-group col-md-6">
                                 <label for="input">Employee name</label>
@@ -317,7 +318,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Cash"
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_cash" placeholder="Cash"
                                         value="0">
                                 </div>
                             </div>

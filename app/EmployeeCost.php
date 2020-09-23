@@ -14,14 +14,13 @@ class EmployeeCost extends Model
             'employee_basehourly',
             'employee_vehiclecost',
             'employee_otherweeklycost',
+            'employee_cash',
             'employee_phone',
             'employee_workercomp',
-            'employee_cash',
             'employee_type'
         ];
 
     protected $attributes = [
-        'employee_cash' => 0,
         'employee_archived' => 0
         ];
 }
