@@ -41,6 +41,7 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('employeecosts') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="employee_type" value="Employee">
                         <div class="form-row border-bottom pb-2">
                             <div class="form-group col-md-6">
                                 <label for="input">Employee name</label>
@@ -166,8 +167,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -199,6 +198,7 @@
             </thead>
             <tbody>
                 @foreach($employeeCosts as $employeeCost)
+                @if ($employeeCost->employee_type == 'Employee')
                 <tr>
                     <td>{{$employeeCost->employee_name}}</td>
                     <td>{{$employeeCost->employee_basehourly}}</td>
@@ -212,6 +212,7 @@
                     <td>Total Package</td>
                     <td>Total Cost Less Super</td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
@@ -237,8 +238,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-
+                    <form method="post" action="{{ url('employeecosts') }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="employee_type" value="Sub-Contractor">
                         <div class="form-row border-bottom pb-2">
                             <div class="form-group col-md-6">
                                 <label for="input">Sub-contractor name</label>
@@ -401,13 +403,12 @@
                                 </div>
                             </div>
                         </div>
-
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save Sub-Contractor</button>
+                    <button type="submit" class="btn btn-primary">Save Sub-Contractor</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -436,6 +437,7 @@
             </thead>
             <tbody>
                 @foreach($employeeCosts as $employeeCost)
+                @if ($employeeCost->employee_type == 'Sub-Contractor')
                 <tr>
                     <td>{{$employeeCost->employee_name}}</td>
                     <td>${{$employeeCost->employee_basehourly}}</td>
@@ -452,6 +454,7 @@
                     <td>$Total Inc GST</td>
                     <td>$Total Cost Less Super</td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>

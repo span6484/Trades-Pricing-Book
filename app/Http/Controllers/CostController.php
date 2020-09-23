@@ -60,7 +60,8 @@ class CostController extends Controller
             'employee_vehiclecost' => $request->get('employee_vehiclecost'),
             'employee_otherweeklycost' => $request->get('employee_otherweeklycost'),
             'employee_phone' => $request->get('employee_phone'),
-            'employee_workercomp' => $request->get('employee_workercomp')
+            'employee_workercomp' => $request->get('employee_workercomp'),
+            'employee_type' => $request->get('employee_type')
         ]);
 
         $newEmployee->save();
