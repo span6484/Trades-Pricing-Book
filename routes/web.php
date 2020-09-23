@@ -35,7 +35,8 @@ Route::resource('users', 'UserController');
 Route::get('/suppliers', 'SupplierController@index');
 Route::resource('suppliers', 'SupplierController');
 
-Route::get('/materials', 'MaterialController@index');
+Route::get('/materials', 'MaterialController@index')->name('materials');
+Route::get('/materials', 'MaterialController@edit')->name('materials');
 Route::resource('materials', 'MaterialController');
 
 Route::get('/quoting', 'QuoteController@index');

@@ -44,7 +44,7 @@ class CustomerController extends Controller
         $customers = Customer::find($pk_customer_id);
         $discounts = Discount::all();
 
-        return view('customers.customeredit', compact('customers', 'pk_customer_id', 'pageHeading', 'discounts'));
+        return view('editlayouts.customeredit', compact('customers', 'pk_customer_id', 'pageHeading', 'discounts'));
     }
 
     public function update(Request $request, $pk_customer_id)

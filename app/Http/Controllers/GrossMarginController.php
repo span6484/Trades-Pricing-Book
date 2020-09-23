@@ -45,7 +45,7 @@ class GrossMarginController extends Controller
         $pageHeading = 'Gross Margin';
         $grossmargin = GrossMargin::find($pk_gm_id);
 
-        return view('grossmargin.grossmarginedit', compact('grossmargin', 'pk_gm_id', 'pageHeading'));
+        return view('editlayouts.grossmarginedit', compact('grossmargin', 'pk_gm_id', 'pageHeading'));
     }
 
     public function update(Request $request, $pk_gm_id)

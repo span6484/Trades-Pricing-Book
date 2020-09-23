@@ -62,9 +62,9 @@
                     <select id="inputDiscount" name="customer_discount" class="form-control">
                         @foreach($discounts as $discount)
                         @if ($discount->pk_discount_id == $customers->fk_discount_id)
-                        <option value="{{ $discount->pk_discount_id }}" selected>{{ $discount->discount_name }}</option>
+                        <option value="{{$discount->pk_discount_id}}" selected>{{ $discount->discount_name }}</option>
                         @else
-                        <option value="{{ $discount->pk_discount_id }}">{{ $discount->discount_name }}</option>
+                        <option value="{{$discount->pk_discount_id}}">{{ $discount->discount_name }}</option>
                         @endif
                         @endforeach
                     </select>
