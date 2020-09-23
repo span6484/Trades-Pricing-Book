@@ -192,8 +192,7 @@
                     <th scope="col">Workers Comp</th>
                     <th scope="col">Total Package</th>
                     <th scope="col">Total Cost Less Super</th>
-
-
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -211,6 +210,7 @@
                     <td>{{$employeeCost->employee_workercomp}}</td>
                     <td>Total Package</td>
                     <td>Total Cost Less Super</td>
+                    <td><a href="{{action('CostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
                 @endforeach
@@ -431,8 +431,7 @@
                     <th scope="col">GST</th>
                     <th scope="col">Total Inc GST</th>
                     <th scope="col">Total Cost Less Super</th>
-
-
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -453,6 +452,7 @@
                     <td>$GST</td>
                     <td>$Total Inc GST</td>
                     <td>$Total Cost Less Super</td>
+                    <td><a href="{{action('CostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
                 @endforeach

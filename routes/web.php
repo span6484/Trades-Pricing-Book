@@ -49,6 +49,7 @@ Route::get('/grossmargin', 'GrossMarginController@edit')->name('grossmargin');
 Route::resource('grossmargin', 'GrossMarginController');
 
 Route::get('/employeecosts', 'CostController@index')->name('employeecosts');
+Route::get('/employeecosts', 'CostController@edit')->name('employeecosts');
 Route::resource('employeecosts', 'CostController');
 
 Route::get('/discounts', 'DiscountController@index')->name('discounts');
