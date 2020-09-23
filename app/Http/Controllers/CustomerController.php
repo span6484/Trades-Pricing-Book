@@ -36,8 +36,34 @@ class CustomerController extends Controller
         
         $newCustomer->save();
         return back()->with('success', 'Customer added');
-        // return view('customers')->with('success', 'Data Added');
-        // return view('customers');
+    }
+
+    public function edit($pk_customer_id)
+    {
+        $pageHeading = 'Customers';
+        $customers = Customer::find($pk_customer_id);
+        $discounts = Discount::all();
+
+        return view('customers.customeredit', compact('customers', 'pk_customer_id', 'pageHeading', 'discounts'));
+    }
+
+    public function update(Request $request, $pk_customer_id)
+    {
+
+        $this->validate($request,[
+                    'customer_name' => 'required',
+                ]);
+        
+        $customers = Customer::find($pk_customer_id);
+        $customers->customer_name = $request->get('customer_name');
+        $customers->customer_company = $request->get('customer_company');
+        $customers->customer_phone = $request->get('customer_phone');
+        $customers->customer_email = $request->get('customer_email');
+        $customers->customer_address = $request->get('customer_address');
+        $customers->fk_discount_id = $request->get('customer_discount');
+        $customers->save();
+
+        return redirect()->route('customers.index')->with('success', 'Customer updated');
     }
     
 }

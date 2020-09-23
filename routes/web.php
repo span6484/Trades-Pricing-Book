@@ -25,7 +25,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/customers', 'CustomerController@index');
+Route::get('/customers', 'CustomerController@index')->name('customers');
+Route::get('/customers', 'CustomerController@edit')->name('customers');
 Route::resource('customers', 'CustomerController');
 
 Route::get('/users', 'UserController@index');
