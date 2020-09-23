@@ -26,8 +26,9 @@
                     Management</a>
             </li>
             <!-- CATEGORY FOR LOOP GOES HERE -->
-            <x-sidebarCategories/>
-            
+            <li>
+                <x-sidebarCategories/>
+            </li>
         </ul>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Costs
