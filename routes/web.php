@@ -32,7 +32,8 @@ Route::resource('customers', 'CustomerController');
 Route::get('/users', 'UserController@index');
 Route::resource('users', 'UserController');
 
-Route::get('/suppliers', 'SupplierController@index');
+Route::get('/suppliers', 'SupplierController@index')->name('suppliers');
+Route::get('/suppliers', 'SupplierController@edit')->name('suppliers');
 Route::resource('suppliers', 'SupplierController');
 
 Route::get('/materials', 'MaterialController@index')->name('materials');
