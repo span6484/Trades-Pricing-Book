@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Customer;
-use App\Discount;
+use App\PriceList;
+use App\Material;
+use App\SubCategory;
 
-class CustomerController extends Controller
+class PriceListController extends Controller
 {
     public function index()
     {
-        $pageHeading = 'Customers';
+        $pageHeading = 'Price List';
         $customers = Customer::all();
         $discounts = Discount::all();
   
