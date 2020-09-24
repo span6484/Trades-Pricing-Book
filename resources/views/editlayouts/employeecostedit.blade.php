@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group col-sm">
                     <label for="input">Other costs</label>
-                    <input type="email" class="form-control" id="inputEmail" name="employee_otherweeklycost"
+                    <input type="text" class="form-control" id="inputEmail" name="employee_otherweeklycost"
                         value="{{$employeeCosts->employee_otherweeklycost}}">
                 </div>
             </div>
@@ -63,7 +63,7 @@
                         value="{{$employeeCosts->employee_workercomp}}">
                 </div>
             </div>
-            @if ($employeeCost->employee_type == 'Sub-Contractor')
+            @if ($employeeCosts->employee_type == 'Sub-Contractor')
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label for="input">Cash</label>
@@ -71,6 +71,8 @@
                         value="{{$employeeCosts->employee_cash}}">
                 </div>
             </div>
+            @else
+            <input type="hidden" name="employee_cash" value="0">
             @endif
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Save">

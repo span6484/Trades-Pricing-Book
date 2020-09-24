@@ -42,6 +42,7 @@
                     <form method="post" action="{{ url('employeecosts') }}">
                         {{ csrf_field() }}
                         <input type="hidden" name="employee_type" value="Employee">
+                        <input type="hidden" name="employee_cash" value="0">
                         <div class="form-row border-bottom pb-2">
                             <div class="form-group col-md-6">
                                 <label for="input">Employee name</label>
@@ -200,16 +201,16 @@
                 @if ($employeeCost->employee_type == 'Employee')
                 <tr>
                     <td>{{$employeeCost->employee_name}}</td>
-                    <td>{{$employeeCost->employee_basehourly}}</td>
-                    <td>Weekly</td>
-                    <td>Yearly</td>
-                    <td>{{$employeeCost->employee_vehiclecost}}</td>
-                    <td>{{$employeeCost->employee_otherweeklycost}}</td>
-                    <td>{{$employeeCost->employee_phone}}</td>
-                    <td>Super</td>
-                    <td>{{$employeeCost->employee_workercomp}}</td>
-                    <td>Total Package</td>
-                    <td>Total Cost Less Super</td>
+                    <td>${{$employeeCost->employee_basehourly}}</td>
+                    <td>$Weekly</td>
+                    <td>$Yearly</td>
+                    <td>${{$employeeCost->employee_vehiclecost}}</td>
+                    <td>${{$employeeCost->employee_otherweeklycost}}</td>
+                    <td>${{$employeeCost->employee_phone}}</td>
+                    <td>$Super</td>
+                    <td>${{$employeeCost->employee_workercomp}}</td>
+                    <td>$Total Package</td>
+                    <td>$Total Cost Less Super</td>
                     <td><a href="{{action('CostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
@@ -317,7 +318,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Cash"
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" name="employee_cash" placeholder="Cash"
                                         value="0">
                                 </div>
                             </div>
