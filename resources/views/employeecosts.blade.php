@@ -232,7 +232,7 @@
                     <td>${{$employeeCost->employee_workercomp}}</td>
                     <td>$Total Package</td>
                     <td>$Total Cost Less Super</td>
-                    <td><a href="{{action('CostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
+                    <td><a href="{{action('EmployeeCostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
                 @endforeach
@@ -494,7 +494,7 @@
                     <td>$GST</td>
                     <td>$Total Inc GST</td>
                     <td>$Total Cost Less Super</td>
-                    <td><a href="{{action('CostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
+                    <td><a href="{{action('EmployeeCostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
                 @endforeach

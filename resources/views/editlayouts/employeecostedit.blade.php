@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-sm">
         <h3>Edit Employee Cost</h3>
-        <form method="post" action="{{action('CostController@update', $pk_employee_id)}}">
+        <form method="post" action="{{action('EmployeeCostController@update', $pk_employee_id)}}">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
             <div class="form-row">
