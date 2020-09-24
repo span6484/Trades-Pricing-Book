@@ -25,16 +25,19 @@ Route::get('/', function () {
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/customers', 'CustomerController@index');
+Route::get('/customers', 'CustomerController@index')->name('customers');
+Route::get('/customers', 'CustomerController@edit')->name('customers');
 Route::resource('customers', 'CustomerController');
 
 Route::get('/users', 'UserController@index');
 Route::resource('users', 'UserController');
 
-Route::get('/suppliers', 'SupplierController@index');
+Route::get('/suppliers', 'SupplierController@index')->name('suppliers');
+Route::get('/suppliers', 'SupplierController@edit')->name('suppliers');
 Route::resource('suppliers', 'SupplierController');
 
-Route::get('/materials', 'MaterialController@index');
+Route::get('/materials', 'MaterialController@index')->name('materials');
+Route::get('/materials', 'MaterialController@edit')->name('materials');
 Route::resource('materials', 'MaterialController');
 
 Route::get('/quoting', 'QuoteController@index');
@@ -45,13 +48,14 @@ Route::get('/grossmargin', 'GrossMarginController@index')->name('grossmargin');
 Route::get('/grossmargin', 'GrossMarginController@edit')->name('grossmargin');
 Route::resource('grossmargin', 'GrossMarginController');
 
-Route::get('/employeecosts', 'CostController@index')->name('employeecosts');
+Route::get('/employeecosts', 'EmployeeCostController@index')->name('employeecosts');
+Route::get('/employeecosts', 'EmployeeCostController@edit')->name('employeecosts');
 Route::resource('employeecosts', 'CostController');
 
 Route::get('/discounts', 'DiscountController@index')->name('discounts');
 Route::resource('discounts', 'DiscountController');
 
-Route::get('/companycosts', 'CostController@companyCosts')->name('companycosts');
+Route::get('/companycosts', 'CostController@index')->name('companycosts');
 Route::resource('companycosts', 'CompanyCostController');
 
 Route::get('/totalcosts', 'CostController@totalCosts')->name('totalcosts');

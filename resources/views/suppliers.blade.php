@@ -89,6 +89,7 @@
                     <th scope="col">Contact Name</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -98,6 +99,7 @@
                     <td>{{ $supplier->supplier_contactname }}</td>
                     <td>{{ $supplier->supplier_phone }}</td>
                     <td>{{ $supplier->supplier_email }}</td>
+                    <td><a href="{{action('SupplierController@edit', $supplier['pk_supplier_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

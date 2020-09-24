@@ -36,4 +36,32 @@ class MaterialController extends Controller
         $newMaterial->save();
         return back()->with('success', 'Material added');
     }
+
+    public function edit($pk_material_id)
+    {
+        $pageHeading = 'Materials';
+        $materials = Material::find($pk_material_id);
+        $suppliers = Supplier::all();
+
+        return view('editlayouts.materialedit', compact('materials', 'pk_material_id', 'pageHeading', 'suppliers'));
+    }
+
+    public function update(Request $request, $pk_material_id)
+    {
+
+        $this->validate($request, [
+            'material_description' => 'required',
+            'material_cost' => 'required',
+        ]);
+        
+        $materials = Material::find($pk_material_id);
+        $materials->material_itemcode = $request->get('material_itemcode');
+        $materials->material_description = $request->get('material_description');
+        $materials->material_cost = $request->get('material_cost');
+        $materials->fk_supplier_id = $request->get('fk_supplier_id');
+        $materials->save();
+
+        return redirect()->route('materials.index')->with('success', 'Material updated');
+    }
+
 }

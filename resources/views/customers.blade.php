@@ -78,7 +78,9 @@
                         <label for="input">Discount tier</label>
                             <select id="inputDiscount" name="customer_discount" class="form-control">
                                 @foreach($discounts as $discount)
-                                <option value="{{ $discount->pk_discount_id }}">{{ $discount->discount_name }}</option>
+                                <option value="{{ $discount->pk_discount_id }}">
+                                    {{ $discount->discount_name }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
@@ -104,6 +106,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Address</th>
                 <th scope="col">Discount</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -115,6 +118,7 @@
                 <td>{{ $customer->customer_email }}</td>
                 <td>{{ $customer->customer_address }}</td>
                 <td>{{ $customer->discount->discount_name }}</td>
+                <td><a href="{{action('CustomerController@edit', $customer['pk_customer_id'])}}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>

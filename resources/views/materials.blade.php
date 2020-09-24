@@ -43,37 +43,39 @@
                         {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group col-sm">
-                            <label for="input">Supplier item code</label>
+                                <label for="input">Supplier item code</label>
                                 <input type="text" class="form-control" id="itemCode" name="material_itemcode"
                                     placeholder="ELI-001">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
-                            <label for="input">Material description</label>
+                                <label for="input">Material description</label>
                                 <input type="text" class="form-control" id="materialDescription"
                                     name="material_description" placeholder="LED EMERGENCY oyster light">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
-                            <label for="input">Material Cost</label>
+                                <label for="input">Material Cost</label>
                                 <label class="sr-only" for="inlineFormInputGroup">Material cost</label>
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">$</div>
-                            </div>
-                            <input type="text" class="form-control" id="materialCost" name="material_cost"
-                                placeholder="0.00">
-                        </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="materialCost" name="material_cost"
+                                        placeholder="0.00">
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
-                            <label for="input">Select supplier</label>
+                                <label for="input">Select supplier</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="fk_supplier_id">
                                     @foreach($suppliers as $supplier)
-                                    <option value="{{ $supplier -> pk_supplier_id }}">{{ $supplier -> supplier_companyname }}</option>
+                                    <option value="{{ $supplier -> pk_supplier_id }}">
+                                        {{ $supplier -> supplier_companyname }}
+                                    </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -81,7 +83,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save Supplier</button>
+                    <button type="submit" class="btn btn-primary">Save Material</button>
                 </div>
                 </form>
             </div>
@@ -96,6 +98,7 @@
                     <th scope="col">Description</th>
                     <th scope="col">Material Cost</th>
                     <th scope="col">Supplier</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -105,6 +108,7 @@
                     <td>{{ $material->material_description }}</td>
                     <td>{{ $material->material_cost }}</td>
                     <td>{{ $material->suppliers->supplier_companyname }}</td>
+                    <td><a href="{{action('MaterialController@edit', $material['pk_material_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

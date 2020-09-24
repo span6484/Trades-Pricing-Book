@@ -33,4 +33,30 @@ class SupplierController extends Controller
         return back()->with('success', 'Supplier added');
     }
 
+    public function edit($pk_supplier_id)
+    {
+        $pageHeading = 'Suppliers';
+        $suppliers = Supplier::find($pk_supplier_id);
+
+
+        return view('editlayouts.supplieredit', compact('suppliers', 'pk_supplier_id', 'pageHeading'));
+    }
+
+    public function update(Request $request, $pk_supplier_id)
+    {
+
+        $this->validate($request, [
+            'supplier_companyname' => 'required',
+        ]);
+        
+        $suppliers = Supplier::find($pk_supplier_id);
+        $suppliers->supplier_companyname = $request->get('supplier_companyname');
+        $suppliers->supplier_contactname = $request->get('supplier_contactname');
+        $suppliers->supplier_phone = $request->get('supplier_phone');
+        $suppliers->supplier_email = $request->get('supplier_email');
+        $suppliers->save();
+
+        return redirect()->route('suppliers.index')->with('success', 'Supplier updated');
+    }
+
 }
