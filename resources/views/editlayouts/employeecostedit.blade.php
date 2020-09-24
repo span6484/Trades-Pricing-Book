@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Customers')
+@section('title', 'Employee Costs')
 
 @section('content')
 <div>
@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-sm">
         <h3>Edit Employee Cost</h3>
-        <form method="post" action="{{action('CostController@update', $pk_employee_id)}}">
+        <form method="post" action="{{action('EmployeeCostController@update', $pk_employee_id)}}">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
             <div class="form-row">
@@ -37,6 +37,21 @@
                         value="{{$employeeCosts->employee_basehourly}}">
                 </div>
             </div>
+            <div class="form-row border-bottom pb-2">
+                            <div class="form-group col-md-6">
+                                <label for="input">Hours per week</label>
+                                <input type="text" class="form-control" id="hoursPerWeek" name="employee_hoursperweek"
+                                    value="{{$employeeCosts->employee_hoursperweek}}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="input">Weeks per year</label>
+                                
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" id="weeksPerYear"
+                                        name="employee_weeksperyear" value="{{$employeeCosts->employee_weeksperyear}}">
+                                </div>
+                            </div>
+                        </div>
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label for="input">Vehicle</label>

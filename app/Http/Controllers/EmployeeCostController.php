@@ -26,6 +26,8 @@ class EmployeeCostController extends Controller
         $newEmployee = new EmployeeCost([
             'employee_name' => $request->get('employee_name'),
             'employee_basehourly'=> $request->get('employee_basehourly'),
+            'employee_hoursperweek' => $request->get('employee_hoursperweek'),
+            'employee_weeksperyear' => $request->get('employee_weeksperyear'),
             'employee_vehiclecost' => $request->get('employee_vehiclecost'),
             'employee_otherweeklycost' => $request->get('employee_otherweeklycost'),
             'employee_phone' => $request->get('employee_phone'),
@@ -55,6 +57,8 @@ class EmployeeCostController extends Controller
         $employeeCosts = EmployeeCost::find($pk_employee_id);
         $employeeCosts->employee_name = $request->get('employee_name');
         $employeeCosts->employee_basehourly = $request->get('employee_basehourly');
+        $employeeCosts->employee_hoursperweek = $request->get('employee_hoursperweek');
+        $employeeCosts->employee_weeksperyear = $request->get('employee_weeksperyear');
         $employeeCosts->employee_vehiclecost = $request->get('employee_vehiclecost');
         $employeeCosts->employee_otherweeklycost = $request->get('employee_otherweeklycost');
         $employeeCosts->employee_phone = $request->get('employee_phone');
