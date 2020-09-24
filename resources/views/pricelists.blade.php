@@ -72,9 +72,9 @@
                             <div class="form-group col-sm">
                                 <label for="input">Select supplier</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="fk_supplier_id">
-                                    @foreach($suppliers as $supplier)
-                                    <option value="{{ $supplier -> pk_supplier_id }}">
-                                        {{ $supplier -> supplier_companyname }}
+                                    @foreach($subCategories as $subCategory)
+                                    <option value="{{ $subCategory -> pk_subcategory_id }}">
+                                        {{ $subCategory -> subcategory_name }}
                                     </option>
                                     @endforeach
                                 </select>

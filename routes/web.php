@@ -69,3 +69,7 @@ Route::resource('subcategories', 'SubCategoryController');
 
 Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
 Route::resource('quoteterms', 'QuoteTermsController');
+
+Route::get('/pricelists', 'PriceListController@index')->name('pricelists');
+Route::get('/pricelists', 'PriceListController@edit')->name('pricelists');
+Route::resource('pricelists', 'PriceListController');
