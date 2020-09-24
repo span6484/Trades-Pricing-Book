@@ -53,6 +53,7 @@ Route::get('/employeecosts', 'EmployeeCostController@edit')->name('employeecosts
 Route::resource('employeecosts', 'EmployeeCostController');
 
 Route::get('/discounts', 'DiscountController@index')->name('discounts');
+Route::get('/discounts', 'DiscountController@edit')->name('discounts');
 Route::resource('discounts', 'DiscountController');
 
 Route::get('/companycosts', 'CostController@index')->name('companycosts');

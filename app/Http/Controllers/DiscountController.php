@@ -30,7 +30,6 @@ class DiscountController extends Controller
 
     public function store(Request $request)
     {
-        //
         $this->validate($request,[
             'discount_name' => 'required',
         ]);
@@ -44,4 +43,28 @@ class DiscountController extends Controller
         $newDiscount->save();
         return back()->with('success', 'Discount added');    
     }
+
+    public function edit($pk_discount_id)
+    {
+        $pageHeading = 'Discounts';
+        $discounts = Discount::find($pk_discount_id);
+
+        return view('editlayouts.discountedit', compact('discounts', 'pk_discount_id', 'pageHeading'));
+    }
+
+    public function update(Request $request, $pk_discount_id)
+    {
+
+        $this->validate($request,[
+            'discount_name' => 'required',
+        ]);
+        
+        $discounts = Discount::find($pk_discount_id);
+        $discounts->discount_name = $request->get('discount_name');
+        $discounts->discount_rate = $request->get('discount_rate');
+        $discounts->save();
+
+        return redirect()->route('discounts.index')->with('success', 'Discount updated');
+    }
+
 }

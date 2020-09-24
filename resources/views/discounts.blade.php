@@ -73,14 +73,16 @@
             <thead>
                 <tr>
                     <th scope="col">Discount Name</th>
-                    <th scope="col">Discount Rate</th>
+                    <th scope="col">Discount Rate %</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($discounts as $disCount)
+                @foreach($discounts as $discount)
                 <tr>
-                    <td>{{ $disCount->discount_name }}</td>
-                    <td>{{ $disCount->discount_rate }}</td>
+                    <td>{{ $discount->discount_name }}</td>
+                    <td>{{ $discount->discount_rate }}</td>
+                    <td><a href="{{action('DiscountController@edit', $discount['pk_discount_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>
