@@ -4,24 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EmployeeCost;
-use App\Discount;
 
-class CostController extends Controller
+class EmployeeCostController extends Controller
 {
-       public function grossMargin()
-    {
-        $pageHeading = 'Gross Margin';
-        $uncollapsed = 'true';
-
-        return view('grossmargin', compact('pageHeading', 'uncollapsed'));
-    }
-
-    public function totalCosts()
-    {
-        $pageHeading = 'Total Business Costs';
-
-        return view('totalcosts', compact('pageHeading'));
-    }
 
     public function index()
     {
@@ -32,15 +17,8 @@ class CostController extends Controller
         return view('employeecosts', compact('pageHeading', 'employeeCosts'));
     }
 
-    public function companyCosts()
-    {
-        $pageHeading = 'Company Costs';
-
-        return view('companycosts', compact('pageHeading'));
-    }
-
     public function store(Request $request)
-    {
+        {
         $this->validate($request, [
             'employee_name' => 'required'
         ]);
@@ -86,5 +64,4 @@ class CostController extends Controller
 
         return redirect()->route('employeecosts.index')->with('success', 'Employee cost updated');
     }
-
 }

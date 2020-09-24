@@ -75,6 +75,7 @@
                 <tr>
                     <th scope="col">Expense Name</th>
                     <th scope="col">Yearly Cost</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -82,6 +83,7 @@
                 <tr>
                     <td>{{$companyCost->companycost_name}}</td>
                     <td>{{$companyCost->companycost_yearly}}</td>
+                    
                 </tr>
                 @endforeach
             </tbody>
