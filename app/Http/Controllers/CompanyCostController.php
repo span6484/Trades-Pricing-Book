@@ -61,4 +61,11 @@ class CompanyCostController extends Controller
         return redirect()->route('companycosts.index')->with('success', 'Company cost updated');
     }
 
+    public function totalCosts()
+    {
+        $pageHeading = 'Total Business Costs';
+
+        return view('totalcosts', compact('pageHeading'));
+    }
+
 }
