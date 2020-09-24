@@ -12,6 +12,8 @@ class EmployeeCost extends Model
     protected $fillable = [
             'employee_name', 
             'employee_basehourly',
+            'employee_hoursperweek',
+            'employee_weeksperyear',
             'employee_vehiclecost',
             'employee_otherweeklycost',
             'employee_cash',
