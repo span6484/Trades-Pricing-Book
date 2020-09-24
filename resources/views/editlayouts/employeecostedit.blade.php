@@ -37,6 +37,21 @@
                         value="{{$employeeCosts->employee_basehourly}}">
                 </div>
             </div>
+            <div class="form-row border-bottom pb-2">
+                            <div class="form-group col-md-6">
+                                <label for="input">Hours per week</label>
+                                <input type="text" class="form-control" id="hoursPerWeek" name="employee_hoursperweek"
+                                    value="{{$employeeCosts->employee_hoursperweek}}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="input">Weeks per year</label>
+                                
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" id="weeksPerYear"
+                                        name="employee_weeksperyear" value="{{$employeeCosts->employee_weeksperyear}}">
+                                </div>
+                            </div>
+                        </div>
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label for="input">Vehicle</label>
