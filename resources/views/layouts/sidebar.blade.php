@@ -3,12 +3,12 @@
         <img src="/images/Xceed_logo_small_01-copy1.png" class="img-fluid" width="200px" alt="Responsive image">
     </div>
     <div class="list-group list-group-flush">
-        <a href="{{ 'dashboard' }}" class="list-group-item list-group-item-action bg-light  border-0">Dashboard</a>
+        <a href="/{{ 'dashboard' }}" class="list-group-item list-group-item-action bg-light  border-0">Dashboard</a>
         <a href="#quotesSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Quotes</a>
         <ul class="collapse list-unstyled border-0 small" id="quotesSubmenu">
             <li>
-                <a href="{{ 'quoting' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0">Create
+                <a href="/{{ 'quoting' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0">Create
                     Quote</a>
             </li>
             <li>
@@ -35,27 +35,27 @@
             & Expenses</a>
         <ul class="collapse list-unstyled border-0 small" id="costsSubmenu">
             <li>
-                <a href="{{ 'grossmargin' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Gross
+                <a href="/{{ 'grossmargin' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Gross
                     Margin</a>
             </li>
             <li>
-                <a href="{{ 'totalcosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Total
+                <a href="/{{ 'totalcosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Total
                     Business & Employee Costs</a>
             </li>
             <li>
-                <a href="{{ 'employeecosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Employee
+                <a href="/{{ 'employeecosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Employee
                     Costs</a>
             </li>
             <li>
-                <a href="{{ 'companycosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Company
+                <a href="/{{ 'companycosts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Company
                     Costs</a>
             </li>
             <li>
-                <a href="{{ 'discounts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Discounts</a>
+                <a href="/{{ 'discounts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Discounts</a>
             </li>
         </ul>
-        <a href="{{ 'customers' }}" class="list-group-item list-group-item-action bg-light border-0">Customers</a>
-        <a href="{{ 'materials' }}" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
-        <a href="{{ 'suppliers' }}" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
+        <a href="/{{ 'customers' }}" class="list-group-item list-group-item-action bg-light border-0">Customers</a>
+        <a href="/{{ 'materials' }}" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
+        <a href="/{{ 'suppliers' }}" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
     </div>
 </div>

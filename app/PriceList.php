@@ -22,12 +22,12 @@ class PriceList extends Model
         'item_archived' => 0
         ];   
 
-    public function subCategories()
+    public function subCategory()
     {
         return $this->belongsTo('App\SubCategory', 'fk_subcategory_id', 'pk_subcategory_id');
     }
 
-    public function materials()
+    public function material()
     {
         return $this->belongsTo('App\Material', 'fk_material_id', 'pk_material_id');
     }

@@ -77,16 +77,15 @@
                             <div class="form-group col-sm">
                                 <label for="input">Job description</label>
                                     <input type="text" class="form-control" id="item_description" name="item_description"
-                                        placeholder="0.00">
+                                        placeholder="E.g. Attend, supply and install..">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Select material</label>
                                 <select class="form-control" id="fk_material_id" name="fk_material_id">
-                                    <option selected>Choose one</option>
                                     @foreach($materials as $material)
-                                    <option value="{{ $material -> pk_material_id }}">
+                                    <option selected value="{{ $material -> pk_material_id }}">
                                         {{ $material -> material_description}}
                                     </option>
                                     @endforeach
@@ -151,6 +150,10 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($subCategories as $subCategory)
+                @php
+                $priceLists = $subCategory->priceLists;
+                @endphp
                 @foreach($priceLists as $priceList)
                 <tr>
                     <td>{{ $priceList->item_number }}</td>
@@ -158,10 +161,11 @@
                     <td>{{ $priceList->subCategory->subcategory_name }}</td>
                     <td>{{ $priceList->item_description }}</td>
                     <td>{{ $priceList->material->material_description }}</td>
-                    <td>{{ $priceList->item_estimatedttime }}</td>
+                    <td>{{ $priceList->item_estimatedtime }}</td>
                     <td>{{ $priceList->item_servicecall }}</td>
                     <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
                 </tr>
+                @endforeach
                 @endforeach
             </tbody>
         </table>
