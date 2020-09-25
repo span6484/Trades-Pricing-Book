@@ -60,7 +60,7 @@
                         @if ($supplier->pk_supplier_id == $materials->fk_supplier_id)
                         <option value="{{$supplier->pk_supplier_id}}" selected>{{$supplier->supplier_companyname}}</option>
                         @else
-                        <option value="{{$supplier->pk_supplier_id}}">{{ $supplier->supplier_companyname }}</option>
+                        <option value="{{$supplier->pk_supplier_id}}">{{$supplier->supplier_companyname}}</option>
                         @endif
                         @endforeach
                     </select>
