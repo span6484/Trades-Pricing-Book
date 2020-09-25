@@ -221,7 +221,6 @@
                     <td>{{$employeeCost->employee_name}}</td>
 
                     <td>${{$employeeCost->employee_basehourly}}</td>
-                    <!-- here -->
                     <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly}}</td>
                     <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
                     <td>{{$employeeCost->employee_hoursperweek}}</td>
@@ -229,10 +228,10 @@
                     <td>${{$employeeCost->employee_vehiclecost}}</td>
                     <td>${{$employeeCost->employee_otherweeklycost}}</td>
                     <td>${{$employeeCost->employee_phone}}</td>
-                    <td>$Super</td>
+                    <td>${{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
                     <td>${{$employeeCost->employee_workercomp}}</td>
-                    <td>$Total Package</td>
-                    <td>$Total Cost Less Super</td>
+                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
+                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
                     <td><a href="{{action('EmployeeCostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
