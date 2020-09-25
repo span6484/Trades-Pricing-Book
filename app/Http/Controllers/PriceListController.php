@@ -23,11 +23,10 @@ class PriceListController extends Controller
     public function show($id="")
     {
         $pageHeading = 'Price List';
-
         $category = Category::find($id);
+        $materials = Material::all();
         $subCategories = $category->subCategories;
         $categoryName = $category->category_name;
-        $materials = Material::all();
   
         return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName'));
     }
