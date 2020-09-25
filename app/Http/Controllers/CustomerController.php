@@ -11,9 +11,7 @@ class CustomerController extends Controller
     public function index()
     {
         $pageHeading = 'Customers';
-
         $customers = Customer::all();
-
         $discounts = Discount::all();
   
         return view('customers', compact('pageHeading', 'customers', 'discounts'));

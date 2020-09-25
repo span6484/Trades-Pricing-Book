@@ -23,4 +23,9 @@ class Material extends Model
     {
         return $this->belongsTo('App\Supplier', 'fk_supplier_id', 'pk_supplier_id');
     }
+
+    public function priceLists()
+    {
+        return $this->hasMany('App\PriceList', 'fk_material_id', 'pk_material_id');
+    }
 }

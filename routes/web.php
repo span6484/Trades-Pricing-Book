@@ -56,10 +56,10 @@ Route::get('/discounts', 'DiscountController@index')->name('discounts');
 Route::get('/discounts', 'DiscountController@edit')->name('discounts');
 Route::resource('discounts', 'DiscountController');
 
-Route::get('/companycosts', 'CostController@index')->name('companycosts');
+Route::get('/totalcosts', 'CompanyCostController@totalCosts')->name('totalcosts');
+Route::get('/companycosts', 'CompanyCostController@index')->name('companycosts');
+Route::get('/companycosts', 'CompanyCostController@edit')->name('companycosts');
 Route::resource('companycosts', 'CompanyCostController');
-
-Route::get('/totalcosts', 'CostController@totalCosts')->name('totalcosts');
 
 Route::get('/categories', 'CategoryController@index');
 Route::resource('categories', 'CategoryController');
@@ -69,3 +69,7 @@ Route::resource('subcategories', 'SubCategoryController');
 
 Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
 Route::resource('quoteterms', 'QuoteTermsController');
+
+Route::get('/pricelists', 'PriceListController@index')->name('pricelists');
+Route::get('/pricelists', 'PriceListController@edit')->name('pricelists');
+Route::resource('pricelists', 'PriceListController');

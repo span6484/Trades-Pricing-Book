@@ -79,11 +79,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($companycosts as $companyCost)
+                @foreach($companyCosts as $companyCost)
                 <tr>
                     <td>{{$companyCost->companycost_name}}</td>
                     <td>{{$companyCost->companycost_yearly}}</td>
-                    
+                    <td><a href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>
