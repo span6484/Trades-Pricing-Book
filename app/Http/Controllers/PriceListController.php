@@ -30,9 +30,10 @@ class PriceListController extends Controller
             $category = Category::find($id);
         }
         $subCategories = $category->subCategories;
+        $categoryName = $category->category_name;
         $materials = Material::all();
   
-        return view('pricelists', compact('pageHeading', 'materials', 'subCategories'));
+        return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName'));
     }
 
     public function store(Request $request)
@@ -63,10 +64,12 @@ class PriceListController extends Controller
 
     public function edit($pk_item_id)
     {
-        $pageHeading = 'Company Costs';
+        $pageHeading = 'Price List';
         $priceLists = PriceList::find($pk_item_id);
+        $subCategories = SubCategory::all();
+        $materials = Material::all();
 
-        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading'));
+        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading', 'subCategories', 'materials'));
     }
 
     public function update(Request $request, $pk_item_id)
@@ -83,8 +86,13 @@ class PriceListController extends Controller
         ]);
         
         $priceLists = PriceList::find($pk_item_id);
-        $priceLists->companycost_name = $request->get('companycost_name');
-        $priceLists->companycost_yearly = $request->get('companycost_yearly');
+        $priceLists->item_number = $request->get('item_number');
+        $priceLists->item_jobtype = $request->get('item_jobtype');
+        $priceLists->fk_subcategory_id = $request->get('fk_subcategory_id');
+        $priceLists->item_description = $request->get('item_description');
+        $priceLists->fk_material_id = $request->get('fk_material_id');
+        $priceLists->item_estimatedtime = $request->get('item_estimatedtime');
+        $priceLists->item_servicecall = $request->get('item_servicecall');
         $priceLists->save();
 
         return redirect()->route('pricelists.index')->with('success', 'Product updated');
