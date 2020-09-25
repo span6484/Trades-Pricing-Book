@@ -150,6 +150,10 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($subCategories as $subCategory)
+                @php
+                $priceLists = $subCategory->priceLists;
+                @endphp
                 @foreach($priceLists as $priceList)
                 <tr>
                     <td>{{ $priceList->item_number }}</td>
@@ -161,6 +165,7 @@
                     <td>{{ $priceList->item_servicecall }}</td>
                     <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
                 </tr>
+                @endforeach
                 @endforeach
             </tbody>
         </table>

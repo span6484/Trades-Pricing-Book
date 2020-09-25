@@ -29,7 +29,7 @@
                 <div class="form-group col-sm">
                     <label for="input">Item #</label>
                     <input type="text" class="form-control" id="item_number" name="item_number"
-                        value="{{$priceLists->item_number}}">
+                        value="{{$priceList->item_number}}">
                 </div>
             </div>
             <div class="form-row">
@@ -49,16 +49,14 @@
                 <div class="form-group col-sm">
                     <label for="input">Job description</label>
                     <input type="text" class="form-control" id="inputCompany" name="item_description"
-                        value="{{$priceLists->item_description}}">
+                        value="{{$priceList->item_description}}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label for="input">Estimated time (h)</label>
                     <select id="item_estimatedtime" name="item_estimatedtime" class="form-control">
-                        @foreach($priceLists as $priceList)
                         <option value="{{$priceList->item_estimatedtime}}" selected>{{$priceList->item_estimatedtime}}</option>
-                        @endforeach
                         <option>0.00</option>
                         <option>0.17</option>
                         <option>0.25</option>
@@ -84,7 +82,7 @@
                             <div class="input-group-text">$</div>
                         </div>
                         <input type="text" class="form-control" id="item_servicecall" name="item_servicecall"
-                            value="{{$priceLists->item_servicecall}}">
+                            value="{{$priceList->item_servicecall}}">
                     </div>
                 </div>
             </div>

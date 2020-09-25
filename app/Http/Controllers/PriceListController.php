@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PriceList;
 use App\Material;
+use App\Category;
 use App\SubCategory;
 
 class PriceListController extends Controller
@@ -17,6 +18,21 @@ class PriceListController extends Controller
         $subCategories = SubCategory::all();
   
         return view('pricelists', compact('pageHeading', 'priceLists', 'materials', 'subCategories'));
+    }
+
+    public function show($id="")
+    {
+        $pageHeading = 'Price List';
+        if ($id=="")
+        {
+            // $category = Category::all();
+        } else {
+            $category = Category::find($id);
+        }
+        $subCategories = $category->subCategories;
+        $materials = Material::all();
+  
+        return view('pricelists', compact('pageHeading', 'materials', 'subCategories'));
     }
 
     public function store(Request $request)
