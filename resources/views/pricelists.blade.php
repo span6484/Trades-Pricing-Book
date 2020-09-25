@@ -77,16 +77,15 @@
                             <div class="form-group col-sm">
                                 <label for="input">Job description</label>
                                     <input type="text" class="form-control" id="item_description" name="item_description"
-                                        placeholder="0.00">
+                                        placeholder="E.g. Attend, supply and install..">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Select material</label>
                                 <select class="form-control" id="fk_material_id" name="fk_material_id">
-                                    <option selected>Choose one</option>
                                     @foreach($materials as $material)
-                                    <option value="{{ $material -> pk_material_id }}">
+                                    <option selected value="{{ $material -> pk_material_id }}">
                                         {{ $material -> material_description}}
                                     </option>
                                     @endforeach

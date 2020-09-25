@@ -57,9 +57,8 @@
                     <label for="input">Estimated time (h)</label>
                     <select id="item_estimatedtime" name="item_estimatedtime" class="form-control">
                         @foreach($priceLists as $priceList)
-                        @if ($priceList->item_estimatedtime == $priceList->item_estimatedtime)
                         <option value="{{$priceList->item_estimatedtime}}" selected>{{$priceList->item_estimatedtime}}</option>
-                        @else
+                        @endforeach
                         <option>0.00</option>
                         <option>0.17</option>
                         <option>0.25</option>
@@ -73,8 +72,6 @@
                         <option>0.92</option>
                         <option>1.00</option>
                         <option>1.25</option>
-                        @endif
-                        @endforeach
                     </select>
                 </div>
             </div>
