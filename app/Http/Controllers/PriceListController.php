@@ -23,15 +23,10 @@ class PriceListController extends Controller
     public function show($id="")
     {
         $pageHeading = 'Price List';
-        if ($id=="")
-        {
-            // $category = Category::all();
-        } else {
-            $category = Category::find($id);
-        }
+        $category = Category::find($id);
+        $materials = Material::all();
         $subCategories = $category->subCategories;
         $categoryName = $category->category_name;
-        $materials = Material::all();
   
         return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName'));
     }
@@ -95,7 +90,7 @@ class PriceListController extends Controller
         $priceLists->item_servicecall = $request->get('item_servicecall');
         $priceLists->save();
 
-        return redirect()->route('pricelists.index')->with('success', 'Product updated');
+        return redirect()->route('pricelists.show', $request->get('fk_subcategory_id'))->with('success', 'Product updated');
     }
     
 }

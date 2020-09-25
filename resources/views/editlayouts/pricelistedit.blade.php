@@ -50,11 +50,11 @@
                     <label for="input">Select subcategory</label>
                     <select class="form-control" id="fk_subcategory_id" name="fk_subcategory_id">
                         @foreach($subCategories as $subCategory)
-                        @if($subCategory->pk_subCategory_id == $priceLists->fk_subcategory_id)
-                        <option selected value="{{$subCategory->pk_subcategory_id}}">{{$subCategory->subcategory_name}}</option>
-                        @else
-                        <option value="{{$subCategory->pk_subcategory_id}}">{{$subCategory->subcategory_name}}</option>
-                        @endif
+                            @if($subCategory->pk_subcategory_id == $priceLists->fk_subcategory_id)
+                                <option selected value="{{$subCategory->pk_subcategory_id}}">{{$subCategory->subcategory_name}}</option>
+                            @else
+                                <option value="{{$subCategory->pk_subcategory_id}}">{{$subCategory->subcategory_name}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
