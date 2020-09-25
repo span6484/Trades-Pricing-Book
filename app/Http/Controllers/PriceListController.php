@@ -86,8 +86,13 @@ class PriceListController extends Controller
         ]);
         
         $priceLists = PriceList::find($pk_item_id);
-        $priceLists->companycost_name = $request->get('companycost_name');
-        $priceLists->companycost_yearly = $request->get('companycost_yearly');
+        $priceLists->item_number = $request->get('item_number');
+        $priceLists->item_jobtype = $request->get('item_jobtype');
+        $priceLists->fk_subcategory_id = $request->get('fk_subcategory_id');
+        $priceLists->item_description = $request->get('item_description');
+        $priceLists->fk_material_id = $request->get('fk_material_id');
+        $priceLists->item_estimatedtime = $request->get('item_estimatedtime');
+        $priceLists->item_servicecall = $request->get('item_servicecall');
         $priceLists->save();
 
         return redirect()->route('pricelists.index')->with('success', 'Product updated');
