@@ -158,7 +158,7 @@
                     <td>{{ $priceList->subCategory->subcategory_name }}</td>
                     <td>{{ $priceList->item_description }}</td>
                     <td>{{ $priceList->material->material_description }}</td>
-                    <td>{{ $priceList->item_estimatedttime }}</td>
+                    <td>{{ $priceList->item_estimatedtime }}</td>
                     <td>{{ $priceList->item_servicecall }}</td>
                     <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
                 </tr>
