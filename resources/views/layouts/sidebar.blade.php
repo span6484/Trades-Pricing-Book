@@ -22,7 +22,7 @@
             Lists</a>
         <ul class="collapse list-unstyled border-0 small" id="pricelistSubmenu">
             <li>
-                <a href="categories" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Category
+                <a href="/categories" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Category
                     Management</a>
             </li>
             <!-- CATEGORY FOR LOOP GOES HERE -->

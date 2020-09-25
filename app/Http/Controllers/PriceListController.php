@@ -30,9 +30,10 @@ class PriceListController extends Controller
             $category = Category::find($id);
         }
         $subCategories = $category->subCategories;
+        $categoryName = $category->category_name;
         $materials = Material::all();
   
-        return view('pricelists', compact('pageHeading', 'materials', 'subCategories'));
+        return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName'));
     }
 
     public function store(Request $request)
@@ -63,10 +64,11 @@ class PriceListController extends Controller
 
     public function edit($pk_item_id)
     {
-        $pageHeading = 'Company Costs';
+        $pageHeading = 'Price List';
         $priceLists = PriceList::find($pk_item_id);
+        $subCategories = SubCategory::all();
 
-        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading'));
+        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading', 'subCategories'));
     }
 
     public function update(Request $request, $pk_item_id)

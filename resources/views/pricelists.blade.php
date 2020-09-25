@@ -22,7 +22,8 @@
         </div>
         @endif
     </div>
-
+    
+    <h3 class="mb-4 float-left">{{$categoryName}}</h3>
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#itemModal">
         Add Product
     </button>
