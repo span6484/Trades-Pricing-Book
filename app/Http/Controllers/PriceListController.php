@@ -91,7 +91,7 @@ class PriceListController extends Controller
         $priceLists->item_servicecall = $request->get('item_servicecall');
         $priceLists->save();
 
-        return redirect()->route('pricelists.index')->with('success', 'Product updated');
+        return redirect()->route('pricelists.show', $request->get('fk_subcategory_id'))->with('success', 'Product updated');
     }
     
 }
