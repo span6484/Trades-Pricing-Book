@@ -29,7 +29,7 @@ class PriceList extends Model
 
     public function materials()
     {
-        return $this->belongsTo('App\Material', 'fk_subcategory_id', 'pk_subcategory_id');
+        return $this->belongsTo('App\Material', 'fk_material_id', 'pk_material_id');
     }
 
 }
