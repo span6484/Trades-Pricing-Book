@@ -64,8 +64,9 @@ class CompanyCostController extends Controller
     public function totalCosts()
     {
         $pageHeading = 'Total Business Costs';
+        $companyCosts = CompanyCost::all();
 
-        return view('totalcosts', compact('pageHeading'));
+        return view('totalcosts', compact('pageHeading', 'companyCosts'));
     }
 
 }
