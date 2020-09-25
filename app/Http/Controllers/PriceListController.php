@@ -23,12 +23,8 @@ class PriceListController extends Controller
     public function show($id="")
     {
         $pageHeading = 'Price List';
-        if ($id=="")
-        {
-            // $category = Category::all();
-        } else {
-            $category = Category::find($id);
-        }
+
+        $category = Category::find($id);
         $subCategories = $category->subCategories;
         $categoryName = $category->category_name;
         $materials = Material::all();
