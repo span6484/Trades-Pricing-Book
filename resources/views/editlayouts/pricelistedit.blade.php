@@ -50,8 +50,8 @@
                     <label for="input">Select subcategory</label>
                     <select class="form-control" id="fk_subcategory_id" name="fk_subcategory_id">
                         @foreach($subCategories as $subCategory)
-                        @if ($subCategory->pk_subCategory_id == $priceLists->fk_subcategory_id)
-                        <option value="{{$subCategory->pk_subcategory_id}}" selected>{{$subCategory->subcategory_name}}</option>
+                        @if($subCategory->pk_subCategory_id == $priceLists->fk_subcategory_id)
+                        <option selected value="{{$subCategory->pk_subcategory_id}}">{{$subCategory->subcategory_name}}</option>
                         @else
                         <option value="{{$subCategory->pk_subcategory_id}}">{{$subCategory->subcategory_name}}</option>
                         @endif
@@ -64,6 +64,20 @@
                     <label for="input">Job description</label>
                     <input type="text" class="form-control" id="inputCompany" name="item_description"
                         value="{{$priceLists->item_description}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Select material</label>
+                    <select class="form-control" id="fk_material_id" name="fk_material_id">
+                        @foreach($materials as $material)
+                        @if($material->pk_material_id == $priceLists->fk_material_id)
+                        <option selected value="{{$material->pk_material_id}}">{{$material->material_description}}</option>
+                        @else
+                        <option selected value="{{$material->pk_material_id}}">{{$material->material_description}}</option>
+                        @endif
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="form-row">

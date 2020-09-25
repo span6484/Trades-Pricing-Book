@@ -67,8 +67,9 @@ class PriceListController extends Controller
         $pageHeading = 'Price List';
         $priceLists = PriceList::find($pk_item_id);
         $subCategories = SubCategory::all();
+        $materials = Material::all();
 
-        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading', 'subCategories'));
+        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading', 'subCategories', 'materials'));
     }
 
     public function update(Request $request, $pk_item_id)
