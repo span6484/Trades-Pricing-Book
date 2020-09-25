@@ -221,8 +221,9 @@
                     <td>{{$employeeCost->employee_name}}</td>
 
                     <td>${{$employeeCost->employee_basehourly}}</td>
-                    <td>$Weekly</td>
-                    <td>$Yearly</td>
+                    <!-- here -->
+                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly}}</td>
+                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
                     <td>{{$employeeCost->employee_hoursperweek}}</td>
                     <td>{{$employeeCost->employee_weeksperyear}}</td>
                     <td>${{$employeeCost->employee_vehiclecost}}</td>
