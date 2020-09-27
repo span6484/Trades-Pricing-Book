@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     
     {
-        $pageHeading = 'Users';
+        $pageHeading = 'User Management';
 
         $users = User::all();
 

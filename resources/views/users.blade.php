@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Users')
+@section('title', 'User Management')
 
 @section('content')
 
@@ -44,21 +44,32 @@
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-sm">
+                        <label for="input">Username</label>
                             <input type="text" class="form-control" id="inputName" name="user_name"
                                 placeholder="Username">
                         </div>
                         <div class="form-group col-sm">
+                        <label for="input">Full name</label>
                             <input type="text" class="form-control" id="inputCompany" name="user_fullname"
                                 placeholder="Full Name">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm">
+                        <label for="input">Password</label>
                             <input type="password" class="form-control" id="inputPhone" name="user_password"
                                 placeholder="Password">
                         </div>
                     </div>
-
+                    <div class="form-row">
+                            <div class="form-group col-sm">
+                                <label for="input">User type</label>
+                                <select id="user_type" name="user_type" class="form-control">
+                                    <option value="standard" selected>Standard</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                        </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -75,7 +86,7 @@
             <tr>
                 <th scope="col">Username</th>
                 <th scope="col">Full Name</th>
-                <th scope="col">Password</th>
+                <th scope="col">Type</th>
             </tr>
         </thead>
         <tbody>
@@ -83,7 +94,7 @@
             <tr>
                 <td>{{ $user->user_name }}</td>
                 <td>{{ $user->user_firstlast }}</td>
-                <td>{{ $user->user_password }}</td>
+                <td>{{ $user->user_type }}</td>
             </tr>
             @endforeach
         </tbody>
