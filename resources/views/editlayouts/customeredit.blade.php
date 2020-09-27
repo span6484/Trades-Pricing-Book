@@ -74,7 +74,6 @@
                 <div class="form-group col-sm">
                     <label for="input">Archived</label>
                     <select id="customer_archived" name="customer_archived" class="form-control">
-
                         @if ($customers->customer_archived == 0)
                         <option value="0" selected>No</option>
                         <option value="1">Yes</option>
@@ -82,7 +81,6 @@
                         <option value="0">No</option>
                         <option value="1" selected>Yes</option>
                         @endif
-
                     </select>
                 </div>
             </div>
