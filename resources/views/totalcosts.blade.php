@@ -147,9 +147,9 @@
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td>${{round(($total/365)*7+($NonChargeableOfficeStaffWages/365)*7+$highestPaid/52+$highestPaid/52+$highestPaidApprentice/52+$SecondHighestPaidApprentice/52+$HighestPaidSubContractor/52+$SecondPaidSubContractor/52,2)}}</td>
+                    <td>${{round($total/12.935705 + $NonChargeableOfficeStaffWages/12.935705+$highestPaid/12+$highestPaid/12+$highestPaidApprentice/12+$SecondHighestPaidApprentice/12+$HighestPaidSubContractor/12+$SecondPaidSubContractor/12,2)}}</td>
+                    <td>${{round($total+$NonChargeableOfficeStaffWages+$highestPaid+$highestPaid+$highestPaidApprentice+$SecondHighestPaidApprentice+$HighestPaidSubContractor+$SecondPaidSubContractor,2)}}</td>
                     <td>${{round($total/365 + $NonChargeableOfficeStaffWages/365 + $highestPaid/365 + $highestPaid/365 + $highestPaidApprentice/365 + $SecondHighestPaidApprentice/365 + $HighestPaidSubContractor/365 + $SecondPaidSubContractor/365 + 0/365,2)}}</td>
                     <td>${{round($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8,2)}}</td>
                 </tr>
