@@ -28,6 +28,7 @@ class SupplierController extends Controller
             'supplier_contactname' => $request->get('supplier_contactname'),
             'supplier_phone' => $request->get('supplier_phone'),
             'supplier_email' => $request->get('supplier_email'),
+            'supplier_archived' => $request->get('supplier_archived')
         ]);
         $newSupplier->save();
         return back()->with('success', 'Supplier added');
@@ -54,6 +55,7 @@ class SupplierController extends Controller
         $suppliers->supplier_contactname = $request->get('supplier_contactname');
         $suppliers->supplier_phone = $request->get('supplier_phone');
         $suppliers->supplier_email = $request->get('supplier_email');
+        $suppliers->supplier_archived = $request->get('supplier_archived');
         $suppliers->save();
 
         return redirect()->route('suppliers.index')->with('success', 'Supplier updated');

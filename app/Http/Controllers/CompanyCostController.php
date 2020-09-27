@@ -15,7 +15,6 @@ class CompanyCostController extends Controller
     public function index()
     {
         $pageHeading = 'Company Costs';
-
         $companyCosts = CompanyCost::all();
   
         return view('companycosts', compact('pageHeading', 'companyCosts'));
@@ -56,6 +55,7 @@ class CompanyCostController extends Controller
         $companyCosts = CompanyCost::find($pk_companycost_id);
         $companyCosts->companycost_name = $request->get('companycost_name');
         $companyCosts->companycost_yearly = $request->get('companycost_yearly');
+        $companyCosts->companycost_archived = $request->get('companycost_archived');
         $companyCosts->save();
 
         return redirect()->route('companycosts.index')->with('success', 'Company cost updated');

@@ -110,7 +110,6 @@
                 @foreach($grossmargin as $grossmargin)
                 <tr>
                     <td>{{$grossmargin->gm_rate}}</td>
-                    <!-- <td><a data-toggle="modal" data-target="#gmModal">Edit</a></td> -->
                     <td><a href="{{action('GrossMarginController@edit', $grossmargin['pk_gm_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach

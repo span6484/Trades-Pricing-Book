@@ -11,10 +11,7 @@ class Discount extends Model
     protected $fillable = [
             'discount_name', 
             'discount_rate',
-        ];
-
-    protected $attributes = [
-        'discount_archived' => 0
+            'discount_archived'
         ];
 
     public function customers()

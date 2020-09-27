@@ -23,9 +23,18 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#materialModal">
+    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal" data-target="#materialModal">
         Add Material
     </button>
+
+    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="active" autocomplete="off" checked> Active
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="archived" autocomplete="off"> Archived
+        </label>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="materialModal" tabindex="-1" role="dialog" aria-labelledby="materialModalLabel"
@@ -41,6 +50,7 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('materials') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="material_archived" value="0">
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Supplier item code</label>
@@ -90,7 +100,8 @@
         </div>
     </div>
 
-    <div class='table-responsive'>
+    <div class='table-responsive' id="active_div">
+    <h3>Materials</h3>
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>
@@ -103,6 +114,7 @@
             </thead>
             <tbody>
                 @foreach($materials as $material)
+                @if($material->material_archived == '0')
                 <tr>
                     <td>{{ $material->material_itemcode }}</td>
                     <td>{{ $material->material_description }}</td>
@@ -110,10 +122,40 @@
                     <td>{{ $material->suppliers->supplier_companyname }}</td>
                     <td><a href="{{action('MaterialController@edit', $material['pk_material_id'])}}">Edit</a></td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    <div class='table-responsive' id="archived_div" style="display: none">
+    <h3>Archived Materials</h3>
+        <table class="table table-hover table-sm mt-1">
+            <thead>
+                <tr>
+                    <th scope="col">Item Code</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Material Cost</th>
+                    <th scope="col">Supplier</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($materials as $material)
+                @if($material->material_archived == '1')
+                <tr>
+                    <td>{{ $material->material_itemcode }}</td>
+                    <td>{{ $material->material_description }}</td>
+                    <td>{{ $material->material_cost }}</td>
+                    <td>{{ $material->suppliers->supplier_companyname }}</td>
+                    <td><a href="{{action('MaterialController@edit', $material['pk_material_id'])}}">Edit</a></td>
+                </tr>
+                @endif
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 @stop

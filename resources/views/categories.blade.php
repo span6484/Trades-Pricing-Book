@@ -26,7 +26,7 @@
 
 <div class=" p-3 mb-5 bg-white rounded border">
 <h3 class="mb-4 float-left">Categories</h3>
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#categoryModal">
+    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#categoryModal">
         Add Category
     </button>
 

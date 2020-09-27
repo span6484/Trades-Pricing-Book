@@ -33,7 +33,8 @@ class EmployeeCostController extends Controller
             'employee_phone' => $request->get('employee_phone'),
             'employee_workercomp' => $request->get('employee_workercomp'),
             'employee_cash' => $request->get('employee_cash'),
-            'employee_type' => $request->get('employee_type')
+            'employee_type' => $request->get('employee_type'),
+            'employee_archived' => $request->get('employee_arhived')
         ]);
 
         $newEmployee->save();
@@ -64,6 +65,7 @@ class EmployeeCostController extends Controller
         $employeeCosts->employee_phone = $request->get('employee_phone');
         $employeeCosts->employee_workercomp = $request->get('employee_workercomp');
         $employeeCosts->employee_cash = $request->get('employee_cash');
+        $employeeCosts->employee_archived = $request->get('employee_archived');
         $employeeCosts->save();
 
         return redirect()->route('employeecosts.index')->with('success', 'Employee cost updated');

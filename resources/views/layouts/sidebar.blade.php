@@ -30,6 +30,9 @@
                 <x-sidebarCategories/>
             </li>
         </ul>
+        <a href="/{{ 'customers' }}" class="list-group-item list-group-item-action bg-light border-0">Customers</a>
+        <a href="/{{ 'materials' }}" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
+        <a href="/{{ 'suppliers' }}" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Costs
             & Expenses</a>
@@ -54,8 +57,6 @@
                 <a href="/{{ 'discounts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Discounts</a>
             </li>
         </ul>
-        <a href="/{{ 'customers' }}" class="list-group-item list-group-item-action bg-light border-0">Customers</a>
-        <a href="/{{ 'materials' }}" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
-        <a href="/{{ 'suppliers' }}" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
+        <a href="/{{ 'users' }}" class="list-group-item list-group-item-action bg-light border-0">Users</a>
     </div>
 </div>

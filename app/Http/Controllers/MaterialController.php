@@ -32,6 +32,7 @@ class MaterialController extends Controller
             'material_description' => $request->get('material_description'),
             'material_cost' => $request->get('material_cost'),
             'fk_supplier_id' => $request->get('fk_supplier_id'),
+            'material_archived' => $request->get('material_archived')
         ]);
         $newMaterial->save();
         return back()->with('success', 'Material added');
@@ -59,6 +60,7 @@ class MaterialController extends Controller
         $materials->material_description = $request->get('material_description');
         $materials->material_cost = $request->get('material_cost');
         $materials->fk_supplier_id = $request->get('fk_supplier_id');
+        $materials->material_archived = $request->get('material_archived');
         $materials->save();
 
         return redirect()->route('materials.index')->with('success', 'Material updated');

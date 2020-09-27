@@ -48,7 +48,7 @@
                             <div class="input-group-text">$</div>
                         </div>
                         <input type="text" class="form-control" id="materialCost" name="material_cost"
-                        value="{{$materials->material_cost}}">
+                            value="{{$materials->material_cost}}">
                     </div>
                 </div>
             </div>
@@ -58,7 +58,8 @@
                     <select id="inputDiscount" name="fk_supplier_id" class="form-control">
                         @foreach($suppliers as $supplier)
                         @if ($supplier->pk_supplier_id == $materials->fk_supplier_id)
-                        <option value="{{$supplier->pk_supplier_id}}" selected>{{$supplier->supplier_companyname}}</option>
+                        <option value="{{$supplier->pk_supplier_id}}" selected>{{$supplier->supplier_companyname}}
+                        </option>
                         @else
                         <option value="{{$supplier->pk_supplier_id}}">{{$supplier->supplier_companyname}}</option>
                         @endif
@@ -66,7 +67,22 @@
                     </select>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Archived</label>
+                    <select id="material_archived" name="material_archived" class="form-control">
+                        @if ($materials->material_archived == 0)
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                        @else
+                        <option value="0">No</option>
+                        <option value="1" selected>Yes</option>
+                        @endif
+                    </select>
+                </div>
+            </div>
             <div class="form-group">
+                <a class="btn btn-secondary" href="{{url('/materials')}}">Cancel</a>
                 <input type="submit" class="btn btn-primary" value="Save">
             </div>
         </form>

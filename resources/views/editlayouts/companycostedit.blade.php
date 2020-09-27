@@ -37,7 +37,22 @@
                         value="{{$companyCosts->companycost_yearly}}">
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Archived</label>
+                    <select id="companycost_archived" name="companycost_archived" class="form-control">
+                        @if ($companyCosts->companycost_archived == 0)
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                        @else
+                        <option value="0">No</option>
+                        <option value="1" selected>Yes</option>
+                        @endif
+                    </select>
+                </div>
+            </div>
             <div class="form-group">
+                <a class="btn btn-secondary" href="{{url('/companycosts')}}">Cancel</a>
                 <input type="submit" class="btn btn-primary" value="Save">
             </div>
         </form>
