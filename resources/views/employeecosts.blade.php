@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal" data-target="#fullemployeeModal">
+    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#fullemployeeModal">
         Add Employee
     </button>
 

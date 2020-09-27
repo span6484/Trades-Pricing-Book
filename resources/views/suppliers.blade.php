@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal" data-target="#supplierModal">
+    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#supplierModal">
         Add Supplier
     </button>
 
@@ -92,6 +92,7 @@
     </div>
 
     <div class='table-responsive' id="active_div">
+        <h3>Suppliers</h3>
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>
@@ -119,6 +120,7 @@
     </div>
 
     <div class='table-responsive' id="archived_div" style="display: none">
+    <h3>Archived Suppliers</h3>
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>

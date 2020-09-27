@@ -62,6 +62,7 @@ class DiscountController extends Controller
         $discounts = Discount::find($pk_discount_id);
         $discounts->discount_name = $request->get('discount_name');
         $discounts->discount_rate = $request->get('discount_rate');
+        $discounts->discount_archived = $request->get('discount_archived');
         $discounts->save();
 
         return redirect()->route('discounts.index')->with('success', 'Discount updated');

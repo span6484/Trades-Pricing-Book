@@ -21,7 +21,7 @@
 </div>
 <div class="row">
     <div class="col-sm">
-        <h3>Edit Customer</h3>
+        <h3>Edit Discount</h3>
         <form method="post" action="{{action('DiscountController@update', $pk_discount_id)}}">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
@@ -35,6 +35,20 @@
                     <label for="input">Discount Rate %</label>
                     <input type="text" class="form-control" id="discount_rate" name="discount_rate"
                         value="{{$discounts->discount_rate}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Archived</label>
+                    <select id="discount_archived" name="discount_archived" class="form-control">
+                        @if ($discounts->discount_archived == 0)
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                        @else
+                        <option value="0">No</option>
+                        <option value="1" selected>Yes</option>
+                        @endif
+                    </select>
                 </div>
             </div>
             <div class="form-group">

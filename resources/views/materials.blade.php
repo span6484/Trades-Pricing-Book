@@ -101,6 +101,7 @@
     </div>
 
     <div class='table-responsive' id="active_div">
+    <h3>Materials</h3>
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>
@@ -128,6 +129,7 @@
     </div>
 
     <div class='table-responsive' id="archived_div" style="display: none">
+    <h3>Archived Materials</h3>
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>

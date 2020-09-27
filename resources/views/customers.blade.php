@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal" data-target="#customerModal">
+    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#customerModal">
         Add Customer
     </button>
 
@@ -35,7 +35,6 @@
             <input type="radio" name="options" id="archived" autocomplete="off"> Archived
         </label>
     </div>
-
 
     <!-- Modal -->
     <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel"
@@ -107,7 +106,7 @@
     </div>
 
     <div class='table-responsive' id="active_div">
-        <h3>Active Customers</h3>
+        <h3>Customers</h3>
         <table id="customer_active_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
