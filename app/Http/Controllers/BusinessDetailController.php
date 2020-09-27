@@ -27,7 +27,13 @@ class BusinessDetailController extends Controller
     {
 
         $this->validate($request,[
-                    'customer_name' => 'required',
+                    'businessdetail_name' => 'required',
+                    'businessdetail_addressline1' => 'required',
+                    'businessdetail_addressline2' => 'required',
+                    'businessdetail_phone' => 'required',
+                    'businessdetail_email' => 'required',
+                    'businessdetail_website' => 'required',
+                    'businessdetail_archived' => 'required',
                 ]);
         
         $businessDetails = BusinessDetail::find($pk_businessdetail_id);

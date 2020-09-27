@@ -40,12 +40,13 @@
             <tbody>
                 @foreach($businessDetails as $businessDetail)
                 <tr>
-                    <td>{{ $businessDetail->customer_name }}</td>
-                    <td>{{ $businessDetail->customer_company }}</td>
-                    <td>{{ $businessDetail->customer_phone }}</td>
-                    <td>{{ $businessDetail->customer_email }}</td>
-                    <td>{{ $businessDetail->customer_address }}</td>
-                    <td>{{ $businessDetail->discount->discount_name }}</td>
+                    <td>{{ $businessDetail->businessdetail_name }}</td>
+                    <td>{{ $businessDetail->businessdetail_addressline1 }}</td>
+                    <td>{{ $businessDetail->businessdetail_addressline2 }}</td>
+                    <td>{{ $businessDetail->businessdetail_phone }}</td>
+                    <td>{{ $businessDetail->businessdetail_fax }}</td>
+                    <td>{{ $businessDetail->businessdetail_email }}</td>
+                    <td>{{ $businessDetail->businessdetail_website }}</td>
                     <td><a href="{{action('BusinessDetailController@edit', $businessDetail['pk_businessdetail_id'])}}">Edit</a></td>
                 </tr>
                 @endforeach
