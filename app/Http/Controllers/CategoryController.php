@@ -26,6 +26,7 @@ class CategoryController extends Controller
 
         $newCategory = new Category([
             'category_name' => $request->get('category_name'),
+            'category_archived' => $request->get('category_archived')
         ]);
         
         $newCategory->save();
@@ -41,6 +42,28 @@ class CategoryController extends Controller
         $pageHeading = 'Category Management';
   
         return view('categories', compact('pageHeading', 'categories', 'subcategories'));
+    }
+
+    public function edit($pk_category_id)
+    {
+        $pageHeading = 'Edit Category';
+        $categories = Category::find($pk_category_id);
+
+        return view('editlayouts.categoryedit', compact('categories', 'pk_category_id', 'pageHeading'));
+    }
+
+    public function update(Request $request, $pk_category_id)
+    {
+        $this->validate($request, [
+            'category_name' => 'required'
+        ]);
+
+        $categories = Category::find($pk_category_id);
+        $categories->category_name = $request->get('category_name');
+        $categories->category_archived = $request->get('category_archived');
+        $categories->save();
+
+        return redirect()->route('categories.index')->with('success', 'Category updated');
     }
 
 }

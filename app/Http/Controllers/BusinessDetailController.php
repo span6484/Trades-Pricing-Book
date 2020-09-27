@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\BusinessDetail;
 
-class AdminController extends Controller
+class BusinessDetailController extends Controller
 {
        public function index()
     {
-        $pageHeading = 'Admin Panel';
+        $pageHeading = 'Business Details';
 
         return view('admin', compact('pageHeading'));
     }
