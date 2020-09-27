@@ -30,6 +30,7 @@ class CustomerController extends Controller
             'customer_email' => $request->get('customer_email'),
             'customer_address' => $request->get('customer_address'),
             'fk_discount_id' => $request->get('customer_discount'),
+            'customer_archived' => $request->get('customer_archived')
         ]);
         
         $newCustomer->save();
@@ -59,6 +60,7 @@ class CustomerController extends Controller
         $customers->customer_email = $request->get('customer_email');
         $customers->customer_address = $request->get('customer_address');
         $customers->fk_discount_id = $request->get('customer_discount');
+        $customers->customer_archived = $request->get('customer_archived');
         $customers->save();
 
         return redirect()->route('customers.index')->with('success', 'Customer updated');

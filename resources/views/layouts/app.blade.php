@@ -59,6 +59,24 @@
     });
   </script>
 
+  <!-- Archived toggle script -->
+  <script>
+    document.getElementById("active").addEventListener("click", function () {
+      var active = document.getElementById("active_div");
+      var archived = document.getElementById("archived_div");
+      active.style.display = "block";
+      archived.style.display = "none";
+    })
+  </script>
+  <script>
+    document.getElementById("archived").addEventListener("click", function () {
+      var archived = document.getElementById("archived_div");
+      var active = document.getElementById("active_div");
+      archived.style.display = "block";
+      active.style.display = "none";
+    })
+  </script>
+
 </body>
 
 </html>
