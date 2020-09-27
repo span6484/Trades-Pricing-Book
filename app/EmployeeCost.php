@@ -19,10 +19,8 @@ class EmployeeCost extends Model
             'employee_cash',
             'employee_phone',
             'employee_workercomp',
-            'employee_type'
+            'employee_type',
+            'employee_archived'
         ];
 
-    protected $attributes = [
-        'employee_archived' => 0
-        ];
 }
