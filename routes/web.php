@@ -75,3 +75,7 @@ Route::resource('quoteterms', 'QuoteTermsController');
 Route::get('/pricelists', 'PriceListController@index')->name('pricelists');
 Route::get('/pricelists', 'PriceListController@edit')->name('pricelists');
 Route::resource('pricelists', 'PriceListController');
+
+Route::get('/businessdetails', 'BusinessDetailController@index')->name('businessdetails');
+Route::get('/businessdetails', 'BusinessDetailController@edit')->name('businessdetails');
+Route::resource('businessdetails', 'BusinessDetailController');
