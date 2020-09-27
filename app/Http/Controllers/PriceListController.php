@@ -44,13 +44,14 @@ class PriceListController extends Controller
         ]);
 
         $priceLists = new PriceList([
-            'item_number'  => $request->get('item_number'),
-            'item_jobtype'  => $request->get('item_jobtype'),
+            'item_number' => $request->get('item_number'),
+            'item_jobtype' => $request->get('item_jobtype'),
             'fk_subcategory_id'	=> $request->get('fk_subcategory_id'),
-            'item_description'  => $request->get('item_description'),
-            'fk_material_id'  => $request->get('fk_material_id'),
-            'item_estimatedtime'  => $request->get('item_estimatedtime'),
-            'item_servicecall'  => $request->get('item_servicecall'),
+            'item_description' => $request->get('item_description'),
+            'fk_material_id' => $request->get('fk_material_id'),
+            'item_estimatedtime' => $request->get('item_estimatedtime'),
+            'item_servicecall' => $request->get('item_servicecall'),
+            'item_archived' => $request->get('item_archived')
         ]);
 
         $priceLists->save();
@@ -88,6 +89,7 @@ class PriceListController extends Controller
         $priceLists->fk_material_id = $request->get('fk_material_id');
         $priceLists->item_estimatedtime = $request->get('item_estimatedtime');
         $priceLists->item_servicecall = $request->get('item_servicecall');
+        $priceLists->item_archived = $request->get('item_archived');
         $priceLists->save();
 
         return redirect()->route('pricelists.show', $request->get('fk_subcategory_id'))->with('success', 'Product updated');

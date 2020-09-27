@@ -16,11 +16,8 @@ class PriceList extends Model
         'fk_material_id',
         'item_estimatedtime',
         'item_servicecall',
-    ];
-
-    protected $attributes = [
-        'item_archived' => 0
-        ];   
+        'item_archived'
+    ]; 
 
     public function subCategory()
     {

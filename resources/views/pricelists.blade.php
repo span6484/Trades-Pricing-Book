@@ -24,9 +24,18 @@
     </div>
 
     <h3 class="mb-4 float-left">{{$categoryName}}</h3>
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#itemModal">
+    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#itemModal">
         Add Product
     </button>
+
+    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="active" autocomplete="off" checked> Active
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="archived" autocomplete="off"> Archived
+        </label>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel"
@@ -42,6 +51,7 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('pricelists') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="item_archived" value="0">
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Item #</label>
@@ -136,7 +146,7 @@
         </div>
     </div>
 
-    <div class='table-responsive'>
+    <div class='table-responsive' id="active_div">
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>
@@ -153,6 +163,7 @@
             <tbody>
                 @foreach($subCategories as $subCategory)
                     @foreach($subCategory->priceLists as $priceList)
+                    @if($priceList->item_archived == '0')
                     <tr>
                         <td>{{ $priceList->item_number }}</td>
                         <td>{{ $priceList->item_jobtype }}</td>
@@ -163,11 +174,48 @@
                         <td>{{ $priceList->item_servicecall }}</td>
                         <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
                     </tr>
+                    @endif
                     @endforeach
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    <div class='table-responsive' id="archived_div" style="display: none">
+        <table class="table table-hover table-sm mt-1">
+            <thead>
+                <tr>
+                    <th scope="col">Item #</th>
+                    <th scope="col">Job Type</th>
+                    <th scope="col">Sub-Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Materials</th>
+                    <th scope="col">Estimated Time</th>
+                    <th scope="col">Service Call</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($subCategories as $subCategory)
+                    @foreach($subCategory->priceLists as $priceList)
+                    @if($priceList->item_archived == '1')
+                    <tr>
+                        <td>{{ $priceList->item_number }}</td>
+                        <td>{{ $priceList->item_jobtype }}</td>
+                        <td>{{ $priceList->subCategory->subcategory_name }}</td>
+                        <td>{{ $priceList->item_description }}</td>
+                        <td>{{ $priceList->material->material_description }}</td>
+                        <td>{{ $priceList->item_estimatedtime }}</td>
+                        <td>{{ $priceList->item_servicecall }}</td>
+                        <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
+                    </tr>
+                    @endif
+                    @endforeach
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 @stop
