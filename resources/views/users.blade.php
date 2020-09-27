@@ -23,9 +23,18 @@
     @endif
 </div>
 
-<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#userModal">
+<button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#userModal">
     Add User
 </button>
+
+<div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="active" autocomplete="off" checked> Active
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="archived" autocomplete="off"> Archived
+        </label>
+    </div>
 
 <!-- Modal -->
 <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
@@ -42,6 +51,7 @@
 
                 <form method="post" action="{{ url('users') }}">
                     {{ csrf_field() }}
+                    <input type="hidden" name="user_archived" value="0">
                     <div class="form-row">
                         <div class="form-group col-sm">
                         <label for="input">Username</label>
@@ -50,7 +60,7 @@
                         </div>
                         <div class="form-group col-sm">
                         <label for="input">Full name</label>
-                            <input type="text" class="form-control" id="inputCompany" name="user_fullname"
+                            <input type="text" class="form-control" id="inputCompany" name="user_firstlast"
                                 placeholder="Full Name">
                         </div>
                     </div>
@@ -80,26 +90,56 @@
     </div>
 </div>
 
-<div class='table-responsive'>
+<div class='table-responsive' id="active_div">
     <table class="table table-hover table-sm mt-1">
         <thead>
             <tr>
                 <th scope="col">Username</th>
                 <th scope="col">Full Name</th>
                 <th scope="col">Type</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
             @foreach($users as $user)
+            @if($user->user_archived == '0')
             <tr>
                 <td>{{ $user->user_name }}</td>
                 <td>{{ $user->user_firstlast }}</td>
                 <td>{{ $user->user_type }}</td>
+                <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
             </tr>
+            @endif
             @endforeach
         </tbody>
     </table>
 </div>
+
+<div class='table-responsive' id="archived_div" style="display: none;">
+    <table class="table table-hover table-sm mt-1">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($users as $user)
+            @if($user->user_archived == '1')
+            <tr>
+                <td>{{ $user->user_name }}</td>
+                <td>{{ $user->user_firstlast }}</td>
+                <td>{{ $user->user_type }}</td>
+                <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
 </div>
 
 @stop
