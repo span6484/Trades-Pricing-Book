@@ -61,10 +61,12 @@ Route::get('/companycosts', 'CompanyCostController@index')->name('companycosts')
 Route::get('/companycosts', 'CompanyCostController@edit')->name('companycosts');
 Route::resource('companycosts', 'CompanyCostController');
 
-Route::get('/categories', 'CategoryController@index');
+Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/categories', 'CategoryController@edit')->name('categories');
 Route::resource('categories', 'CategoryController');
 
-Route::get('/subcategories', 'SubCategoryController@index');
+Route::get('/subcategories', 'SubCategoryController@index')->name('subcategories');
+Route::get('/subcategories', 'SubCategoryController@edit')->name('subcategories');
 Route::resource('subcategories', 'SubCategoryController');
 
 Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
@@ -73,3 +75,7 @@ Route::resource('quoteterms', 'QuoteTermsController');
 Route::get('/pricelists', 'PriceListController@index')->name('pricelists');
 Route::get('/pricelists', 'PriceListController@edit')->name('pricelists');
 Route::resource('pricelists', 'PriceListController');
+
+Route::get('/businessdetails', 'BusinessDetailController@index')->name('businessdetails');
+Route::get('/businessdetails', 'BusinessDetailController@edit')->name('businessdetails');
+Route::resource('businessdetails', 'BusinessDetailController');

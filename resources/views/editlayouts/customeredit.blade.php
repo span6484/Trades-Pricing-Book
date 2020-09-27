@@ -61,7 +61,7 @@
                     <label for="input">Discount tier</label>
                     <select id="inputDiscount" name="customer_discount" class="form-control">
                         @foreach($discounts as $discount)
-                        @if ($discount->pk_discount_id == $customers->fk_discount_id)
+                        @if($discount->pk_discount_id == $customers->fk_discount_id)
                         <option value="{{$discount->pk_discount_id}}" selected>{{$discount->discount_name}}</option>
                         @else
                         <option value="{{$discount->pk_discount_id}}">{{$discount->discount_name}}</option>

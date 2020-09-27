@@ -57,6 +57,6 @@
                 <a href="/{{ 'discounts' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0 pl-4">Discounts</a>
             </li>
         </ul>
-        <a href="/{{ 'users' }}" class="list-group-item list-group-item-action bg-light border-0">Users</a>
+        <a href="/{{ 'users' }}" class="list-group-item list-group-item-action bg-light border-0">User Management</a>
     </div>
 </div>

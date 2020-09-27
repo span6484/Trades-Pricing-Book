@@ -25,10 +25,18 @@
 </div>
 
 <div class=" p-3 mb-5 bg-white rounded border">
-<h3 class="mb-4 float-left">Categories</h3>
     <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#categoryModal">
         Add Category
     </button>
+
+    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="active" autocomplete="off" checked> Active
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="archived" autocomplete="off"> Archived
+        </label>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel"
@@ -44,6 +52,7 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('categories') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="category_archived" value="0">
                         <div class="form-row">
                             <div class="form-group col-sm">
                             <label for="input">Category name</label>
@@ -61,18 +70,45 @@
         </div>
     </div>
 
-    <div class='table-responsive'>
+    <div class='table-responsive' id="active_div">
+    <h3 class="mb-4 float-left">Categories</h3>
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>
                     <th scope="col">Category Name</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($categories as $category)
+                @if($category->category_archived == '0')
                 <tr>
                     <td>{{ $category->category_name }}</td>
+                    <td><a href="{{action('CategoryController@edit', $category['pk_category_id'])}}">Edit</a></td>
                 </tr>
+                @endif
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <div class='table-responsive' id="archived_div" style="display: none">
+    <h3 class="mb-4 float-left">Archived Categories</h3>
+        <table class="table table-hover table-sm mt-1">
+            <thead>
+                <tr>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($categories as $category)
+                @if($category->category_archived == '1')
+                <tr>
+                    <td>{{ $category->category_name }}</td>
+                    <td><a href="{{action('CategoryController@edit', $category['pk_category_id'])}}">Edit</a></td>
+                </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
@@ -80,10 +116,18 @@
 </div>
 
 <div class=" p-3 mb-5 bg-white rounded border">
-<h3 class="mb-4 float-left">Sub-Categories</h3>
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#subcategoryModal">
+    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#subcategoryModal">
         Add Sub-Category
     </button>
+
+    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="active2" autocomplete="off" checked> Active
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="archived2" autocomplete="off"> Archived
+        </label>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="subcategoryModal" tabindex="-1" role="dialog" aria-labelledby="subcategoryModalLabel"
@@ -99,6 +143,7 @@
                 <div class="modal-body">
                     <form method="post" action="{{ url('subcategories') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="subcategory_archived" value="0">
                         <div class="form-row">
                             <div class="form-group col-sm">
                             <label for="input">Sub-Category name</label>
@@ -126,24 +171,54 @@
         </div>
     </div>
 
-    <div class='table-responsive'>
+    <div class='table-responsive' id="active_div2">
+    <h3 class="mb-4 float-left">Sub-Categories</h3>
         <table class="table table-hover table-sm mt-1">
             <thead>
                 <tr>
                     <th scope="col">Sub-Category</th>
                     <th scope="col">Parent Category</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($subcategories as $subcategory)
+                @if($subcategory->subcategory_archived == '0')
                 <tr>
                     <td>{{ $subcategory->subcategory_name }}</td>
                     <td>{{ $subcategory->categories->category_name }}</td>
+                    <td><a href="{{action('SubCategoryController@edit', $subcategory['pk_subcategory_id'])}}">Edit</a></td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    <div class='table-responsive' id="archived_div2" style="display: none">
+    <h3 class="mb-4 float-left">Archived Sub-Categories</h3>
+        <table class="table table-hover table-sm mt-1">
+            <thead>
+                <tr>
+                    <th scope="col">Sub-Category</th>
+                    <th scope="col">Parent Category</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($subcategories as $subcategory)
+                @if($subcategory->subcategory_archived == '1')
+                <tr>
+                    <td>{{ $subcategory->subcategory_name }}</td>
+                    <td>{{ $subcategory->categories->category_name }}</td>
+                    <td><a href="{{action('SubCategoryController@edit', $subcategory['pk_subcategory_id'])}}">Edit</a></td>
+                </tr>
+                @endif
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 @stop

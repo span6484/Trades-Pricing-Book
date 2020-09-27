@@ -10,11 +10,8 @@ class SubCategory extends Model
     protected $primaryKey = 'pk_subcategory_id';
     protected $fillable = [
             'subcategory_name', 
-            'fk_category_id'
-        ];
-
-    protected $attributes = [
-        'subcategory_archived' => 0
+            'fk_category_id',
+            'subcategory_archived'
         ];
 
     public function categories()
