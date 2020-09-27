@@ -12,10 +12,7 @@ class CompanyCost extends Model
     protected $fillable = [
             'companycost_name',
             'companycost_yearly', 
-        ];
-
-    protected $attributes = [
-        'companycost_archived' => 0
+            'companycost_archived'
         ];
 
 }
