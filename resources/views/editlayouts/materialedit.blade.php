@@ -48,7 +48,7 @@
                             <div class="input-group-text">$</div>
                         </div>
                         <input type="text" class="form-control" id="materialCost" name="material_cost"
-                        value="{{$materials->material_cost}}">
+                            value="{{$materials->material_cost}}">
                     </div>
                 </div>
             </div>
@@ -58,7 +58,8 @@
                     <select id="inputDiscount" name="fk_supplier_id" class="form-control">
                         @foreach($suppliers as $supplier)
                         @if ($supplier->pk_supplier_id == $materials->fk_supplier_id)
-                        <option value="{{$supplier->pk_supplier_id}}" selected>{{$supplier->supplier_companyname}}</option>
+                        <option value="{{$supplier->pk_supplier_id}}" selected>{{$supplier->supplier_companyname}}
+                        </option>
                         @else
                         <option value="{{$supplier->pk_supplier_id}}">{{$supplier->supplier_companyname}}</option>
                         @endif
@@ -67,6 +68,7 @@
                 </div>
             </div>
             <div class="form-group">
+                <a class="btn btn-secondary" href="{{url('/materials')}}">Cancel</a>
                 <input type="submit" class="btn btn-primary" value="Save">
             </div>
         </form>

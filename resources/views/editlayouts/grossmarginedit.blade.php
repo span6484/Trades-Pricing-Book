@@ -30,6 +30,7 @@
                     placeholder="0.00">
             </div>
             <div class="form-group">
+            <a class="btn btn-secondary" href="{{url('/grossmargin')}}">Cancel</a>
                 <input type="submit" class="btn btn-primary" value="Save">
             </div>
         </form>
