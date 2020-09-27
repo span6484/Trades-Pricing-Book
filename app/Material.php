@@ -12,12 +12,9 @@ class Material extends Model
         'material_itemcode',
         'material_description',
         'material_cost',
-        'fk_supplier_id'
+        'fk_supplier_id',
+        'material_archived'
     ];
-
-    protected $attributes = [
-        'material_archived' => 0
-        ];
 
     public function suppliers()
     {

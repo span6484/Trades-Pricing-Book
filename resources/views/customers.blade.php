@@ -122,7 +122,7 @@
             </thead>
             <tbody>
                 @foreach($customers as $customer)
-                @if ($customer->customer_archived == '0')
+                @if($customer->customer_archived == '0')
                 <tr>
                     <td>{{ $customer->customer_name }}</td>
                     <td>{{ $customer->customer_company }}</td>

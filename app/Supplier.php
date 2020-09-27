@@ -12,12 +12,9 @@ class Supplier extends Model
         'supplier_companyname',
         'supplier_contactname',
         'supplier_phone',
-        'supplier_email'
+        'supplier_email',
+        'supplier_archived'
     ];
-
-    protected $attributes = [
-        'supplier_archived' => 0
-        ];
 
     public function materials()
     {
