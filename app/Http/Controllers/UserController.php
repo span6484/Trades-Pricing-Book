@@ -38,7 +38,7 @@ class UserController extends Controller
 
     public function edit($pk_user_id)
     {
-        $pageHeading = 'Edit User';
+        $pageHeading = 'User Management';
         $users = User::find($pk_user_id);
 
         return view('editlayouts.useredit', compact('users', 'pk_user_id', 'pageHeading'));

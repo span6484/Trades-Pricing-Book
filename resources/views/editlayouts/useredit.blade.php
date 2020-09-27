@@ -21,7 +21,7 @@
 </div>
 <div class="row">
     <div class="col-sm">
-        <h3>Edit Customer</h3>
+        <h3>Edit User</h3>
         <form method="post" action="{{action('UserController@update', $pk_user_id)}}">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
