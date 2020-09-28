@@ -7,6 +7,7 @@ use App\Quote;
 use App\BusinessDetail;
 use App\Customer;
 use App\Category;
+use App\SubCategory;
 
 class QuoteController extends Controller
 {
@@ -17,7 +18,8 @@ class QuoteController extends Controller
             $businessDetails = BusinessDetail::first();
             $customers = Customer::all();
             $categories = Category::all();
+            $subCategories = SubCategory::all();
     
-            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories'));
+            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories', 'subCategories'));
         }
 }

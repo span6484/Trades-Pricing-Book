@@ -54,8 +54,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="quoteDate">Date</label>
-                        <input type="date" class="form-control" id="today" placeholder="10 September, 2020"
-                            readonly>
+                        <input type="date" class="form-control" id="today" placeholder="10 September, 2020" readonly>
                     </div>
                 </div>
             </form>
@@ -87,10 +86,16 @@
                     </div>
                     <div class="form-group col-md">
                         <label for="selectCategory">Sub-Category</label>
-                        <select class="form-control" id="selectCategory">
-                            <option>Sub-Category</option>
-                            <option>Sub-Category 1</option>
-                            <option>Sub-Category 2</option>
+                        <select class="form-control" id="fk_subcategory_id" name="fk_subcategory_id">
+                            @foreach($subCategories as $subCategory)
+                            @foreach($subCategory->priceLists as $priceList)
+                            @if($priceList->item_archived == '0')
+                            <option value="{{ $subCategory -> pk_subcategory_id }}">
+                                {{ $subCategory -> subcategory_name }}
+                            </option>
+                            @endif
+                            @endforeach
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -440,11 +445,12 @@
     </div>
 </div> -->
 
-    <!-- Sets todays date as the quote date -->
-    <script>
-        let today = new Date().toISOString().substr(0, 10);
-        document.querySelector("#today").value = today;
+<!-- Sets todays date as the quote date -->
+<script>
+    let today = new Date().toISOString().substr(0, 10);
+    document.querySelector("#today").value = today;
 
-        document.querySelector("#today2").valueAsDate = new Date();
-    </script>
+    document.querySelector("#today2").valueAsDate = new Date();
+
+</script>
 @stop
