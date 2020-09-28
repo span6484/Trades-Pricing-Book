@@ -13,7 +13,7 @@ class CustomerController extends Controller
         $pageHeading = 'Customers';
         $customers = Customer::all();
         $discounts = Discount::all();
-  
+        
         return view('customers', compact('pageHeading', 'customers', 'discounts'));
     }
 
