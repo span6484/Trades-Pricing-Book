@@ -182,7 +182,7 @@
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
                         <td>{{ $priceList->item_servicecall }}</td>
-                        <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
+                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a></td>
                     </tr>
                     @endif
                     @endforeach
@@ -228,7 +228,7 @@
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
                         <td>{{ $priceList->item_servicecall }}</td>
-                        <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
+                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a></td>
                     </tr>
                     @endif
                     @endforeach

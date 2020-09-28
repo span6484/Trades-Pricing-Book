@@ -11,13 +11,13 @@ use App\SubCategory;
 class PriceListController extends Controller
 {
     public function index()
-    {
+    {   
         $pageHeading = 'Price List';
         $priceLists = PriceList::all();
         $materials = Material::all();
         $subCategories = SubCategory::all();
   
-        return view('pricelists', compact('pageHeading', 'priceLists', 'materials', 'subCategories'));
+        return view('pricelists', compact('pageHeading', 'priceLists', 'category', 'materials', 'subCategories'));
     }
 
     public function show($id="")
@@ -27,8 +27,8 @@ class PriceListController extends Controller
         $materials = Material::all();
         $subCategories = $category->subCategories;
         $categoryName = $category->category_name;
-  
-        return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName'));
+        $page_id = $id;
+        return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName', 'page_id'));
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class PriceListController extends Controller
             'item_number' => $request->get('item_number'),
             'item_jobtype' => $request->get('item_jobtype'),
             'fk_subcategory_id'	=> $request->get('fk_subcategory_id'),
-            'item_description' => $request->get('item_description'),
+            'item_description' => $request->get('item_description'), 
             'fk_material_id' => $request->get('fk_material_id'),
             'item_estimatedtime' => $request->get('item_estimatedtime'),
             'item_servicecall' => $request->get('item_servicecall'),
@@ -58,17 +58,17 @@ class PriceListController extends Controller
         return back()->with('success', 'Product added');    
     }
 
-    public function edit($pk_item_id)
+    public function edit($page_id, $pk_item_id)
     {
         $pageHeading = 'Price List';
         $priceLists = PriceList::find($pk_item_id);
         $subCategories = SubCategory::all();
         $materials = Material::all();
 
-        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading', 'subCategories', 'materials'));
+        return view('editlayouts.pricelistedit', compact('priceLists', 'pk_item_id', 'pageHeading', 'subCategories', 'materials', 'page_id'));
     }
 
-    public function update(Request $request, $pk_item_id)
+    public function update(Request $request, $page_id, $pk_item_id)
     {
 
         $this->validate($request,[
@@ -92,7 +92,7 @@ class PriceListController extends Controller
         $priceLists->item_archived = $request->get('item_archived');
         $priceLists->save();
 
-        return redirect()->route('pricelists.show', $request->get('fk_subcategory_id'))->with('success', 'Product updated');
+        return redirect('/pricelists/'.$page_id)->with('success', 'Product updated');
     }
     
 }

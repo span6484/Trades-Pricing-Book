@@ -75,7 +75,8 @@ Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
 Route::resource('quoteterms', 'QuoteTermsController');
 
 Route::get('/pricelists', 'PriceListController@index')->name('pricelists');
-Route::get('/pricelists', 'PriceListController@edit')->name('pricelists');
+Route::get('/pricelists/{page_id}/{id}/edit', 'PriceListController@edit');
+Route::patch('/pricelists/{page_id}/{id}/update', 'PriceListController@update');
 Route::resource('pricelists', 'PriceListController');
 
 Route::get('/businessdetails', 'BusinessDetailController@index')->name('businessdetails');
