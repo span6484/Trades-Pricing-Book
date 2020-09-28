@@ -105,68 +105,88 @@
         </div>
     </div>
 
-    <div class='table-responsive' id="active_div">
-        <h3>Customers</h3>
-        <table id="customer_active_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Discount</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($customers as $customer)
-                @if($customer->customer_archived == '0')
-                <tr>
-                    <td>{{ $customer->customer_name }}</td>
-                    <td>{{ $customer->customer_company }}</td>
-                    <td>{{ $customer->customer_phone }}</td>
-                    <td>{{ $customer->customer_email }}</td>
-                    <td>{{ $customer->customer_address }}</td>
-                    <td>{{ $customer->discount->discount_name }}</td>
-                    <td><a href="{{action('CustomerController@edit', $customer['pk_customer_id'])}}">Edit</a></td>
-                </tr>
-                @endif
-                @endforeach
-            </tbody>
-        </table>
+    <div id="active_div">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                        placeholder="Search customer names">
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <h3>Customers</h3>
+            <table id="active_table" class="display table table-hover table-sm mt-1">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortActive(0)">Name</th>
+                        <th scope="col" onclick="sortActive(1)">Company</th>
+                        <th scope="col" onclick="sortActive(2)">Phone</th>
+                        <th scope="col" onclick="sortActive(3)">Email</th>
+                        <th scope="col" onclick="sortActive(4)">Address</th>
+                        <th scope="col" onclick="sortActive(5)">Discount</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($customers as $customer)
+                    @if($customer->customer_archived == '0')
+                    <tr>
+                        <td>{{ $customer->customer_name }}</td>
+                        <td>{{ $customer->customer_company }}</td>
+                        <td>{{ $customer->customer_phone }}</td>
+                        <td>{{ $customer->customer_email }}</td>
+                        <td>{{ $customer->customer_address }}</td>
+                        <td>{{ $customer->discount->discount_name }}</td>
+                        <td><a href="{{action('CustomerController@edit', $customer['pk_customer_id'])}}">Edit</a></td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class='table-responsive' id="archived_div" style="display: none">
-        <h3>Archived Customers</h3>
-        <table id="customer_archived_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Discount</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($customers as $customer)
-                @if ($customer->customer_archived == '1')
-                <tr>
-                    <td>{{ $customer->customer_name }}</td>
-                    <td>{{ $customer->customer_company }}</td>
-                    <td>{{ $customer->customer_phone }}</td>
-                    <td>{{ $customer->customer_email }}</td>
-                    <td>{{ $customer->customer_address }}</td>
-                    <td>{{ $customer->discount->discount_name }}</td>
-                    <td><a href="{{action('CustomerController@edit', $customer['pk_customer_id'])}}">Edit</a></td>
-                </tr>
-                @endif
-                @endforeach
-            </tbody>
-        </table>
+    <div id="archived_div" style="display: none">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search customer names">
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <h3>Archived Customers</h3>
+            <table id="archived_table" class="display table table-hover table-sm mt-1">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortArchived(0)">Name</th>
+                        <th scope="col" onclick="sortArchived(1)">Company</th>
+                        <th scope="col" onclick="sortArchived(2)">Phone</th>
+                        <th scope="col" onclick="sortArchived(3)">Email</th>
+                        <th scope="col" onclick="sortArchived(4)">Address</th>
+                        <th scope="col" onclick="sortArchived(5)">Discount</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($customers as $customer)
+                    @if ($customer->customer_archived == '1')
+                    <tr>
+                        <td>{{ $customer->customer_name }}</td>
+                        <td>{{ $customer->customer_company }}</td>
+                        <td>{{ $customer->customer_phone }}</td>
+                        <td>{{ $customer->customer_email }}</td>
+                        <td>{{ $customer->customer_address }}</td>
+                        <td>{{ $customer->discount->discount_name }}</td>
+                        <td><a href="{{action('CustomerController@edit', $customer['pk_customer_id'])}}">Edit</a></td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>

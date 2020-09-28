@@ -89,16 +89,24 @@
         </div>
     </div>
 </div>
-
-<div class='table-responsive' id="active_div">
-<h3>Users</h3>
-    <table class="table table-hover table-sm mt-1">
+<div id="active_div">
+<div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                        placeholder="Search user names">
+                </div>
+            </div>
+        </div>
+    <div class='table-responsive'>
+        <h3>Users</h3>
+    <table id="active_table" class="display table table-hover table-sm mt-1">
         <thead>
             <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Full Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Edit</th>
+                <th scope="col" onclick="sortActive(0)">Username</th>
+                <th scope="col" onclick="sortActive(1)">Full Name</th>
+                <th scope="col" onclick="sortActive(2)">Type</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -115,16 +123,25 @@
         </tbody>
     </table>
 </div>
-
-<div class='table-responsive' id="archived_div" style="display: none;">
+</div>
+<div id="archived_div" style="display: none">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search user names">
+                </div>
+            </div>
+        </div>
+    <div class='table-responsive'>
 <h3>Archived Users</h3>
-    <table class="table table-hover table-sm mt-1">
+    <table id="archived_table" class="display table table-hover table-sm mt-1">
         <thead>
             <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Full Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Edit</th>
+                <th scope="col" onclick="sortArchived(0)">Username</th>
+                <th scope="col" onclick="sortArchived(1)">Full Name</th>
+                <th scope="col" onclick="sortArchived(2)">Type</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -141,7 +158,7 @@
         </tbody>
     </table>
 </div>
-
+</div>
 </div>
 
 @stop

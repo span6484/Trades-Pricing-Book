@@ -79,14 +79,23 @@
         </div>
     </div>
 
-    <div class='table-responsive' id="active_div">
-    <h3 class="mb-4 float-left">Discounts</h3>
-        <table class="table table-hover table-sm mt-1">
+    <div id="active_div">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                        placeholder="Search discount names">
+                </div>
+            </div>
+        </div>
+    <div class='table-responsive'>
+    <h3>Discounts</h3>
+    <table id="active_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Discount Name</th>
-                    <th scope="col">Discount Rate %</th>
-                    <th scope="col">Edit</th>
+                    <th scope="col" onclick="sortActive(0)">Discount Name</th>
+                    <th scope="col" onclick="sortActive(1)">Discount Rate %</th>
+                    <th scope="col" >Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -102,21 +111,30 @@
             </tbody>
         </table>
     </div>
+    </div>
 
-    <div class='table-responsive' id="archived_div" style="display: none">
-    <h3 class="mb-4 float-left">Archived Discounts</h3>
-        <table class="table table-hover table-sm mt-1">
+    <div id="archived_div" style="display: none">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search discount names">
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+    <h3>Archived Discounts</h3>
+    <table id="archived_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Discount Name</th>
-                    <th scope="col">Discount Rate %</th>
+                    <th scope="col" onclick="sortArchived(0)">Discount Name</th>
+                    <th scope="col" onclick="sortArchived(1)">Discount Rate %</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($discounts as $discount)
                 @if($discount->discount_archived == '1')
-                <tr>
                     <td>{{ $discount->discount_name }}</td>
                     <td>{{ $discount->discount_rate }}</td>
                     <td><a href="{{action('DiscountController@edit', $discount['pk_discount_id'])}}">Edit</a></td>
@@ -126,6 +144,6 @@
             </tbody>
         </table>
     </div>
-
+    </div>
 </div>
 @stop

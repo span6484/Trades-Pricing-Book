@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CompanyCost;
+use App\EmployeeCost;
 
 class CompanyCostController extends Controller
 {
@@ -65,8 +66,8 @@ class CompanyCostController extends Controller
     {
         $pageHeading = 'Total Business Costs';
         $companyCosts = CompanyCost::all();
-
-        return view('totalcosts', compact('pageHeading', 'companyCosts'));
+        $employeeCosts = EmployeeCost::all();
+        return view('totalcosts', compact('pageHeading', 'companyCosts', 'employeeCosts'));
     }
 
 }
