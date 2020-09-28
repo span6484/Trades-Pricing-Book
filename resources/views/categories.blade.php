@@ -70,12 +70,21 @@
         </div>
     </div>
 
-    <div class='table-responsive' id="active_div">
-    <h3 class="mb-4 float-left">Categories</h3>
-        <table class="table table-hover table-sm mt-1">
+    <div id="active_div">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                        placeholder="Search categories">
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+    <h3>Categories</h3>
+    <table id="active_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Category Name</th>
+                    <th scope="col" onclick="sortActive(0)">Category Name</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -91,13 +100,23 @@
             </tbody>
         </table>
     </div>
+    </div>
 
-    <div class='table-responsive' id="archived_div" style="display: none">
-    <h3 class="mb-4 float-left">Archived Categories</h3>
-        <table class="table table-hover table-sm mt-1">
+<div id="archived_div" style="display: none">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search categories">
+                </div>
+            </div>
+        </div>
+    <div class='table-responsive'>
+            <h3>Archived Categories</h3>
+            <table id="archived_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Category Name</th>
+                    <th scope="col" onclick="sortArchived(0)">Category Name</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -112,6 +131,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 
@@ -171,13 +191,22 @@
         </div>
     </div>
 
-    <div class='table-responsive' id="active_div2">
-    <h3 class="mb-4 float-left">Sub-Categories</h3>
-        <table class="table table-hover table-sm mt-1">
+    <div id="active_div2">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="active_input2" onkeyup="activeFunction2()"
+                        placeholder="Search sub categories">
+                </div>
+            </div>
+        </div>
+    <div class='table-responsive'>
+    <h3>Sub-Categories</h3>
+    <table id="active_table2" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Sub-Category</th>
-                    <th scope="col">Parent Category</th>
+                    <th scope="col" onclick="sortActive2(0)">Sub-Category</th>
+                    <th scope="col" onclick="sortActive2(1)">Parent Category</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -194,14 +223,23 @@
             </tbody>
         </table>
     </div>
-
-    <div class='table-responsive' id="archived_div2" style="display: none">
-    <h3 class="mb-4 float-left">Archived Sub-Categories</h3>
-        <table class="table table-hover table-sm mt-1">
+    </div>
+    <div id="archived_div2" style="display: none">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="archived_input2" onkeyup="archivedFunction2()"
+                        placeholder="Search sub categories">
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+                <h3>Archived Sub-Categories</h3>
+                <table id="archived_table2" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Sub-Category</th>
-                    <th scope="col">Parent Category</th>
+                    <th scope="col" onclick="sortArchived2(0)">Sub-Category</th>
+                    <th scope="col" onclick="sortArchived2(1)">Parent Category</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -217,6 +255,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 
 </div>

@@ -83,7 +83,7 @@
             <div class="row">
                 <div class="col-4">
                     <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                        placeholder="Search supplier names">
+                        placeholder="Search company costs">
                 </div>
             </div>
         </div>
@@ -119,7 +119,7 @@
             <div class="row">
                 <div class="col-4">
                     <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search customer names">
+                        placeholder="Search company costs">
                 </div>
             </div>
         </div>
