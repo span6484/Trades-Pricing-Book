@@ -33,51 +33,49 @@
                         value="{{$businessDetails->businessdetail_name}}">
                 </div>
             </div>
-                <div class="form-row">
-                    <div class="form-group col-sm">
-                        <label for="input">Address line 1</label>
-                        <input type="text" class="form-control" id="businessdetail_addressline1"
-                            name="businessdetail_addressline1"
-                            value="{{$businessDetails->businessdetail_addressline1}}">
-                    </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Address line 1</label>
+                    <input type="text" class="form-control" id="businessdetail_addressline1"
+                        name="businessdetail_addressline1" value="{{$businessDetails->businessdetail_addressline1}}">
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-sm">
-                        <label for="input">Address line 2</label>
-                        <input type="text" class="form-control" id="businessdetail_addressline2"
-                            name="businessdetail_addressline2"
-                            value="{{$businessDetails->businessdetail_addressline2}}">
-                    </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Address line 2</label>
+                    <input type="text" class="form-control" id="businessdetail_addressline2"
+                        name="businessdetail_addressline2" value="{{$businessDetails->businessdetail_addressline2}}">
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-sm">
-                        <label for="input">Phone</label>
-                        <input type=text" class="form-control" id="businessdetail_phone" name="businessdetail_phone"
-                            value="{{$businessDetails->businessdetail_phone}}">
-                    </div>
-                    <div class="form-group col-sm">
-                        <label for="input">Fax</label>
-                        <input type="text" class="form-control" id="businessdetail_fax" name="businessdetail_fax"
-                            value="{{$businessDetails->businessdetail_fax}}">
-                    </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Phone</label>
+                    <input type=text" class="form-control" id="businessdetail_phone" name="businessdetail_phone"
+                        value="{{$businessDetails->businessdetail_phone}}">
                 </div>
-                    <div class="form-row">
-                        <div class="form-group col-sm">
-                            <label for="input">Email</label>
-                            <input type="email" class="form-control" id="businessdetail_email"
-                                name="businessdetail_email" value="{{$businessDetails->businessdetail_email}}">
-                        </div>
-                            <div class="form-group col-sm">
-                                <label for="input">Website</label>
-                                <input type="text" class="form-control" id="businessdetail_website"
-                                    name="businessdetail_website" value="{{$businessDetails->businessdetail_website}}">
-                            </div>
-                        </div>
+                <div class="form-group col-sm">
+                    <label for="input">Fax</label>
+                    <input type="text" class="form-control" id="businessdetail_fax" name="businessdetail_fax"
+                        value="{{$businessDetails->businessdetail_fax}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="input">Email</label>
+                    <input type="email" class="form-control" id="businessdetail_email" name="businessdetail_email"
+                        value="{{$businessDetails->businessdetail_email}}">
+                </div>
+                <div class="form-group col-sm">
+                    <label for="input">Website</label>
+                    <input type="text" class="form-control" id="businessdetail_website" name="businessdetail_website"
+                        value="{{$businessDetails->businessdetail_website}}">
+                </div>
+            </div>
 
-                        <div class="form-group">
-                            <a class="btn btn-secondary" href="{{url('/customers')}}">Cancel</a>
-                            <input type="submit" class="btn btn-primary" value="Save">
-                        </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" href="{{url('/businessdetails')}}">Cancel</a>
+                <input type="submit" class="btn btn-primary" value="Save">
+            </div>
         </form>
     </div>
 </div>

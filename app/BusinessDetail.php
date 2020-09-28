@@ -19,4 +19,9 @@ class BusinessDetail extends Model
             'businessdetail_archived'
         ];
 
+    public function quotes()
+    {
+        return $this->hasMany('App\Quote', 'fk_businessdetail_id', 'pk_businessdetail_id');
+    }
+
 }

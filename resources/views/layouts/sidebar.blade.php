@@ -58,5 +58,6 @@
             </li>
         </ul>
         <a href="/{{ 'users' }}" class="list-group-item list-group-item-action bg-light border-0">User Management</a>
+        <a href="/{{ 'businessdetails' }}" class="list-group-item list-group-item-action bg-light border-0">Business Details</a>
     </div>
 </div>
