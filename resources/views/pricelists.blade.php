@@ -23,7 +23,6 @@
         @endif
     </div>
 
-    <h3 class="mb-4 float-left">{{$categoryName}}</h3>
     <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#itemModal">
         Add Product
     </button>
@@ -146,7 +145,7 @@
         </div>
     </div>
 
-        <div id="active_div">
+    <div id="active_div">
         <div class="container float-left mb-3">
             <div class="row">
                 <div class="col-4">
@@ -156,21 +155,23 @@
             </div>
         </div>
         <div class='table-responsive'>
-        <table id="active_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortActive(0)">Item #</th>
-                    <th scope="col" onclick="sortActive(1)">Job Type</th>
-                    <th scope="col" onclick="sortActive(2)">Sub-Category</th>
-                    <th scope="col" onclick="sortActive(3)">Description</th>
-                    <th scope="col" onclick="sortActive(4)">Materials</th>
-                    <th scope="col" onclick="sortActive(5)">Estimated Time</th>
-                    <th scope="col" onclick="sortActive(6)">Service Call</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($subCategories as $subCategory)
+            
+    <h3 class="mb-4 float-left">{{$categoryName}} items</h3>
+            <table id="active_table" class="display table table-hover table-sm mt-1">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortActive(0)">Item #</th>
+                        <th scope="col" onclick="sortActive(1)">Job Type</th>
+                        <th scope="col" onclick="sortActive(2)">Sub-Category</th>
+                        <th scope="col" onclick="sortActive(3)">Description</th>
+                        <th scope="col" onclick="sortActive(4)">Materials</th>
+                        <th scope="col" onclick="sortActive(5)">Estimated Time</th>
+                        <th scope="col" onclick="sortActive(6)">Service Call</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($subCategories as $subCategory)
                     @foreach($subCategory->priceLists as $priceList)
                     @if($priceList->item_archived == '0')
                     <tr>
@@ -181,14 +182,14 @@
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
                         <td>{{ $priceList->item_servicecall }}</td>
-                        <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
+                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a></td>
                     </tr>
                     @endif
                     @endforeach
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div id="archived_div" style="display: none">
@@ -201,21 +202,22 @@
             </div>
         </div>
         <div class='table-responsive'>
-        <table id="archived_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortArchived(0)">Item #</th>
-                    <th scope="col" onclick="sortArchived(1)">Job Type</th>
-                    <th scope="col" onclick="sortArchived(2)">Sub-Category</th>
-                    <th scope="col" onclick="sortArchived(3)">Description</th>
-                    <th scope="col" onclick="sortArchived(4)">Materials</th>
-                    <th scope="col" onclick="sortArchived(5)">Estimated Time</th>
-                    <th scope="col" onclick="sortArchived(6)">Service Call</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($subCategories as $subCategory)
+        <h3 class="mb-4 float-left">Archived {{$categoryName}} items</h3>
+            <table id="archived_table" class="display table table-hover table-sm mt-1">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortArchived(0)">Item #</th>
+                        <th scope="col" onclick="sortArchived(1)">Job Type</th>
+                        <th scope="col" onclick="sortArchived(2)">Sub-Category</th>
+                        <th scope="col" onclick="sortArchived(3)">Description</th>
+                        <th scope="col" onclick="sortArchived(4)">Materials</th>
+                        <th scope="col" onclick="sortArchived(5)">Estimated Time</th>
+                        <th scope="col" onclick="sortArchived(6)">Service Call</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($subCategories as $subCategory)
                     @foreach($subCategory->priceLists as $priceList)
                     @if($priceList->item_archived == '1')
                     <tr>
@@ -226,14 +228,14 @@
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
                         <td>{{ $priceList->item_servicecall }}</td>
-                        <td><a href="{{action('PriceListController@edit', $priceList['pk_item_id'])}}">Edit</a></td>
+                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a></td>
                     </tr>
                     @endif
                     @endforeach
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

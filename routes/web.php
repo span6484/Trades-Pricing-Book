@@ -40,7 +40,9 @@ Route::get('/materials', 'MaterialController@index')->name('materials');
 Route::get('/materials', 'MaterialController@edit')->name('materials');
 Route::resource('materials', 'MaterialController');
 
-Route::get('/quoting', 'QuoteController@index');
+Route::get('/quoting', 'QuoteController@index')->name('quoting');
+Route::get('/quoting', 'QuoteController@edit')->name('quoting');
+Route::resource('quoting', 'QuoteController');
 
 Route::get('/admin', 'AdminController@index');
 
@@ -73,7 +75,8 @@ Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
 Route::resource('quoteterms', 'QuoteTermsController');
 
 Route::get('/pricelists', 'PriceListController@index')->name('pricelists');
-Route::get('/pricelists', 'PriceListController@edit')->name('pricelists');
+Route::get('/pricelists/{page_id}/{id}/edit', 'PriceListController@edit');
+Route::patch('/pricelists/{page_id}/{id}/update', 'PriceListController@update');
 Route::resource('pricelists', 'PriceListController');
 
 Route::get('/businessdetails', 'BusinessDetailController@index')->name('businessdetails');

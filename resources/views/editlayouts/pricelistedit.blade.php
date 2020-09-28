@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-sm">
         <h3>Edit Product</h3>
-        <form method="post" action="{{action('PriceListController@update', $pk_item_id)}}">
+        <form method="post" action="{{url('/pricelists/'.$page_id.'/'.$pk_item_id.'/update')}}">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
             <div class="form-row">

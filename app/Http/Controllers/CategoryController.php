@@ -11,7 +11,6 @@ class CategoryController extends Controller
     public function index()
     {
         $pageHeading = 'Category Management';
-
         $categories = Category::all();
         $subcategories = SubCategory::all();
   
@@ -38,7 +37,6 @@ class CategoryController extends Controller
 
         $categories = Category::find($pk_category_id);
         $subcategories = $categories->subCategories;
-
         $pageHeading = 'Category Management';
   
         return view('categories', compact('pageHeading', 'categories', 'subcategories'));

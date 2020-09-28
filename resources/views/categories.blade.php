@@ -92,7 +92,7 @@
                 @foreach($categories as $category)
                 @if($category->category_archived == '0')
                 <tr>
-                    <td>{{ $category->category_name }}</td>
+                    <td><a href="{{action('PriceListController@show', $category['pk_category_id'])}}">{{ $category->category_name }}</a></td>
                     <td><a href="{{action('CategoryController@edit', $category['pk_category_id'])}}">Edit</a></td>
                 </tr>
                 @endif
@@ -245,7 +245,7 @@
             </thead>
             <tbody>
                 @foreach($subcategories as $subcategory)
-                @if($subcategory->subcategory_archived == '1' && $subcategory->categories->category_archived == '1')
+                @if($subcategory->subcategory_archived == '1' && $subcategory->categories->category_archived != '1')
                 <tr>
                     <td>{{ $subcategory->subcategory_name }}</td>
                     <td>{{ $subcategory->categories->category_name }}</td>
