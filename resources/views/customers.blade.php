@@ -167,7 +167,7 @@
                         <th scope="col" onclick="sortArchived(3)">Email</th>
                         <th scope="col" onclick="sortArchived(4)">Address</th>
                         <th scope="col" onclick="sortArchived(5)">Discount</th>
-                        <th scope="col" onclick="sortArchived(6)">Edit</th>
+                        <th scope="col">Edit</th>
                     </tr>
                 </thead>
                 <tbody>

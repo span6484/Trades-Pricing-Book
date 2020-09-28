@@ -91,15 +91,24 @@
         </div>
     </div>
 
-    <div class='table-responsive' id="active_div">
+    <div id="active_div">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                        placeholder="Search supplier names">
+                </div>
+            </div>
+        </div>
+    <div class='table-responsive'>
         <h3>Suppliers</h3>
-        <table class="table table-hover table-sm mt-1">
+        <table id="active_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Company Name</th>
-                    <th scope="col">Contact Name</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
+                    <th scope="col" onclick="sortActive(0)">Company Name</th>
+                    <th scope="col" onclick="sortActive(1)">Contact Name</th>
+                    <th scope="col"onclick="sortActive(2)">Phone</th>
+                    <th scope="col"onclick="sortActive(3)">Email</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -118,16 +127,26 @@
             </tbody>
         </table>
     </div>
+    </div>
 
-    <div class='table-responsive' id="archived_div" style="display: none">
+    <div id="archived_div" style="display: none">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search customer names">
+                </div>
+            </div>
+        </div>
+    <div class='table-responsive'>
     <h3>Archived Suppliers</h3>
-        <table class="table table-hover table-sm mt-1">
+        <table id="archived_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Company Name</th>
-                    <th scope="col">Contact Name</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
+                    <th scope="col" onclick="sortArchived(0)">Company Name</th>
+                    <th scope="col" onclick="sortArchived(1)">Contact Name</th>
+                    <th scope="col" onclick="sortArchived(2)">Phone</th>
+                    <th scope="col" onclick="sortArchived(3)">Email</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -145,6 +164,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 
 </div>
