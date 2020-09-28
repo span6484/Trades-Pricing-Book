@@ -146,17 +146,26 @@
         </div>
     </div>
 
-    <div class='table-responsive' id="active_div">
-        <table class="table table-hover table-sm mt-1">
+        <div id="active_div">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                        placeholder="Search price lists">
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+        <table id="active_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Item #</th>
-                    <th scope="col">Job Type</th>
-                    <th scope="col">Sub-Category</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Materials</th>
-                    <th scope="col">Estimated Time</th>
-                    <th scope="col">Service Call</th>
+                    <th scope="col" onclick="sortActive(0)">Item #</th>
+                    <th scope="col" onclick="sortActive(1)">Job Type</th>
+                    <th scope="col" onclick="sortActive(2)">Sub-Category</th>
+                    <th scope="col" onclick="sortActive(3)">Description</th>
+                    <th scope="col" onclick="sortActive(4)">Materials</th>
+                    <th scope="col" onclick="sortActive(5)">Estimated Time</th>
+                    <th scope="col" onclick="sortActive(6)">Service Call</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -180,18 +189,28 @@
             </tbody>
         </table>
     </div>
+    </div>
 
-    <div class='table-responsive' id="archived_div" style="display: none">
-        <table class="table table-hover table-sm mt-1">
+    <div id="archived_div" style="display: none">
+        <div class="container float-left mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search price lists">
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+        <table id="archived_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
-                    <th scope="col">Item #</th>
-                    <th scope="col">Job Type</th>
-                    <th scope="col">Sub-Category</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Materials</th>
-                    <th scope="col">Estimated Time</th>
-                    <th scope="col">Service Call</th>
+                    <th scope="col" onclick="sortArchived(0)">Item #</th>
+                    <th scope="col" onclick="sortArchived(1)">Job Type</th>
+                    <th scope="col" onclick="sortArchived(2)">Sub-Category</th>
+                    <th scope="col" onclick="sortArchived(3)">Description</th>
+                    <th scope="col" onclick="sortArchived(4)">Materials</th>
+                    <th scope="col" onclick="sortArchived(5)">Estimated Time</th>
+                    <th scope="col" onclick="sortArchived(6)">Service Call</th>
                     <th scope="col">Edit</th>
                 </tr>
             </thead>
@@ -215,7 +234,7 @@
             </tbody>
         </table>
     </div>
-
+    </div>
 </div>
 
 @stop
