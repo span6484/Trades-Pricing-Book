@@ -40,7 +40,9 @@ Route::get('/materials', 'MaterialController@index')->name('materials');
 Route::get('/materials', 'MaterialController@edit')->name('materials');
 Route::resource('materials', 'MaterialController');
 
-Route::get('/quoting', 'QuoteController@index');
+Route::get('/quoting', 'QuoteController@index')->name('quoting');
+Route::get('/quoting', 'QuoteController@edit')->name('quoting');
+Route::resource('quoting', 'QuoteController');
 
 Route::get('/admin', 'AdminController@index');
 

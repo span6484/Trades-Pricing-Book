@@ -5,37 +5,26 @@
 @section('content')
 
 <div class="container rounded border p-5">
-
     <div class="row">
         <div class="col-sm-6 pb-4">
-            
-            <h6>Xceed Electrical</h6>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            Address: 271 Baker St Glenfield NSW 2199<br>
-            Phone: 9827391874<br>
-            Fax: 3287423984<br>
-            Email: Hasjdaskjhasjhf@skdjfs<br>
-            Website: xceedelectrical.com.au
+                <p><h4>{{ $businessDetails->businessdetail_name }}</h4>
+                {{ $businessDetails->businessdetail_addressline1 }}<br>
+                {{ $businessDetails->businessdetail_addressline2 }}<br>
+                {{ $businessDetails->businessdetail_phone }}<br>
+                {{ $businessDetails->businessdetail_fax }}<br>
+                {{ $businessDetails->businessdetail_email }}<br>
+                {{ $businessDetails->businessdetail_website }}</p>
         </div>
         <div class="col-sm-6">
             <img src="images/Xceed_logo_small_01-copy1.png" class="img-fluid float-right" width="350px"
                 alt="Responsive image">
         </div>
-
         <!-- Forces next column to break new line -->
         <div class="w-100 border-top"></div>
-
         <div class="col-sm-6 pb-2">
             <form>
-
                 <h5 class="pt-3 pb-1">Customer</h5>
                 <div class="form-row">
-
                     <div class="form-group col-md-12">
                         <label for="input">Name</label>
                         <label class="sr-only" for="customerName">Vehicle</label>
@@ -47,13 +36,10 @@
                 </div>
             </form>
         </div>
-
         <div class="col-sm-6 pb-2">
             <form>
-
                 <h5 class="pt-3 pb-1">Quote Details</h5>
                 <div class="form-row">
-
                     <div class="form-group col-md-6">
                         <label for="quoteNumber">Quote Number</label>
                         <input type="text" class="form-control" id="quoteNumber" placeholder="######" readonly>
@@ -66,9 +52,7 @@
                 </div>
             </form>
         </div>
-
         <div class="w-100"></div>
-
         <div class="col-sm-12">
             <form>
                 <div class="form row border-top">
@@ -77,14 +61,11 @@
                     <h6 class="pt-3 pb-1 ml-2 pl-1">Product</h6>
                 </div>
                 <div class="form-row">
-
                     <div class="form-group col-md-1">
                     </div>
-
                     <div class="form-group col-md-1">
                         <label for="itemNo">#</label>
                         <input type="text" class="form-control" id="itemNo" placeholder="#" readonly>
-
                     </div>
                     <div class="form-group col-md">
                         <label for="selectCategory">Category</label>
@@ -106,7 +87,6 @@
                 <div class="form-row">
                     <div class="form-group col-md-2">
                     </div>
-
                     <div class="form-group col-md-2">
                         <label for="selectItemNumber">Item Code</label>
                         <select class="form-control" id="selectItemNumber">
@@ -123,13 +103,10 @@
                             <option>######</option>
                         </select>
                     </div>
-
                 </div>
-
                 <div class="form-row pb-2">
                     <div class="form-group col-md-2">
                     </div>
-
                     <div class="form-group col-md-2">
                         <label for="input">Service Call</label>
                         <label class="sr-only" for="inlineFormInputGroup">2</label>
@@ -141,7 +118,6 @@
                                 placeholder="">
                         </div>
                     </div>
-
                     <div class="form-group col-md">
                         <label for="input">Estimated Hours</label>
                         <label class="sr-only" for="customerName">Vehicle</label>
@@ -149,7 +125,6 @@
                             <input type="text" class="form-control" id="customerName" placeholder="Hours">
                         </div>
                     </div>
-
                     <div class="form-group col-md">
                         <label for="input">Labour Cost</label>
                         <label class="sr-only" for="inlineFormInputGroup">2</label>
@@ -161,9 +136,6 @@
                                 placeholder="">
                         </div>
                     </div>
-
-
-
                     <div class="form-group col-md">
                         <label for="selectCategory">Gross Margin</label>
                         <select class="form-control" id="materialGM">
@@ -183,9 +155,7 @@
                                 placeholder="Cost x GM" readonly>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="form row">
                     <div class="form-group col-md-4">
                     </div>
@@ -202,17 +172,14 @@
                             <option>########</option>
                         </select>
                     </div>
-
                 </div>
                 <div class="form-row pb-2">
                     <div class="form-group col-md-4">
                     </div>
-
                     <div class="form-group col-md">
                         <label for="yearlypay">Quantity</label>
                         <input type="text" class="form-control" id="yearlypay" placeholder="#">
                     </div>
-
                     <div class="form-group col-md">
                         <label for="input">Material Cost</label>
                         <label class="sr-only" for="inlineFormInputGroup">2</label>
@@ -243,10 +210,7 @@
                                 placeholder="Cost x GM" readonly>
                         </div>
                     </div>
-
-
                 </div>
-
                 <div class="form row">
                     <div class="form-group col-md-6">
                     </div>
@@ -279,7 +243,6 @@
                                 placeholder="Total Cost" readonly>
                         </div>
                     </div>
-
                     <div class="form-group col-md">
                         <label for="input">Post-Margin</label>
                         <label class="sr-only" for="inlineFormInputGroup">2</label>
@@ -291,7 +254,6 @@
                                 placeholder="Total Charge" readonly>
                         </div>
                     </div>
-
                     <div class="form-group col-md">
                         <label for="input">Profit</label>
                         <label class="sr-only" for="inlineFormInputGroup">2</label>
@@ -303,15 +265,12 @@
                                 placeholder="Total Profit" readonly>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="form row">
                     <div class="form-group col-md-8">
                     </div>
                     <h6 class="pt-3 pb-1 mt-2">Grand Total</h6>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group col-md-8">
                     </div>
@@ -324,9 +283,8 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-row">
-                <div class="form-group col-md-8">
+                    <div class="form-group col-md-8">
                     </div>
                     <div class="form-group col-md">
                         <label for="input">GST</label>
@@ -351,8 +309,6 @@
                         </div>
                     </div>
                 </div>
-                
-
                 <!-- GST row -->
                 <!-- <div class="form-row">
                     <div class="form-group col-md-8">
@@ -380,11 +336,9 @@
                                 placeholder="" readonly>
                         </div>
                     </div>
-
                 </div> -->
             </form>
         </div>
-
     </div>
 </div>
 
@@ -405,79 +359,60 @@
             <div class="col-sm-1 border">#</div>
             <div class="col-sm-11 border">
                 <div class="row">
-                   
                         <div class="form-group col-sm-4">
                             <label for="input">Category</label>
                             <input type="text" class="form-control" id="category" placeholder="Category">
                         </div>
-               
                 
                         <div class="form-group col-sm">
                             <label for="input">Sub-Category</label>
                             <input type="text" class="form-control" id="subcategory" placeholder="Sub-Category">
                         </div>
-   
                     <div class="w-100"></div>
                     <div class="form-group col-sm-4">
                             <label for="input">Item Code</label>
                             <input type="text" class="form-control" id="itemCode" placeholder="Item Code">
                         </div>
-
                         <div class="form-group col-sm">
                             <label for="input">Description</label>
                             <input type="text" class="form-control" id="description" placeholder="Description">
                         </div>
-              
                     <div class="w-100"></div>
-              
                         <div class="form-group col-sm">
                             <label for="input">Type</label>
                             <input type="text" class="form-control" id="jobType" placeholder="Job Type">
                         </div>
-               
                     <div class="w-100"></div>
-                  
                         <div class="form-group col-sm">
                             <label for="input">Labour</label>
                             <input type="text" class="form-control" id="labour" placeholder="Labour">
                         </div>
-          
-            
                         <div class="form-group col-sm">
                             <label for="input">Estimated Time</label>
                             <input type="text" class="form-control" id="time" placeholder="Estimate">
                         </div>
-      
                         <div class="form-group col-sm">
                             <label for="input">Service Call</label>
                             <input type="text" class="form-control" id="serviceCall" placeholder="Service Call">
                         </div>
-     
-      
                         <div class="form-group col-sm">
                             <label for="input">Discount</label>
                             <input type="text" class="form-control" id="discount" placeholder="Discount">
                         </div>
- 
                     <div class="w-100"></div>
                 
                         <div class="form-group col-sm">
                             <label for="input">Material Cost</label>
                             <input type="text" class="form-control" id="materialCost" placeholder="Material Cost">
                         </div>
-          
-               
                         <div class="form-group col-sm">
                             <label for="input">Material Name</label>
                             <input type="text" class="form-control" id="materialName" placeholder="Material Name">
                         </div>
-      
-                  
                         <div class="form-group col-sm">
                             <label for="input">GM %</label>
                             <input type="text" class="form-control" id="gm" placeholder="GM%">
                         </div>
-              
                 
                         <div class="form-group col-sm">
                             <label for="input">Material Cost</label>
@@ -489,12 +424,9 @@
             </div>
         </div>
     </div>
-
     <div class="container border">
         <div class="row">
-
         </div>
     </div>
 </div> -->
-
 @stop

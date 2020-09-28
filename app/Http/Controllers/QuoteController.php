@@ -10,7 +10,8 @@ class QuoteController extends Controller
     public function index()
         {
             $pageHeading = 'Quoting';
+            $businessDetails = BusinessDetail::first();
     
-            return view('quoting', compact('pageHeading'));
+            return view('quoting', compact('pageHeading', 'businessDetails'));
         }
 }
