@@ -22,4 +22,15 @@ class QuoteController extends Controller
     
             return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories', 'subCategories'));
         }
+
+        public function show($id="")
+    {
+        $pageHeading = 'Quoting';
+        $category = Category::find($id);
+        $subCategories = $category->subCategories;
+        $categoryName = $category->category_name;
+  
+        return view('quoting', compact('pageHeading', 'subCategories', 'categoryName'));
+    }
+
 }

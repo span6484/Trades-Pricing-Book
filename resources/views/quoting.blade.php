@@ -87,16 +87,12 @@
                     <div class="form-group col-md">
                         <label for="selectCategory">Sub-Category</label>
                         <select class="form-control" id="fk_subcategory_id" name="fk_subcategory_id">
-                            @foreach($subCategories as $subCategory)
-                            @foreach($subCategory->priceLists as $priceList)
-                            @if($priceList->item_archived == '0')
-                            <option value="{{ $subCategory -> pk_subcategory_id }}">
-                                {{ $subCategory -> subcategory_name }}
-                            </option>
-                            @endif
-                            @endforeach
-                            @endforeach
-                        </select>
+                                    @foreach($subCategories as $subCategory)
+                                    <option value="{{ $subCategory -> pk_subcategory_id }}">
+                                        {{ $subCategory -> subcategory_name }}
+                                    </option>
+                                    @endforeach
+                                </select>
                     </div>
                 </div>
                 <div class="form-row">
