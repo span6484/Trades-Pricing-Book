@@ -183,7 +183,7 @@
             </thead>
             <tbody>
                 @foreach($subcategories as $subcategory)
-                @if($subcategory->subcategory_archived == '0')
+                @if($subcategory->subcategory_archived == '0' && $subcategory->categories->category_archived == '0')
                 <tr>
                     <td>{{ $subcategory->subcategory_name }}</td>
                     <td>{{ $subcategory->categories->category_name }}</td>
@@ -207,7 +207,7 @@
             </thead>
             <tbody>
                 @foreach($subcategories as $subcategory)
-                @if($subcategory->subcategory_archived == '1')
+                @if($subcategory->subcategory_archived == '1' && $subcategory->categories->category_archived == '1')
                 <tr>
                     <td>{{ $subcategory->subcategory_name }}</td>
                     <td>{{ $subcategory->categories->category_name }}</td>
