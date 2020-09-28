@@ -8,7 +8,14 @@
 
     <div class="row">
         <div class="col-sm-6 pb-4">
+            
             <h6>Xceed Electrical</h6>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
             Address: 271 Baker St Glenfield NSW 2199<br>
             Phone: 9827391874<br>
             Fax: 3287423984<br>
