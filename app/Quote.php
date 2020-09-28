@@ -6,22 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quote extends Model
 {
-    protected $table = 'businessdetails';
-    protected $primaryKey = 'pk_businessdetail_id';
+    protected $table = 'quotes';
+    protected $primaryKey = 'pk_quote_id';
     protected $fillable = [
-            'businessdetail_name',
-            'businessdetail_addressline1',
-            'businessdetail_addressline2',
-            'businessdetail_phone',
-            'businessdetail_fax', 
-            'businessdetail_email',
-            'businessdetail_website',
-            'businessdetail_archived'
+            'fk_businessdetail_id',
+            'fk_customer_id',
+            'fk_quoteitem_id',
+            'fk_user_id',
+            'fk_status_id', 
+            'quote_number',
+            'quote_revisionnumber',
+            'quote_comment',
+            'quote_discountrate',
+            'quote_termbody',
         ];
 
     public function businessDetails()
     {
         return $this->belongsTo('App\BusinessDetail', 'fk_businessdetail_id', 'pk_businessdetail_id');
+    }
+
+    public function customers()
+    {
+        return $this->belongsTo('App\Customer', 'fk_customer_id', 'pk_customer_id');
     }
 
 }

@@ -23,4 +23,9 @@ class Customer extends Model
     {
         return $this->belongsTo('App\Discount', 'fk_discount_id', 'pk_discount_id');
     }
+
+    public function quotes()
+    {
+        return $this->hasMany('App\Quote', 'fk_customer_id', 'pk_customer_id');
+    }
 }

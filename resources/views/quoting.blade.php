@@ -7,13 +7,15 @@
 <div class="container rounded border p-5">
     <div class="row">
         <div class="col-sm-6 pb-4">
-                <p><h4>{{ $businessDetails->businessdetail_name }}</h4>
+            <p>
+                <h4>{{ $businessDetails->businessdetail_name }}</h4>
                 {{ $businessDetails->businessdetail_addressline1 }}<br>
                 {{ $businessDetails->businessdetail_addressline2 }}<br>
                 {{ $businessDetails->businessdetail_phone }}<br>
                 {{ $businessDetails->businessdetail_fax }}<br>
                 {{ $businessDetails->businessdetail_email }}<br>
-                {{ $businessDetails->businessdetail_website }}</p>
+                {{ $businessDetails->businessdetail_website }}
+            </p>
         </div>
         <div class="col-sm-6">
             <img src="images/Xceed_logo_small_01-copy1.png" class="img-fluid float-right" width="350px"
@@ -23,14 +25,20 @@
         <div class="w-100 border-top"></div>
         <div class="col-sm-6 pb-2">
             <form>
-                <h5 class="pt-3 pb-1">Customer</h5>
+                <h5 class="pt-3 pb-1">Customer Details</h5>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="input">Name</label>
-                        <label class="sr-only" for="customerName">Vehicle</label>
+                        <label for="input">Customer name</label>
+                        <label class="sr-only" for="customerName">Customer name</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" id="customerName"
-                                placeholder="Enter Company/Customer Name">
+                            <select id="customer_name" name="customer_name" class="form-control">
+                                @foreach($customers as $customer)
+                                <option value="{{ $customer->pk_customer_id }}">
+                                    {{ $customer->customer_name }}
+                                </option>
+                                @endforeach
+                                <input type="text" class="form-control" id="customerName"
+                                    placeholder="Enter Company/Customer Name">
                         </div>
                     </div>
                 </div>
@@ -46,7 +54,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="quoteDate">Date</label>
-                        <input type="text" class="form-control" id="quoteDate" placeholder="10 September, 2020"
+                        <input type="date" class="form-control" id="today" placeholder="10 September, 2020"
                             readonly>
                     </div>
                 </div>
@@ -429,4 +437,12 @@
         </div>
     </div>
 </div> -->
+
+    <!-- Sets todays date as the quote date -->
+    <script>
+        let today = new Date().toISOString().substr(0, 10);
+        document.querySelector("#today").value = today;
+
+        document.querySelector("#today2").valueAsDate = new Date();
+    </script>
 @stop
