@@ -78,9 +78,11 @@
                     <div class="form-group col-md">
                         <label for="selectCategory">Category</label>
                         <select class="form-control" id="selectCategory">
-                            <option>Category</option>
-                            <option>Category 1</option>
-                            <option>Category 2</option>
+                            @foreach($categories as $category)
+                            @if($category->category_archived == '0')
+                            <option value="{{ $category->pk_category_id }}">{{ $category->category_name }}</option>
+                            @endif
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md">

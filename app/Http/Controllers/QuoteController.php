@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Quote;
 use App\BusinessDetail;
 use App\Customer;
+use App\Category;
 
 class QuoteController extends Controller
 {
@@ -15,7 +16,8 @@ class QuoteController extends Controller
             $quotes = Quote::all();
             $businessDetails = BusinessDetail::first();
             $customers = Customer::all();
+            $categories = Category::all();
     
-            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers'));
+            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories'));
         }
 }
