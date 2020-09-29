@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#supplierModal">
+    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal" data-target="#supplierModal">
         Add Supplier
     </button>
 
@@ -92,79 +92,87 @@
     </div>
 
     <div id="active_div">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                        placeholder="Search supplier names">
+        <div class='table-responsive'>
+            <div class="row mt-3">
+                <div class="col-sm">
+                    <h1>Suppliers</h1>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <div>
+                        <input type="text" class="form-control float-right" id="active_input" onkeyup="activeFunction()"
+                            placeholder="Search suppliers">
+                    </div>
                 </div>
             </div>
+            <table id="active_table" class="display table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortActive(0)">Company Name</th>
+                        <th scope="col" onclick="sortActive(1)">Contact Name</th>
+                        <th scope="col" onclick="sortActive(2)">Phone</th>
+                        <th scope="col" onclick="sortActive(3)">Email</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($suppliers as $supplier)
+                    @if($supplier->supplier_archived == 0)
+                    <tr>
+                        <td>{{ $supplier->supplier_companyname }}</td>
+                        <td>{{ $supplier->supplier_contactname }}</td>
+                        <td>{{ $supplier->supplier_phone }}</td>
+                        <td>{{ $supplier->supplier_email }}</td>
+                        <td><a href="{{action('SupplierController@edit', $supplier['pk_supplier_id'])}}">Edit</a></td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-    <div class='table-responsive'>
-        <h3>Suppliers</h3>
-        <table id="active_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortActive(0)">Company Name</th>
-                    <th scope="col" onclick="sortActive(1)">Contact Name</th>
-                    <th scope="col"onclick="sortActive(2)">Phone</th>
-                    <th scope="col"onclick="sortActive(3)">Email</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($suppliers as $supplier)
-                @if($supplier->supplier_archived == 0)
-                <tr>
-                    <td>{{ $supplier->supplier_companyname }}</td>
-                    <td>{{ $supplier->supplier_contactname }}</td>
-                    <td>{{ $supplier->supplier_phone }}</td>
-                    <td>{{ $supplier->supplier_email }}</td>
-                    <td><a href="{{action('SupplierController@edit', $supplier['pk_supplier_id'])}}">Edit</a></td>
-                </tr>
-                @endif
-                @endforeach
-            </tbody>
-        </table>
-    </div>
     </div>
 
     <div id="archived_div" style="display: none">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search customer names">
+        <div class='table-responsive'>
+        <div class="row mt-3">
+                <div class="col-sm">
+                    <h1>Suppliers</h1>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <div>
+                        <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
+                            placeholder="Search suppliers">
+                    </div>
                 </div>
             </div>
+            <table id="archived_table" class="display table table-hover table-sm mt-1">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortArchived(0)">Company Name</th>
+                        <th scope="col" onclick="sortArchived(1)">Contact Name</th>
+                        <th scope="col" onclick="sortArchived(2)">Phone</th>
+                        <th scope="col" onclick="sortArchived(3)">Email</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($suppliers as $supplier)
+                    @if($supplier->supplier_archived == 1)
+                    <tr>
+                        <td>{{ $supplier->supplier_companyname }}</td>
+                        <td>{{ $supplier->supplier_contactname }}</td>
+                        <td>{{ $supplier->supplier_phone }}</td>
+                        <td>{{ $supplier->supplier_email }}</td>
+                        <td><a href="{{action('SupplierController@edit', $supplier['pk_supplier_id'])}}">Edit</a></td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-    <div class='table-responsive'>
-    <h3>Archived Suppliers</h3>
-        <table id="archived_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortArchived(0)">Company Name</th>
-                    <th scope="col" onclick="sortArchived(1)">Contact Name</th>
-                    <th scope="col" onclick="sortArchived(2)">Phone</th>
-                    <th scope="col" onclick="sortArchived(3)">Email</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($suppliers as $supplier)
-                @if($supplier->supplier_archived == 1)
-                <tr>
-                    <td>{{ $supplier->supplier_companyname }}</td>
-                    <td>{{ $supplier->supplier_contactname }}</td>
-                    <td>{{ $supplier->supplier_phone }}</td>
-                    <td>{{ $supplier->supplier_email }}</td>
-                    <td><a href="{{action('SupplierController@edit', $supplier['pk_supplier_id'])}}">Edit</a></td>
-                </tr>
-                @endif
-                @endforeach
-            </tbody>
-        </table>
-    </div>
     </div>
 
 </div>
