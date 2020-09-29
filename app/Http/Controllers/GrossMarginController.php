@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\EmployeeCost;
 use App\Discount;
 use App\GrossMargin;
-
+use App\CompanyCost;
 class GrossMarginController extends Controller
 {
     /**
@@ -21,8 +21,9 @@ class GrossMarginController extends Controller
         $pageHeading = 'Gross Margin';
 
         $grossmargin = GrossMargin::all();
-  
-        return view('grossmargin', compact('pageHeading', 'grossmargin'));
+        $employeeCosts = EmployeeCost::all();
+        $companyCosts = CompanyCost::all();
+        return view('grossmargin', compact('pageHeading', 'grossmargin','employeeCosts','companyCosts'));
     }
 
 
