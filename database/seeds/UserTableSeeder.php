@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class UserTableSeeder extends Seeder
         DB::table('users')->insert([
             'user_name'=>'jconceicao',
             'user_firstlast'=>'Jason Conceicao',
-            'user_password'=>'password',
+            'user_password'=> Hash::make('password'),
             'user_type'=>'Admin',
             'user_archived'=>'0'
         ]);
