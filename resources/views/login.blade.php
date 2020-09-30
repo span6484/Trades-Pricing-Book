@@ -42,7 +42,7 @@
                         {{csrf_field()}}
                         <div class="form-group row">
                             <label for="email_address" class="col-md-4 col-form-label text-md-right">Username</label>
-                            <div class="col-md-6">
+                            <div class="col-sm-6">
                                 <input type="text" id="user_name" class="form-control" name="user_name" required
                                     autofocus>
                             </div>
@@ -50,7 +50,7 @@
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                            <div class="col-md-6">
+                            <div class="col-sm-6">
                                 <input type="password" id="password" class="form-control" name="user_password" required>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 offset-md-5">
+                        <div class="col-sm-6 offset-sm-5">
                             <button type="submit" class="btn btn-primary">
                                 Login
                             </button>
