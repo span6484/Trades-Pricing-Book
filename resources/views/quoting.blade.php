@@ -159,12 +159,15 @@
                     </div>
                 </div>
                 <div class="form-group col-md">
-                    <label for="selectCategory">Gross Margin</label>
-                    <select class="form-control" id="materialGM">
-                        <option>1.43%</option>
-                        <option>########</option>
-                        <option>########</option>
-                    </select>
+                    <div class="input-group mb-2">
+                        <label for="selectCategory">Gross Margin</label>
+                        @foreach($grossmargins as $grossmargin)
+                        <input type="text" class="form-control" id="yearlypay" value="{{$grossmargin->gm_rate}}">
+                        <div class="input-group-append">
+                            <div class="input-group-text">%</div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="form-group col-md">
                     <label for="input">Labour Charge</label>
@@ -216,9 +219,9 @@
                 <div class="form-group col-md">
                     <label for="selectCategory">Gross Margin</label>
                     <select class="form-control" id="materialGM">
-                        <option>1.43%</option>
-                        <option>########</option>
-                        <option>########</option>
+                        @foreach($grossmargins as $grossmargin)
+                        <option value="{{$grossmargin->pk_gm_id}}">{{$grossmargin->gm_rate}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md">

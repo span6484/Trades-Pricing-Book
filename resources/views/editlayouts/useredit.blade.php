@@ -40,8 +40,8 @@
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label for="input">Password</label>
-                    <input type="password" class="form-control" id="user_password" name="user_password"
-                        value="{{$users->user_password}}">
+                    <input type="password" class="form-control" id="user_password" name="password"
+                        value="{{$users->password}}">
                 </div>
             </div>
                 <div class="form-row">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -22,13 +23,13 @@ class UserController extends Controller
         $this->validate($request, [
             'user_name' => 'required',
             'user_firstlast' => 'required',
-            'user_password' => 'required'
+            'password' => 'required'
         ]);
 
         $newUser = new User([
             'user_name' => $request->get('user_name'),
             'user_firstlast' => $request->get('user_firstlast'),
-            'user_password' => $request->get('user_password'),
+            'password' => Hash::make($request->get('password')),
             'user_type' => $request->get('user_type'),
             'user_archived' => $request->get('user_archived')
         ]);
@@ -50,13 +51,13 @@ class UserController extends Controller
         $this->validate($request,[
             'user_name' => 'required',
             'user_firstlast' => 'required',
-            'user_password' => 'required'
+            'password' => 'required'
         ]);
         
         $users = User::find($pk_user_id);
         $users->user_name = $request->get('user_name');
         $users->user_firstlast = $request->get('user_firstlast');
-        $users->user_password = $request->get('user_password');
+        $users->password = Hash::make($request->get('password'));
         $users->user_type = $request->get('user_type');
         $users->user_archived = $request->get('user_archived');
         $users->save();

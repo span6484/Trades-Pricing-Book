@@ -11,6 +11,7 @@ use App\SubCategory;
 use App\PriceList;
 use App\QuoteTerm;
 use App\Discount;
+use App\GrossMargin;
 
 class QuoteController extends Controller
 {
@@ -25,8 +26,9 @@ class QuoteController extends Controller
             $priceLists = PriceList::all();
             $quoteterms = QuoteTerm::all();
             $discounts = Discount::all();
+            $grossmargins = GrossMargin::all();
     
-            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories', 'subCategories', 'priceLists', 'quoteterms', 'discounts'));
+            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories', 'subCategories', 'priceLists', 'quoteterms', 'discounts', 'grossmargins'));
         }
 
         public function show($id="")

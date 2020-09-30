@@ -67,7 +67,7 @@
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Password</label>
-                                <input type="password" class="form-control" id="inputPhone" name="user_password"
+                                <input type="password" class="form-control" id="inputPhone" name="password"
                                     placeholder="Password">
                             </div>
                         </div>
