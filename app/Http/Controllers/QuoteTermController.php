@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\QuoteTerm;
 
-class QuoteTermsController extends Controller
+class QuoteTermController extends Controller
 {
     public function index()
     
@@ -44,12 +44,16 @@ class QuoteTermsController extends Controller
     {
 
         $this->validate($request,[
-                    'term_name' => 'required',
-                ]);
+                'term_name' => 'required',
+                'term_body' => 'required',
+                'term_archived' => 'required'
+            ]);
 
-        $grossmargin = QuoteTerm::find($pk_term_id);
-        $grossmargin->gm_rate = $request->get('gm_rate');
-        $grossmargin->save();
+        $quoteterms = QuoteTerm::find($pk_term_id);
+        $quoteterms->term_name = $request->get('term_name');
+        $quoteterms->term_body = $request->get('term_body');
+        $quoteterms->term_archived = $request->get('term_archived');
+        $quoteterms->save();
 
         return redirect()->route('quoteterms.index')->with('success', 'Quote term updated');
     }

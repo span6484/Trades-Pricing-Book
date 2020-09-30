@@ -45,9 +45,9 @@ Route::get('/quoting', 'QuoteController@index')->name('quoting');
 Route::get('/quoting', 'QuoteController@edit')->name('quoting');
 Route::resource('quoting', 'QuoteController');
 
-Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
-Route::get('/quoteterms', 'QuoteTermsController@edit')->name('quoteterms');
-Route::resource('quoteterms', 'QuoteTermsController');
+Route::get('/quoteterms', 'QuoteTermController@index')->name('quoteterms');
+Route::get('/quoteterms', 'QuoteTermController@edit')->name('quoteterms');
+Route::resource('quoteterms', 'QuoteTermController');
 
 Route::get('/admin', 'AdminController@index');
 
