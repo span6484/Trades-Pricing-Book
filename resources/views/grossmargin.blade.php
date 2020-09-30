@@ -128,11 +128,11 @@
                 @endforeach
 
                 @php
-                $NonChargeableOfficeStaffWages = 33244.20;
+                $NonChargeableOfficeStaffWages = 0;
                 @endphp
 
                 @php
-                $highestPaid = 65000;
+                $highestPaid = 0;
                 @endphp
 
                 @php

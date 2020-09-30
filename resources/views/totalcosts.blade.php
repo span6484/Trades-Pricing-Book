@@ -45,7 +45,7 @@
                     <td>${{number_format(($total/365)/8,2)}}</td>
                 </tr>
                 @php
-                $NonChargeableOfficeStaffWages = 33244.20;
+                $NonChargeableOfficeStaffWages =0;
                 @endphp
                 <tr>
                     <td>Non Chargeable Office  Staff Wages</td>
@@ -56,7 +56,7 @@
                     <td>${{number_format(($NonChargeableOfficeStaffWages/365)/8,2)}}</td>
                 </tr>
                 @php
-                $highestPaid = 65000;
+                $highestPaid = 0;
                 @endphp
                 <tr>
                     <td>Highest Paid Employee</td>
@@ -159,11 +159,11 @@
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>${{number_format(($total/365)*7+($NonChargeableOfficeStaffWages/365)*7+$highestPaid/52+$highestPaid/52+$highestPaidApprentice/52+$SecondHighestPaidApprentice/52+$HighestPaidSubContractor/52+$SecondPaidSubContractor/52,2)}}</td>
-                    <td>${{number_format($total/12.935705 + $NonChargeableOfficeStaffWages/12.935705+$highestPaid/12+$highestPaid/12+$highestPaidApprentice/12+$SecondHighestPaidApprentice/12+$HighestPaidSubContractor/12+$SecondPaidSubContractor/12,2)}}</td>
-                    <td>${{number_format($total+$NonChargeableOfficeStaffWages+$highestPaid+$highestPaid+$highestPaidApprentice+$SecondHighestPaidApprentice+$HighestPaidSubContractor+$SecondPaidSubContractor,2)}}</td>
-                    <td>${{number_format($total/365 + $NonChargeableOfficeStaffWages/365 + $highestPaid/365 + $highestPaid/365 + $highestPaidApprentice/365 + $SecondHighestPaidApprentice/365 + $HighestPaidSubContractor/365 + $SecondPaidSubContractor/365 + 0/365,2)}}</td>
-                    <td>${{number_format($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8,2)}}</td>
+                    <td>${{number_format(($total/365)*7+$highestPaidApprentice/52+$SecondHighestPaidApprentice/52+$HighestPaidSubContractor/52+$SecondPaidSubContractor/52,2)}}</td>
+                    <td>${{number_format($total/12.935705+$highestPaidApprentice/12+$SecondHighestPaidApprentice/12+$HighestPaidSubContractor/12+$SecondPaidSubContractor/12,2)}}</td>
+                    <td>${{number_format($total+$highestPaidApprentice+$SecondHighestPaidApprentice+$HighestPaidSubContractor+$SecondPaidSubContractor,2)}}</td>
+                    <td>${{number_format($total/365 +$highestPaidApprentice/365 + $SecondHighestPaidApprentice/365 + $HighestPaidSubContractor/365 + $SecondPaidSubContractor/365 + 0/365,2)}}</td>
+                    <td>${{number_format($total/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8,2)}}</td>
                 </tr>
             </tbody>
         </table>
