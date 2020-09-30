@@ -105,7 +105,6 @@
                     @slot('chartId') radial-chart-2 @endslot
                     @slot('percentage') 0.6% @endslot
                     @endcomponent
-
                 </div>
                 <div class="container">
                     <!-- <h3 align="center">Make Google Pie Chart in Laravel</h3><br /> -->
@@ -115,9 +114,9 @@
                             <!-- <h3 class="panel-title">Percentage of Male and Female Employee</h3> -->
                         </div>
                         <div class="panel-body" align="left">
-                            <div id="pie" style="width:750px; height:450px;">
+                            <div id="pie" class="card mt-2" style="width:750px; height:450px;">
                             </div>
-                            <div id="pie1" style="width:750px; height:450px;">
+                            <div id="pie1" class="card mt-2" style="width:750px; height:450px;">
                             </div>
                         </div>
                     </div>
