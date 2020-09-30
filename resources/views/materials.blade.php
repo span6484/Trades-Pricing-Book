@@ -127,7 +127,7 @@
                 <tr>
                     <td>{{ $material->material_itemcode }}</td>
                     <td>{{ $material->material_description }}</td>
-                    <td>{{ $material->material_cost }}</td>
+                    <td>${{number_format($material->material_cost,2) }}</td>
                     <td>{{ $material->suppliers->supplier_companyname }}</td>
                     <td><a href="{{action('MaterialController@edit', $material['pk_material_id'])}}">Edit</a></td>
                 </tr>
@@ -165,7 +165,7 @@
                 <tr>
                     <td>{{ $material->material_itemcode }}</td>
                     <td>{{ $material->material_description }}</td>
-                    <td>{{ $material->material_cost }}</td>
+                    <td>${{number_format($material->material_cost,2) }}</td>
                     <td>{{ $material->suppliers->supplier_companyname }}</td>
                     <td><a href="{{action('MaterialController@edit', $material['pk_material_id'])}}">Edit</a></td>
                 </tr>

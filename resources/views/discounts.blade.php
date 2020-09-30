@@ -103,7 +103,7 @@
                 @if($discount->discount_archived == '0')
                 <tr>
                     <td>{{ $discount->discount_name }}</td>
-                    <td>{{ $discount->discount_rate }}</td>
+                    <td>{{ $discount->discount_rate*100 }}%</td>
                     <td><a href="{{action('DiscountController@edit', $discount['pk_discount_id'])}}">Edit</a></td>
                 </tr>
                 @endif
@@ -136,7 +136,7 @@
                 @foreach($discounts as $discount)
                 @if($discount->discount_archived == '1')
                     <td>{{ $discount->discount_name }}</td>
-                    <td>{{ $discount->discount_rate }}</td>
+                    <td>{{ $discount->discount_rate }}%</td>
                     <td><a href="{{action('DiscountController@edit', $discount['pk_discount_id'])}}">Edit</a></td>
                 </tr>
                 @endif
