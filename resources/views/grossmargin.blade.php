@@ -203,8 +203,8 @@
                 @endphp
                 @foreach ($grossMargin as &$grossMargins)
                 <tr>
-                    <td>{{$grossMargins}}</td>
-                    <td>{{number_format($grossMargins*($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8),2)}}</td>
+                    <td>{{$grossMargins}}%</td>
+                    <td>${{number_format($grossMargins*($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8),2)}}</td>
                 </tr>
                 @endforeach
             </tbody>

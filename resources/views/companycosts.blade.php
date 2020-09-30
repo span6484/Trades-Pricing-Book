@@ -103,7 +103,7 @@
                 @if($companyCost->companycost_archived == '0')
                 <tr>
                     <td>{{$companyCost->companycost_name}}</td>
-                    <td>${{$companyCost->companycost_yearly}}</td>
+                    <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
                     <td><a href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
                     </td>
                 </tr>
@@ -138,7 +138,7 @@
                 @if($companyCost->companycost_archived == '1')
                 <tr>
                     <td>{{$companyCost->companycost_name}}</td>
-                    <td>${{$companyCost->companycost_yearly}}</td>
+                    <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
                     <td><a href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
                     </td>
                 </tr>
