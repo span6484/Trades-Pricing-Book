@@ -12,6 +12,7 @@
 </div>
 
 @elseif (Auth::user() && Auth::user()->role == 'admin')
+
 <!-- Button trigger modal -->
 <div class=" p-3 mb-5 bg-white rounded border">
     <div>
@@ -32,11 +33,12 @@
     </div>
 
 
-
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#userModal">
+    <!-- Add user button -->
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#userModal">
         Add User
     </button>
 
+    <!-- Active/Archived buttons -->
     <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
         <label class="btn btn-secondary active">
             <input type="radio" name="options" id="active" autocomplete="off" checked> Active
@@ -99,22 +101,23 @@
             </div>
         </div>
     </div>
+    <!-- End modal -->
+
+    <!-- Active content -->
     <div id="active_div">
-        <div class='table-responsive'>
-            <div class="row mt-3">
-                <div class="col-sm">
-                    <h1>Users</h1>
-                </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-sm">
-                    <div>
-                        <input type="text" class="form-control float-right" id="active_input" onkeyup="activeFunction()"
-                            placeholder="Search users">
-                    </div>
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Users</p>
             </div>
-            <table id="active_table" class="display table table-hover table-sm mt-1">
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-right" id="active_input" onkeyup="activeFunction()"
+                    placeholder="Search username">
+            </div>
+        </div>
+
+        <div class='table-responsive'>
+            <table id="active_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortActive(0)">Username</th>
@@ -138,44 +141,43 @@
             </table>
         </div>
     </div>
+
+    <!-- Archived content -->
     <div id="archived_div" style="display: none">
-        <div class='table-responsive'>
-            <div class="row mt-3">
-                <div class="col-sm">
-                    <h1>Archived users</h1>
-                </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-2">
-                    <div>
-                        <input type="text" class="form-control float-right" id="archived_input"
-                            onkeyup="archivedFunction()" placeholder="Search users">
-                    </div>
-                </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Archived Users</p>
             </div>
-            <table id="archived_table" class="display table table-hover table-sm mt-1">
-                <thead>
-                    <tr>
-                        <th scope="col" onclick="sortArchived(0)">Username</th>
-                        <th scope="col" onclick="sortArchived(1)">Full Name</th>
-                        <th scope="col" onclick="sortArchived(2)">Type</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($users as $user)
-                    @if($user->user_archived == '1')
-                    <tr>
-                        <td>{{ $user->user_name }}</td>
-                        <td>{{ $user->user_firstlast }}</td>
-                        <td>{{ $user->role }}</td>
-                        <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
-                    </tr>
-                    @endif
-                    @endforeach
-                </tbody>
-            </table>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
+                    placeholder="Search username">
+
+            </div>
         </div>
+        <table id="archived_table" class="display table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th scope="col" onclick="sortArchived(0)">Username</th>
+                    <th scope="col" onclick="sortArchived(1)">Full Name</th>
+                    <th scope="col" onclick="sortArchived(2)">Type</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($users as $user)
+                @if($user->user_archived == '1')
+                <tr>
+                    <td>{{ $user->user_name }}</td>
+                    <td>{{ $user->user_firstlast }}</td>
+                    <td>{{ $user->role }}</td>
+                    <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
+                </tr>
+                @endif
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 @endif

@@ -147,14 +147,14 @@
             </div>
 
             <div class="col-sm-5">
-                <div>
+
                     <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
                         placeholder="Search company name">
-                </div>
+
             </div>
         </div>
         <div class='table-responsive'>
-            <table id="archived_table" class="display table table-hover table-sm mt-1">
+            <table id="archived_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortArchived(0)">Company Name</th>

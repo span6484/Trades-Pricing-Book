@@ -23,10 +23,12 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#itemModal">
+    <!-- Add product button -->
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#itemModal">
         Add Product
     </button>
 
+    <!-- Active/Archived buttons -->
     <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
         <label class="btn btn-secondary active">
             <input type="radio" name="options" id="active" autocomplete="off" checked> Active
@@ -144,20 +146,24 @@
             </div>
         </div>
     </div>
+    <!-- End modal -->
 
+    <!-- Active content -->
     <div id="active_div">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                        placeholder="Search price lists">
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">{{$categoryName}} items</p>
+            </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                    placeholder="Search price lists">
             </div>
         </div>
+
         <div class='table-responsive'>
-            
-    <h3 class="mb-4 float-left">{{$categoryName}} items</h3>
-            <table id="active_table" class="display table table-hover table-sm mt-1">
+
+            <table id="active_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortActive(0)">Item #</th>
@@ -182,7 +188,8 @@
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
                         <td>{{ $priceList->item_servicecall }}</td>
-                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a></td>
+                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a>
+                        </td>
                     </tr>
                     @endif
                     @endforeach
@@ -192,18 +199,20 @@
         </div>
     </div>
 
+    <!-- Archived content -->
     <div id="archived_div" style="display: none">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
+    <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Archived {{$categoryName}} items</p>
+            </div>
+
+            <div class="col-sm-5">
                     <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
                         placeholder="Search price lists">
                 </div>
             </div>
-        </div>
         <div class='table-responsive'>
-        <h3 class="mb-4 float-left">Archived {{$categoryName}} items</h3>
-            <table id="archived_table" class="display table table-hover table-sm mt-1">
+            <table id="archived_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortArchived(0)">Item #</th>
@@ -228,7 +237,8 @@
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
                         <td>{{ $priceList->item_servicecall }}</td>
-                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a></td>
+                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a>
+                        </td>
                     </tr>
                     @endif
                     @endforeach
