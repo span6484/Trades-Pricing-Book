@@ -15,6 +15,9 @@
                 <a href="#" class="dropdown-item list-group-item list-group-item-action bg-light border-0">Existing
                     Quotes</a>
             </li>
+            <li>
+                <a href="/{{ 'quoteterms' }}" class="dropdown-item list-group-item list-group-item-action bg-light border-0">Quote Terms</a>
+            </li>
         </ul>
 
         <a href="#pricelistSubmenu" data-toggle="collapse" aria-expanded="false"
