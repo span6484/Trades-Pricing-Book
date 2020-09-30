@@ -73,12 +73,14 @@
             <tr>
                 <th scope="col">Term Name</th>
                 <th scope="col">Term Description</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
             @foreach($quoteterms as $quoteterm)
             <tr>
                 <td>{{ $quoteterm->term_name }}</td>
+                <td>{{ $quoteterm->term_body }}</td>
                 <td>{{ $quoteterm->term_body }}</td>
             </tr>
             @endforeach

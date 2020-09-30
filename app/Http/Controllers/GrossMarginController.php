@@ -17,13 +17,10 @@ class GrossMarginController extends Controller
      */
     public function index()
     {
-        //
-        $pageHeading = 'Gross Margin';
-
         $grossmargin = GrossMargin::all();
         $employeeCosts = EmployeeCost::all();
         $companyCosts = CompanyCost::all();
-        return view('grossmargin', compact('pageHeading', 'grossmargin','employeeCosts','companyCosts'));
+        return view('grossmargin', compact('grossmargin','employeeCosts','companyCosts'));
     }
 
 
@@ -43,10 +40,9 @@ class GrossMarginController extends Controller
 
     public function edit($pk_gm_id)
     {
-        $pageHeading = 'Gross Margin';
         $grossmargin = GrossMargin::find($pk_gm_id);
 
-        return view('editlayouts.grossmarginedit', compact('grossmargin', 'pk_gm_id', 'pageHeading'));
+        return view('editlayouts.grossmarginedit', compact('grossmargin', 'pk_gm_id'));
     }
 
     public function update(Request $request, $pk_gm_id)
