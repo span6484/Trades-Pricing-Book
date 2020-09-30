@@ -42,6 +42,7 @@
 
                 <form method="post" action="{{ url('quoteterms') }}">
                     {{ csrf_field() }}
+                    <input type="hidden" name="term_archived" value="0">
                     <div class="form-row">
                         <div class="form-group col-sm">
                             <label for="input">Term name</label>

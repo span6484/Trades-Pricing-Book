@@ -10,10 +10,8 @@ class QuoteTerm extends Model
     protected $primaryKey = 'pk_term_id';
     protected $fillable = [
             'term_name', 
-            'term_body',            
+            'term_body',   
+            'term_archived'
         ];
 
-    protected $attributes = [
-        'term_archived' => 0
-        ];
 }

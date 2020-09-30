@@ -8,6 +8,7 @@ use App\BusinessDetail;
 use App\Customer;
 use App\Category;
 use App\SubCategory;
+use App\PriceList;
 
 class QuoteController extends Controller
 {
@@ -19,8 +20,9 @@ class QuoteController extends Controller
             $customers = Customer::all();
             $categories = Category::all();
             $subCategories = SubCategory::all();
+            $priceLists = PriceList::all();
     
-            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories', 'subCategories'));
+            return view('quoting', compact('pageHeading', 'quotes', 'businessDetails', 'customers', 'categories', 'subCategories', 'priceLists'));
         }
 
         public function show($id="")
