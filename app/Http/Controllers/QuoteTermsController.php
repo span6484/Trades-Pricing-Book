@@ -10,11 +10,10 @@ class QuoteTermsController extends Controller
     public function index()
     
     {
-        $pageHeading = 'Quote Terms';
         $quoteterms = QuoteTerm::all();
 
 
-        return view('quoteterms', compact('pageHeading', 'quoteterms'));
+        return view('quoteterms', compact('quoteterms'));
     }
 
     public function store(Request $request)
@@ -32,5 +31,26 @@ class QuoteTermsController extends Controller
         ]);
         $newQuoteTerm->save();
         return back()->with('success', 'Quote terms added');
+    }
+
+    public function edit($pk_term_id)
+    {
+        $quoteterms = QuoteTerm::find($pk_term_id);
+
+        return view('editlayouts.quotetermedit', compact('quoteterms', 'pk_term_id'));
+    }
+
+    public function update(Request $request, $pk_term_id)
+    {
+
+        $this->validate($request,[
+                    'term_name' => 'required',
+                ]);
+
+        $grossmargin = QuoteTerm::find($pk_term_id);
+        $grossmargin->gm_rate = $request->get('gm_rate');
+        $grossmargin->save();
+
+        return redirect()->route('quoteterms.index')->with('success', 'Quote term updated');
     }
 }

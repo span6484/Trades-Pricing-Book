@@ -45,6 +45,10 @@ Route::get('/quoting', 'QuoteController@index')->name('quoting');
 Route::get('/quoting', 'QuoteController@edit')->name('quoting');
 Route::resource('quoting', 'QuoteController');
 
+Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
+Route::get('/quoteterms', 'QuoteTermsController@edit')->name('quoteterms');
+Route::resource('quoteterms', 'QuoteTermsController');
+
 Route::get('/admin', 'AdminController@index');
 
 Route::get('/grossmargin', 'GrossMarginController@index')->name('grossmargin');
@@ -71,9 +75,6 @@ Route::resource('categories', 'CategoryController');
 Route::get('/subcategories', 'SubCategoryController@index')->name('subcategories');
 Route::get('/subcategories', 'SubCategoryController@edit')->name('subcategories');
 Route::resource('subcategories', 'SubCategoryController');
-
-Route::get('/quoteterms', 'QuoteTermsController@index')->name('quoteterms');
-Route::resource('quoteterms', 'QuoteTermsController');
 
 Route::get('/pricelists', 'PriceListController@index')->name('pricelists');
 Route::get('/pricelists/{page_id}/{id}/edit', 'PriceListController@edit');
