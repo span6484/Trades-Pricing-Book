@@ -73,7 +73,7 @@
 
     <div class="row">
         <div class="col-sm">
-            <h3>Dashboard</h3>
+            <h2>Dashboard</h2>
             @if(isset(Auth::user()->user_name))
             <div class="alert alert-success success-block">
             <button type="button" class="close" data-dismiss="alert">x</button>

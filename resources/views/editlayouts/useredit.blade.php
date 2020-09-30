@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Customers')
+@section('title', 'Users')
 
 @section('content')
 @if (Auth::user() && Auth::user()->role != 'admin')
