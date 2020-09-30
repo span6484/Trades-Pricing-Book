@@ -26,8 +26,7 @@
                     </svg>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Change password</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="{{ url('/main/logout') }}">Logout</a>
                 </div>
             </li>
         </ul>

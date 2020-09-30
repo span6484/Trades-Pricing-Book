@@ -46,13 +46,13 @@
                 <div class="form-row">
                     <div class="form-group col-sm">
                         <label for="input">User type</label>
-                        <select id="user_type" name="user_type" class="form-control">
-                        @if($users->user_type == 'Standard')
-                            <option value="Standard" selected>Standard</option>
-                            <option value="Admin">Admin</option>
+                        <select id="role" name="role" class="form-control">
+                        @if($users->role == 'user')
+                            <option value="user" selected>User</option>
+                            <option value="admin">Admin</option>
                             @else
-                            <option value="Standard">Standard</option>
-                            <option value="Admin" selected>Admin</option>
+                            <option value="user">User</option>
+                            <option value="admin" selected>Admin</option>
                             @endif
                         </select>
                     </div>

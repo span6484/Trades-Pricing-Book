@@ -74,8 +74,8 @@
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">User type</label>
-                                <select id="user_type" name="user_type" class="form-control">
-                                    <option value="standard" selected>Standard</option>
+                                <select id="role" name="role" class="form-control">
+                                    <option value="user" selected>User</option>
                                     <option value="admin">Admin</option>
                                 </select>
                             </div>
@@ -119,7 +119,7 @@
                     <tr>
                         <td>{{ $user->user_name }}</td>
                         <td>{{ $user->user_firstlast }}</td>
-                        <td>{{ $user->user_type }}</td>
+                        <td>{{ $user->role }}</td>
                         <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
                     </tr>
                     @endif
@@ -158,7 +158,7 @@
                     <tr>
                         <td>{{ $user->user_name }}</td>
                         <td>{{ $user->user_firstlast }}</td>
-                        <td>{{ $user->user_type }}</td>
+                        <td>{{ $user->role }}</td>
                         <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
                     </tr>
                     @endif

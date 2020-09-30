@@ -29,17 +29,18 @@
     <div class="row">
         <div class="col-sm">
             <h3>Success Login</h3>
-
             @if(isset(Auth::user()->user_name))
             <div class="alert alert-danger success-block">
                 <strong>Welcome {{ Auth::user()->user_name }}</strong>
                 <a href="{{ url('/main/logout') }}">Logout</a>
             </div>
-                @else
-                <script>window.location="/main";</script>
+            @else
+            <script>
+                window.location = "/main";
+            </script>
             @endif
+        </div>
     </div>
-
 </div>
 
 @stop

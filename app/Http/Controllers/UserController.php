@@ -29,7 +29,7 @@ class UserController extends Controller
             'user_name' => $request->get('user_name'),
             'user_firstlast' => $request->get('user_firstlast'),
             'password' => Hash::make($request->get('password')),
-            'user_type' => $request->get('user_type'),
+            'role' => $request->get('role'),
             'user_archived' => $request->get('user_archived')
         ]);
         $newUser->save();
@@ -59,7 +59,7 @@ class UserController extends Controller
         if ($password != "") {
             $users->password = Hash::make($request->get('password'));
         }
-        $users->user_type = $request->get('user_type');
+        $users->role = $request->get('role');
         $users->user_archived = $request->get('user_archived');
         $users->save();
 

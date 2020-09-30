@@ -8,6 +8,7 @@ use App\Discount;
 
 class CustomerController extends Controller
 {
+
     public function index()
     {
         $pageHeading = 'Customers';

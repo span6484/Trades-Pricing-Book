@@ -49,8 +49,6 @@ Route::get('/quoteterms', 'QuoteTermController@index')->name('quoteterms');
 Route::get('/quoteterms', 'QuoteTermController@edit')->name('quoteterms');
 Route::resource('quoteterms', 'QuoteTermController');
 
-Route::get('/admin', 'AdminController@index');
-
 Route::get('/grossmargin', 'GrossMarginController@index')->name('grossmargin');
 Route::get('/grossmargin', 'GrossMarginController@edit')->name('grossmargin');
 Route::resource('grossmargin', 'GrossMarginController');
@@ -85,7 +83,7 @@ Route::get('/businessdetails', 'BusinessDetailController@index')->name('business
 Route::get('/businessdetails', 'BusinessDetailController@edit')->name('businessdetails');
 Route::resource('businessdetails', 'BusinessDetailController');
 
-Route::get('/main', 'MainController@index');
+Route::get('/main', 'MainController@index')->name('login');
 Route::post('/main/checklogin', 'MainController@checklogin');
 Route::get('/main/successlogin', 'MainController@successlogin');
 Route::get('/main/logout', 'MainController@logout');
