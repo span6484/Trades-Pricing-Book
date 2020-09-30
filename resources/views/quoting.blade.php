@@ -159,9 +159,9 @@
                     </div>
                 </div>
                 <div class="form-group col-md">
+                    <label for="selectCategory">Gross Margin</label>
+                    @foreach($grossmargins as $grossmargin)
                     <div class="input-group mb-2">
-                        <label for="selectCategory">Gross Margin</label>
-                        @foreach($grossmargins as $grossmargin)
                         <input type="text" class="form-control" id="yearlypay" value="{{$grossmargin->gm_rate}}">
                         <div class="input-group-append">
                             <div class="input-group-text">%</div>
