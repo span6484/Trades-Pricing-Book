@@ -317,15 +317,14 @@
 
     <!-- Employee archived content -->
     <div id="archived_div" style="display: none">
-    <div class="row mb-4">
+        <div class="row mb-4">
             <div class="col-sm-7">
                 <p class="h2">Archived Employees</p>
             </div>
 
             <div class="col-sm-5">
-                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search customer names">
-                </div>
+                <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                    placeholder="Search employee name">
             </div>
         </div>
         <div class='table-responsive'>
@@ -621,18 +620,21 @@
             </div>
         </div>
     </div>
+
+    <!-- Sub-contractor active content -->
     <div id="active_div2">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="active_input2" onkeyup="activeFunction2()"
-                        placeholder="Search supplier names">
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Sub-contractors</p>
+            </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-left" id="active_input2" onkeyup="activeFunction2()"
+                    placeholder="Search supplier names">
             </div>
         </div>
         <div class='table-responsive'>
-            <h3>Sub-Contractors</h3>
-            <table id="active_table2" class="display table table-hover table-sm mt-1">
+            <table id="active_table2" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortActive2(0)">Name</th>
@@ -728,18 +730,22 @@
             </table>
         </div>
     </div>
+
+    <!-- Sub-contractor archived content -->
     <div id="archived_div2" style="display: none">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="archived_input2"
-                        onkeyup="archivedFunction2()" placeholder="Search customer names">
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Archived Sub-contractors</p>
             </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-left" id="archived_input2" onkeyup="archivedFunction2()"
+                    placeholder="Search customer names">
+            </div>
+
         </div>
         <div class='table-responsive'>
-            <h3>Archived Sub-Contractors</h3>
-            <table id="archived_table2" class="display table table-hover table-sm mt-1">
+            <table id="archived_table2" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortArchived2(0)">Name</th>
