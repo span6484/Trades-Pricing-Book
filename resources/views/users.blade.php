@@ -4,6 +4,14 @@
 
 @section('content')
 
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <!-- Button trigger modal -->
 <div class=" p-3 mb-5 bg-white rounded border">
     <div>
@@ -22,6 +30,8 @@
         </div>
         @endif
     </div>
+
+
 
     <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#userModal">
         Add User
@@ -130,19 +140,19 @@
     </div>
     <div id="archived_div" style="display: none">
         <div class='table-responsive'>
-        <div class="row mt-3">
-            <div class="col-sm">
-                <h1>Archived users</h1>
-            </div>
-            <div class="col-sm">
-            </div>
-            <div class="col-2">
-                <div>
-                    <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search users">
+            <div class="row mt-3">
+                <div class="col-sm">
+                    <h1>Archived users</h1>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-2">
+                    <div>
+                        <input type="text" class="form-control float-right" id="archived_input"
+                            onkeyup="archivedFunction()" placeholder="Search users">
+                    </div>
                 </div>
             </div>
-        </div>
             <table id="archived_table" class="display table table-hover table-sm mt-1">
                 <thead>
                     <tr>
@@ -168,5 +178,5 @@
         </div>
     </div>
 </div>
-
+@endif
 @stop

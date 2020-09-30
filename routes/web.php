@@ -20,9 +20,7 @@ use function App\Http\Controllers\index;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@index')->name('login');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
@@ -30,7 +28,7 @@ Route::get('/customers', 'CustomerController@index')->name('customers')->middlew
 Route::get('/customers', 'CustomerController@edit')->name('customers')->middleware('auth');
 Route::resource('customers', 'CustomerController')->middleware('auth');
 
-Route::get('/users', 'UserController@index')->middleware('auth');
+Route::get('/users', 'UserController@index')->name('users')->middleware('auth');
 Route::resource('users', 'UserController')->middleware('auth');
 
 Route::get('/suppliers', 'SupplierController@index')->name('suppliers')->middleware('auth');

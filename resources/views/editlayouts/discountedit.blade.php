@@ -3,6 +3,14 @@
 @section('title', 'Discounts')
 
 @section('content')
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <div>
     @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -58,4 +66,5 @@
         </form>
     </div>
 </div>
+@endif
 @stop

@@ -3,6 +3,14 @@
 @section('title', 'Business Details')
 
 @section('content')
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <!-- Button trigger modal -->
 <div class=" p-3 mb-5 bg-white rounded border">
     <div>
@@ -54,4 +62,5 @@
         </table>
     </div>
 </div>
+@endif
 @stop
