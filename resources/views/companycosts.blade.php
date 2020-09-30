@@ -3,6 +3,14 @@
 @section('title', 'Company Costs')
 
 @section('content')
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <div class=" p-3 mb-5 bg-white rounded border">
     <div>
         @if(count($errors) > 0)
@@ -103,7 +111,7 @@
                 @if($companyCost->companycost_archived == '0')
                 <tr>
                     <td>{{$companyCost->companycost_name}}</td>
-                    <td>${{$companyCost->companycost_yearly}}</td>
+                    <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
                     <td><a href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
                     </td>
                 </tr>
@@ -138,7 +146,7 @@
                 @if($companyCost->companycost_archived == '1')
                 <tr>
                     <td>{{$companyCost->companycost_name}}</td>
-                    <td>${{$companyCost->companycost_yearly}}</td>
+                    <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
                     <td><a href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
                     </td>
                 </tr>
@@ -149,4 +157,5 @@
     </div>
     </div>
 </div>
+@endif
 @stop

@@ -22,8 +22,8 @@ class User extends Authenticatable
     protected $fillable = [
         'user_name',
         'user_firstlast',
-        'user_password',
-        'user_type',
+        'password',
+        'role',
         'user_archived'
     ];
 
@@ -44,5 +44,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin() {
+        return $this->role === 'admin';
+     }
+ 
+     public function isUser() {
+        return $this->role === 'user';
+     }
 
 }

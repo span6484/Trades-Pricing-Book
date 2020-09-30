@@ -48,13 +48,13 @@
 </head>
 
 <body>
+    <div class=" p-3 mb-5 bg-white rounded border">
 
     <div class="row">
         <div class="col-xl-6">
 
             <div class="row">
                 <div class="col-md-6">
-
                     @component('common-components.dashboard2-widget')
                     @slot('title') Orders @endslot
                     @slot('total') 1,368 @endslot
@@ -63,7 +63,6 @@
                     @endcomponent
                 </div>
                 <div class="col-md-6">
-
                     @component('common-components.dashboard2-widget')
                     @slot('title') Revenue @endslot
                     @slot('total') $ 32,695 @endslot

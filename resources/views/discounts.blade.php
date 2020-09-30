@@ -3,6 +3,14 @@
 @section('title', 'Discounts')
 
 @section('content')
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <div class=" p-3 mb-5 bg-white rounded border">
     <div>
         @if(count($errors) > 0)
@@ -103,7 +111,7 @@
                 @if($discount->discount_archived == '0')
                 <tr>
                     <td>{{ $discount->discount_name }}</td>
-                    <td>{{ $discount->discount_rate }}</td>
+                    <td>{{ $discount->discount_rate*100 }}%</td>
                     <td><a href="{{action('DiscountController@edit', $discount['pk_discount_id'])}}">Edit</a></td>
                 </tr>
                 @endif
@@ -136,7 +144,7 @@
                 @foreach($discounts as $discount)
                 @if($discount->discount_archived == '1')
                     <td>{{ $discount->discount_name }}</td>
-                    <td>{{ $discount->discount_rate }}</td>
+                    <td>{{ $discount->discount_rate }}%</td>
                     <td><a href="{{action('DiscountController@edit', $discount['pk_discount_id'])}}">Edit</a></td>
                 </tr>
                 @endif
@@ -146,4 +154,5 @@
     </div>
     </div>
 </div>
+@endif
 @stop

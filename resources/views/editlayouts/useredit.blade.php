@@ -3,6 +3,14 @@
 @section('title', 'Customers')
 
 @section('content')
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <div>
     @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -40,20 +48,19 @@
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label for="input">Password</label>
-                    <input type="password" class="form-control" id="user_password" name="user_password"
-                        value="{{$users->user_password}}">
+                    <input type="password" class="form-control" id="user_password" name="password">
                 </div>
             </div>
                 <div class="form-row">
                     <div class="form-group col-sm">
                         <label for="input">User type</label>
-                        <select id="user_type" name="user_type" class="form-control">
-                        @if($users->user_type == 'Standard')
-                            <option value="Standard" selected>Standard</option>
-                            <option value="Admin">Admin</option>
+                        <select id="role" name="role" class="form-control">
+                        @if($users->role == 'user')
+                            <option value="user" selected>User</option>
+                            <option value="admin">Admin</option>
                             @else
-                            <option value="Standard">Standard</option>
-                            <option value="Admin" selected>Admin</option>
+                            <option value="user">User</option>
+                            <option value="admin" selected>Admin</option>
                             @endif
                         </select>
                     </div>
@@ -79,4 +86,5 @@
         </form>
     </div>
 </div>
+@endif
 @stop

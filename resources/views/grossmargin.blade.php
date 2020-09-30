@@ -3,6 +3,14 @@
 @section('title', 'Gross Margin')
 
 @section('content')
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <div class=" p-3 mb-5 bg-white rounded border">
     <div>
         @if(count($errors) > 0)
@@ -203,12 +211,13 @@
                 @endphp
                 @foreach ($grossMargin as &$grossMargins)
                 <tr>
-                    <td>{{$grossMargins}}</td>
-                    <td>{{number_format($grossMargins*($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8),2)}}</td>
+                    <td>{{$grossMargins}}%</td>
+                    <td>${{number_format($grossMargins*($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8),2)}}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 </div>
+@endif
 @stop

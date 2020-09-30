@@ -4,6 +4,14 @@
 
 @section('content')
 
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 <!-- Button trigger modal -->
 <div class=" p-3 mb-5 bg-white rounded border">
     <div>
@@ -22,6 +30,8 @@
         </div>
         @endif
     </div>
+
+
 
     <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#userModal">
         Add User
@@ -67,15 +77,15 @@
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Password</label>
-                                <input type="password" class="form-control" id="inputPhone" name="user_password"
+                                <input type="password" class="form-control" id="inputPhone" name="password"
                                     placeholder="Password">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">User type</label>
-                                <select id="user_type" name="user_type" class="form-control">
-                                    <option value="standard" selected>Standard</option>
+                                <select id="role" name="role" class="form-control">
+                                    <option value="user" selected>User</option>
                                     <option value="admin">Admin</option>
                                 </select>
                             </div>
@@ -119,7 +129,7 @@
                     <tr>
                         <td>{{ $user->user_name }}</td>
                         <td>{{ $user->user_firstlast }}</td>
-                        <td>{{ $user->user_type }}</td>
+                        <td>{{ $user->role }}</td>
                         <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
                     </tr>
                     @endif
@@ -130,19 +140,19 @@
     </div>
     <div id="archived_div" style="display: none">
         <div class='table-responsive'>
-        <div class="row mt-3">
-            <div class="col-sm">
-                <h1>Archived users</h1>
-            </div>
-            <div class="col-sm">
-            </div>
-            <div class="col-2">
-                <div>
-                    <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search users">
+            <div class="row mt-3">
+                <div class="col-sm">
+                    <h1>Archived users</h1>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-2">
+                    <div>
+                        <input type="text" class="form-control float-right" id="archived_input"
+                            onkeyup="archivedFunction()" placeholder="Search users">
+                    </div>
                 </div>
             </div>
-        </div>
             <table id="archived_table" class="display table table-hover table-sm mt-1">
                 <thead>
                     <tr>
@@ -158,7 +168,7 @@
                     <tr>
                         <td>{{ $user->user_name }}</td>
                         <td>{{ $user->user_firstlast }}</td>
-                        <td>{{ $user->user_type }}</td>
+                        <td>{{ $user->role }}</td>
                         <td><a href="{{action('UserController@edit', $user['pk_user_id'])}}">Edit</a></td>
                     </tr>
                     @endif
@@ -168,5 +178,5 @@
         </div>
     </div>
 </div>
-
+@endif
 @stop

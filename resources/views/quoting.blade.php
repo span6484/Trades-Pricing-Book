@@ -159,12 +159,15 @@
                     </div>
                 </div>
                 <div class="form-group col-md">
-                    <label for="selectCategory">Gross Margin</label>
-                    <select class="form-control" id="materialGM">
-                        <option>1.43%</option>
-                        <option>########</option>
-                        <option>########</option>
-                    </select>
+                    <div class="input-group mb-2">
+                        <label for="selectCategory">Gross Margin</label>
+                        @foreach($grossmargins as $grossmargin)
+                        <input type="text" class="form-control" id="yearlypay" value="{{$grossmargin->gm_rate}}">
+                        <div class="input-group-append">
+                            <div class="input-group-text">%</div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="form-group col-md">
                     <label for="input">Labour Charge</label>
@@ -216,9 +219,9 @@
                 <div class="form-group col-md">
                     <label for="selectCategory">Gross Margin</label>
                     <select class="form-control" id="materialGM">
-                        <option>1.43%</option>
-                        <option>########</option>
-                        <option>########</option>
+                        @foreach($grossmargins as $grossmargin)
+                        <option value="{{$grossmargin->pk_gm_id}}">{{$grossmargin->gm_rate}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md">
@@ -285,10 +288,12 @@
                 </div>
                 <div class="form-group col-md">
                     <label for="selectCategory">Discount</label>
-                    <select class="form-control" id="selectCategory">
-                        <option>Normal Pricing - No Discount</option>
-                        <option>########</option>
-                        <option>########</option>
+                    <select class="form-control" id="selectCategory" name="">
+                        @foreach($discounts as $discount)
+                        <option value="{{ $discount->pk_discount_id }}">
+                            {{ $discount->discount_name }}
+                        </option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -324,8 +329,9 @@
                     <div class="form-group col-sm">
                         <h5 class="pt-3 pb-1">Terms & Conditions</h5>
                         <select class="form-control" id="term_name" name="term_name">
-                            <option>14 day account</option>
-                            <option>30 day account</option>
+                            @foreach($quoteterms as $quoteterm)
+                            <option value="{{ $quoteterm->pk_term_id }}">{{ $quoteterm->term_name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

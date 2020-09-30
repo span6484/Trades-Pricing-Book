@@ -1,3 +1,4 @@
+@if (Auth::user())
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">
         <img src="/images/Xceed_logo_small_01-copy1.png" class="img-fluid" width="200px" alt="Responsive image">
@@ -36,6 +37,8 @@
         <a href="/{{ 'customers' }}" class="list-group-item list-group-item-action bg-light border-0">Customers</a>
         <a href="/{{ 'materials' }}" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
         <a href="/{{ 'suppliers' }}" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
+        @if (Auth::user() && Auth::user()->role == 'admin')
+        <h5 href="#" class="border-top mt-2 list-group-item list-group-item-action bg-light border-right-0 border-left-0 border-bottom-0">Admin Options</h5>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Costs
             & Expenses</a>
@@ -62,5 +65,8 @@
         </ul>
         <a href="/{{ 'users' }}" class="list-group-item list-group-item-action bg-light border-0">User Management</a>
         <a href="/{{ 'businessdetails' }}" class="list-group-item list-group-item-action bg-light border-0">Business Details</a>
+@endif
+        
     </div>
 </div>
+@endif

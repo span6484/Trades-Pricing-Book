@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
 
 class AddUserTypeToTableUsers extends Migration
 {
@@ -14,7 +15,7 @@ class AddUserTypeToTableUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('user_type')->after('user_name')->nullable();
+            $table->enum('role', ['user','admin'])->default('user')->after('user_name')->nullable();
             $table->dropColumn('user_firstlast');
             $table->dropColumn('user_archived');
             
@@ -24,14 +25,18 @@ class AddUserTypeToTableUsers extends Migration
             $table->tinyInteger('user_archived')->default(0);
             
         });
+
         $user = new App\User();
-        $user->password = Hash::make('secret');
-        $user->user_name = 'the-email@example.com';
+        $user->password = Hash::make('password');
+        $user->user_name = 'jconceicao';
+        $user->user_firstlast = 'Jayson Conceicao';
+        $user->role = 'admin';
         $user->save();
 
         $user = new App\User();
         $user->password = Hash::make('password');
-        $user->user_name = 'jquintal';
+        $user->user_name = 'dpevzner';
+        $user->user_firstlast = 'David Pevzner';
         $user->save();
     }
 

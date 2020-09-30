@@ -1,3 +1,4 @@
+@if (Auth::user())
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <button class="btn" id="menu-toggle" type="button" data-toggle="collapse"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,10 +27,10 @@
                     </svg>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Change password</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="{{ url('/main/logout') }}">Logout</a>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
+@endif

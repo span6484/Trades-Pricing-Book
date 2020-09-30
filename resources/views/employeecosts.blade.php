@@ -3,6 +3,14 @@
 @section('title', 'Employee Costs')
 
 @section('content')
+@if (Auth::user() && Auth::user()->role != 'admin')
+<div class="mx-auto mt-5" style="width: 200px;">
+    <h2>
+        Access denied
+    </h2>
+</div>
+
+@elseif (Auth::user() && Auth::user()->role == 'admin')
 
 <!-- Button trigger Employee modal -->
 <div class=" p-3 mb-5 bg-white rounded border">
@@ -233,27 +241,51 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                $total_package=0;
+                $total_cost_less_super=0;
+                @endphp
                 @foreach($employeeCosts as $employeeCost)
                 @if ($employeeCost->employee_type == 'Employee' && $employeeCost->employee_archived == '0')
                 <tr>
                     <td>{{$employeeCost->employee_name}}</td>
 
-                    <td>${{$employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek * $employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek * $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek}}</td>
-                    <td>{{$employeeCost->employee_weeksperyear}}</td>
-                    <td>${{$employeeCost->employee_vehiclecost}}</td>
-                    <td>${{$employeeCost->employee_otherweeklycost}}</td>
-                    <td>${{$employeeCost->employee_phone}}</td>
-                    <td>${{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
-                    <td>${{$employeeCost->employee_workercomp}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
+                    <td>${{number_format($employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_phone,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>
+                    @php
+                    $total_package += $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+                    $total_cost_less_super+=$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095;
+                    @endphp
                     <td><a href="{{action('EmployeeCostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
                 @endforeach
+                <tr>
+                    <th>Total</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{number_format($total_package,2)}}</td>
+                    <td>${{number_format($total_cost_less_super,2)}}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -290,27 +322,47 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                $total_package=0;
+                $total_cost_less_super=0;
+                @endphp
                 @foreach($employeeCosts as $employeeCost)
                 @if ($employeeCost->employee_type == 'Employee' && $employeeCost->employee_archived == '1')
                 <tr>
                     <td>{{$employeeCost->employee_name}}</td>
 
-                    <td>${{$employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek}}</td>
-                    <td>{{$employeeCost->employee_weeksperyear}}</td>
-                    <td>${{$employeeCost->employee_vehiclecost}}</td>
-                    <td>${{$employeeCost->employee_otherweeklycost}}</td>
-                    <td>${{$employeeCost->employee_phone}}</td>
-                    <td>${{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
-                    <td>${{$employeeCost->employee_workercomp}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
+                    <td>${{number_format($employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_phone,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>
                     <td><a href="{{action('EmployeeCostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
                 @endforeach
+                <tr>
+                    <th>Total</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{number_format($total_package,2)}}</td>
+                    <td>${{number_format($total_cost_less_super,2)}}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -568,29 +620,56 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                $total_package=0;
+                $total_cost_less_super=0;
+                @endphp
                 @foreach($employeeCosts as $employeeCost)
                 @if ($employeeCost->employee_type == 'Sub-Contractor' && $employeeCost->employee_archived == '0')
                 <tr>
-                <td>{{$employeeCost->employee_name}}</td>
-                    <td>${{$employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek}}</td>
-                    <td>{{$employeeCost->employee_weeksperyear}}</td>
-                    <td>${{$employeeCost->employee_vehiclecost}}</td>
-                    <td>${{$employeeCost->employee_otherweeklycost}}</td>
-                    <td>${{$employeeCost->employee_cash}}</td>
-                    <td>${{$employeeCost->employee_phone}}</td>
-                    <td>${{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
-                    <td>${{$employeeCost->employee_workercomp}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>${{($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear)*10/100}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>${{($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear)-($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095)}}</td>
+                    <td>{{$employeeCost->employee_name}}</td>
+                    <td>${{number_format($employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_cash,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_phone,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format(($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear)*10/100,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>                    
+                    @php
+                    $total_package += $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+                    $total_cost_less_super+=$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095;
+                    @endphp
                     <td><a href="{{action('EmployeeCostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
                 </tr>
                 @endif
                 @endforeach
+                <tr>
+                    <th>Total</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{number_format($total_package,2)}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>${{number_format($total_cost_less_super,2)}}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -629,33 +708,60 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                $total_package=0;
+                $total_cost_less_super=0;
+                @endphp
                 @foreach($employeeCosts as $employeeCost)
                 @if ($employeeCost->employee_type == 'Sub-Contractor' && $employeeCost->employee_archived == '1')
                 <tr>
-                    <td>{{$employeeCost->employee_name}}</td>
-                    <td>${{$employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>{{$employeeCost->employee_hoursperweek}}</td>
-                    <td>{{$employeeCost->employee_weeksperyear}}</td>
-                    <td>${{$employeeCost->employee_vehiclecost}}</td>
-                    <td>${{$employeeCost->employee_otherweeklycost}}</td>
-                    <td>${{$employeeCost->employee_cash}}</td>
-                    <td>${{$employeeCost->employee_phone}}</td>
-                    <td>${{$employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095}}</td>
-                    <td>${{$employeeCost->employee_workercomp}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>${{($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear)*10/100}}</td>
-                    <td>${{$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear}}</td>
-                    <td>${{($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear)-($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095)}}</td>
+                <td>{{$employeeCost->employee_name}}</td>
+                    <td>${{number_format($employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_cash,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_phone,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format(($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear)*10/100,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}</td>
+                    <td>${{number_format($employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095,2)}}</td>
                     <td><a href="{{action('EmployeeCostController@edit', $employeeCost['pk_employee_id'])}}">Edit</a></td>
+                    @php
+                    $total_package += $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+                    $total_cost_less_super+=$employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095;
+                    @endphp
                 </tr>
                 @endif
                 @endforeach
+                <tr>
+                    <th>Total</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{number_format($total_package,2)}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>${{number_format($total_cost_less_super,2)}}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
     </div>
 </div>
-
+@endif
 @stop

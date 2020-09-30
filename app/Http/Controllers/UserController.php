@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -11,10 +12,9 @@ class UserController extends Controller
     public function index()
     
     {
-        $pageHeading = 'User Management';
         $users = User::all();
 
-        return view('users', compact('pageHeading', 'users'));
+        return view('users', compact('users'));
     }
 
     public function store(Request $request)
@@ -22,14 +22,14 @@ class UserController extends Controller
         $this->validate($request, [
             'user_name' => 'required',
             'user_firstlast' => 'required',
-            'user_password' => 'required'
+            'password' => 'required'
         ]);
 
         $newUser = new User([
             'user_name' => $request->get('user_name'),
             'user_firstlast' => $request->get('user_firstlast'),
-            'user_password' => $request->get('user_password'),
-            'user_type' => $request->get('user_type'),
+            'password' => Hash::make($request->get('password')),
+            'role' => $request->get('role'),
             'user_archived' => $request->get('user_archived')
         ]);
         $newUser->save();
@@ -38,10 +38,9 @@ class UserController extends Controller
 
     public function edit($pk_user_id)
     {
-        $pageHeading = 'User Management';
         $users = User::find($pk_user_id);
 
-        return view('editlayouts.useredit', compact('users', 'pk_user_id', 'pageHeading'));
+        return view('editlayouts.useredit', compact('users', 'pk_user_id'));
     }
 
     public function update(Request $request, $pk_user_id)
@@ -50,14 +49,17 @@ class UserController extends Controller
         $this->validate($request,[
             'user_name' => 'required',
             'user_firstlast' => 'required',
-            'user_password' => 'required'
         ]);
+
+        $password = $request->get('password');
         
         $users = User::find($pk_user_id);
         $users->user_name = $request->get('user_name');
         $users->user_firstlast = $request->get('user_firstlast');
-        $users->user_password = $request->get('user_password');
-        $users->user_type = $request->get('user_type');
+        if ($password != "") {
+            $users->password = Hash::make($request->get('password'));
+        }
+        $users->role = $request->get('role');
         $users->user_archived = $request->get('user_archived');
         $users->save();
 
@@ -65,3 +67,4 @@ class UserController extends Controller
     }
 
 }
+
