@@ -17,7 +17,6 @@
             @if(isset(Auth::user()->user_name))
             <script>
                 window.location = "/main/successlogin";
-
             </script>
             @endif
             @if($message = Session::get('error'))
