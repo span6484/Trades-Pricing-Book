@@ -81,7 +81,7 @@ Route::get('/businessdetails', 'BusinessDetailController@index')->name('business
 Route::get('/businessdetails', 'BusinessDetailController@edit')->name('businessdetails')->middleware('auth');
 Route::resource('businessdetails', 'BusinessDetailController')->middleware('auth');
 
-Route::get('/main', 'MainController@index')->name('login');
+Route::get('/login', 'MainController@index')->name('login');
 Route::post('/main/checklogin', 'MainController@checklogin');
 Route::get('/main/successlogin', 'MainController@successlogin')->middleware('auth');
 Route::get('/main/logout', 'MainController@logout');
