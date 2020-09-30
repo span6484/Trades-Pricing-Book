@@ -148,8 +148,8 @@
 
             <div class="col-sm-5">
 
-                    <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search company name">
+                <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
+                    placeholder="Search company name">
 
             </div>
         </div>

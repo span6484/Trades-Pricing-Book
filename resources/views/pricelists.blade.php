@@ -187,7 +187,7 @@
                         <td>{{ $priceList->item_description }}</td>
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
-                        <td>{{ $priceList->item_servicecall }}</td>
+                        <td>${{number_format($priceList->item_servicecall,2) }}</td>
                         <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a>
                         </td>
                     </tr>
@@ -201,16 +201,16 @@
 
     <!-- Archived content -->
     <div id="archived_div" style="display: none">
-    <div class="row mb-4">
+        <div class="row mb-4">
             <div class="col-sm-7">
                 <p class="h2">Archived {{$categoryName}} items</p>
             </div>
 
             <div class="col-sm-5">
-                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search price lists">
-                </div>
+                <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                    placeholder="Search price lists">
             </div>
+        </div>
         <div class='table-responsive'>
             <table id="archived_table" class="display table table-hover table-sm">
                 <thead>

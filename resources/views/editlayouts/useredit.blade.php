@@ -27,35 +27,36 @@
     </div>
     @endif
 </div>
-<div class="row">
-    <div class="col-sm">
-        <h3>Edit User</h3>
-        <form method="post" action="{{action('UserController@update', $pk_user_id)}}">
-            {{csrf_field()}}
-            <input type="hidden" name="_method" value="PATCH">
-            <div class="form-row">
-                <div class="form-group col-sm">
-                    <label for="input">User name</label>
-                    <input type="text" class="form-control" id="user_name" name="user_name"
-                        value="{{$users->user_name}}">
+<div class="p-3 rounded border">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Edit User</h3>
+            <form method="post" action="{{action('UserController@update', $pk_user_id)}}">
+                {{csrf_field()}}
+                <input type="hidden" name="_method" value="PATCH">
+                <div class="form-row">
+                    <div class="form-group col-sm">
+                        <label for="input">User name</label>
+                        <input type="text" class="form-control" id="user_name" name="user_name"
+                            value="{{$users->user_name}}">
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="input">Full name</label>
+                        <input type="text" class="form-control" id="user_firstlast" name="user_firstlast"
+                            value="{{$users->user_firstlast}}">
+                    </div>
                 </div>
-                <div class="form-group col-sm">
-                    <label for="input">Full name</label>
-                    <input type="text" class="form-control" id="user_firstlast" name="user_firstlast"
-                        value="{{$users->user_firstlast}}">
+                <div class="form-row">
+                    <div class="form-group col-sm">
+                        <label for="input">Password</label>
+                        <input type="password" class="form-control" id="user_password" name="password">
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-sm">
-                    <label for="input">Password</label>
-                    <input type="password" class="form-control" id="user_password" name="password">
-                </div>
-            </div>
                 <div class="form-row">
                     <div class="form-group col-sm">
                         <label for="input">User type</label>
                         <select id="role" name="role" class="form-control">
-                        @if($users->role == 'user')
+                            @if($users->role == 'user')
                             <option value="user" selected>User</option>
                             <option value="admin">Admin</option>
                             @else
@@ -83,7 +84,8 @@
                     <a class="btn btn-secondary" href="{{url('/users')}}">Cancel</a>
                     <input type="submit" class="btn btn-primary" value="Save">
                 </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 @endif

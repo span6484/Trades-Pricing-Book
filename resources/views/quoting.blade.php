@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container rounded border pl-5 pr-5 pb-5">
-<h2 class="mt-3 mb-4">Create Quote</h2>
+    <h2 class="mt-3 mb-4">Create Quote</h2>
     <div class="row">
         <div class="col-sm-6 pb-4">
             <p>
