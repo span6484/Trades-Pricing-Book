@@ -34,7 +34,7 @@ class EmployeeCostController extends Controller
             'employee_workercomp' => $request->get('employee_workercomp'),
             'employee_cash' => $request->get('employee_cash'),
             'employee_type' => $request->get('employee_type'),
-            'employee_archived' => $request->get('employee_arhived')
+            'employee_archived' => $request->get('employee_archived')
         ]);
 
         $newEmployee->save();

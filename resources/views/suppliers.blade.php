@@ -147,10 +147,8 @@
             </div>
 
             <div class="col-sm-5">
-
                     <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
                         placeholder="Search supplier name">
-
             </div>
         </div>
         <div class='table-responsive'>

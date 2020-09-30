@@ -262,8 +262,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_phone,2)}}</td>
@@ -362,8 +362,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_phone,2)}}</td>
@@ -433,6 +433,7 @@
 
                     <form method="post" action="{{ url('employeecosts') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="employee_archived" value="0">
                         <input type="hidden" name="employee_type" value="Sub-Contractor">
                         <div class="form-row pb-2">
                             <div class="form-group col-md-6">
@@ -670,8 +671,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_cash,2)}}</td>
@@ -781,8 +782,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>s{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_cash,2)}}</td>

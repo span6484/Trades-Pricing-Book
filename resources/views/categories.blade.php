@@ -257,30 +257,31 @@
                     placeholder="Search sub-categories">
             </div>
         </div>
-    <div class='table-responsive'>
-        <table id="archived_table2" class="display table table-hover table-sm">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortArchived2(0)">Sub-Category</th>
-                    <th scope="col" onclick="sortArchived2(1)">Parent Category</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($subcategories as $subcategory)
-                @if($subcategory->subcategory_archived == '1' && $subcategory->categories->category_archived != '1')
-                <tr>
-                    <td>{{ $subcategory->subcategory_name }}</td>
-                    <td>{{ $subcategory->categories->category_name }}</td>
-                    <td><a href="{{action('SubCategoryController@edit', $subcategory['pk_subcategory_id'])}}">Edit</a>
-                    </td>
-                </tr>
-                @endif
-                @endforeach
-            </tbody>
-        </table>
+        <div class='table-responsive'>
+            <table id="archived_table2" class="display table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortArchived2(0)">Sub-Category</th>
+                        <th scope="col" onclick="sortArchived2(1)">Parent Category</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($subcategories as $subcategory)
+                    @if($subcategory->subcategory_archived == '1' && $subcategory->categories->category_archived != '1')
+                    <tr>
+                        <td>{{ $subcategory->subcategory_name }}</td>
+                        <td>{{ $subcategory->categories->category_name }}</td>
+                        <td><a
+                                href="{{action('SubCategoryController@edit', $subcategory['pk_subcategory_id'])}}">Edit</a>
+                        </td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
 </div>
 

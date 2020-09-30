@@ -37,6 +37,7 @@
             @else
             <script>
                 window.location = "/main";
+
             </script>
             @endif
         </div>
