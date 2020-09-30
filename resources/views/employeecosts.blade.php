@@ -32,7 +32,7 @@
     </div>
 
     <!-- Add employee button -->
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#fullemployeeModal">
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#fullemployeeModal">
         Add Employee
     </button>
 
@@ -403,8 +403,9 @@
 </div>
 
 <div class=" p-3 mb-5 bg-white rounded border">
+
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal"
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal"
         data-target="#subcontractorModal">
         Add Sub-Contractor
     </button>

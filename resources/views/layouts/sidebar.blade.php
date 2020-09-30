@@ -1,6 +1,7 @@
 @if (Auth::user())
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">
+    
         <img src="/images/Xceed_logo_small_01-copy1.png" class="img-fluid" width="200px" alt="Responsive image">
     </div>
     <div class="list-group list-group-flush">
