@@ -24,9 +24,9 @@ class MainController extends Controller
         
         $user_data = array(
             'user_name' => $request->get('user_name'),
-            'user_password' => $request->get('user_password'),
+            'password' => $request->get('user_password'),
         );
-
+        
         if(Auth::attempt($user_data))
         {
             return redirect('main/successlogin');
