@@ -23,10 +23,12 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#customerModal">
+    <!-- Add customer button -->
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#customerModal">
         Add Customer
     </button>
 
+    <!-- Active/Archived buttons -->
     <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
         <label class="btn btn-secondary active">
             <input type="radio" name="options" id="active" autocomplete="off" checked> Active
@@ -104,18 +106,20 @@
             </div>
         </div>
     </div>
+    <!-- End modal -->
 
     <div id="active_div">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                        placeholder="Search customer names">
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Customers</p>
+            </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                    placeholder="Search customer name">
             </div>
         </div>
         <div class='table-responsive'>
-            <h3>Customers</h3>
             <table id="active_table" class="display table table-hover table-sm mt-1">
                 <thead>
                     <tr>
@@ -147,17 +151,20 @@
         </div>
     </div>
 
+    <!-- Archived content -->
     <div id="archived_div" style="display: none">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search customer names">
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Archived customers</p>
+            </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                    placeholder="Search customer name">
             </div>
         </div>
+
         <div class='table-responsive'>
-            <h3>Archived Customers</h3>
             <table id="archived_table" class="display table table-hover table-sm mt-1">
                 <thead>
                     <tr>
@@ -180,7 +187,8 @@
                         <td>{{ $customer->customer_email }}</td>
                         <td>{{ $customer->customer_address }}</td>
                         <td>{{ $customer->discount->discount_name }}</td>
-                        <td><a href="{{action('CustomerController@edit', $customer['pk_customer_id'])}}">Edit</a></td>
+                        <td><a href="{{action('CustomerController@edit', $customer['pk_customer_id'])}}">Edit</a>
+                        </td>
                     </tr>
                     @endif
                     @endforeach

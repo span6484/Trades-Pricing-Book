@@ -31,7 +31,7 @@
     </div>
 
     <div class='table-responsive'>
-        <h3>Business Details</h3>
+        <p class="h2 mb-4">Business Details</p>
         <table id="business_details_table" class="display table table-hover table-sm mt-1">
             <thead>
                 <tr>
