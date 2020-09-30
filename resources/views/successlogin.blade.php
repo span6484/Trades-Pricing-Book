@@ -13,6 +13,7 @@
             <button type="button" class="close" data-dismiss="alert">x</button>
             <strong>{{ $message }}</strong>
         </div>
+        @endif
 
         @if(count($errors) > 0)
         <div class="alert alert-danger">
@@ -29,12 +30,12 @@
         <div class="col-sm">
             <h3>Success Login</h3>
 
-            @if(isset(Auth::user()-user_name))
+            @if(isset(Auth::user()->user_name))
             <div class="alert alert-danger success-block">
                 <strong>Welcome {{ Auth::user()->user_name }}</strong>
                 <a href="{{ url('/main/logout') }}">Logout</a>
             </div>
-                else
+                @else
                 <script>window.location="/main";</script>
             @endif
     </div>

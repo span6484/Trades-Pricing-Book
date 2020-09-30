@@ -21,12 +21,17 @@ class AddUserTypeToTableUsers extends Migration
         });
         Schema::table('users', function(Blueprint $table) {
             $table->string('user_firstlast')->nullable();
-            $table->tinyInteger('user_archcived')->default(0);
+            $table->tinyInteger('user_archived')->default(0);
             
         });
         $user = new App\User();
         $user->password = Hash::make('secret');
         $user->user_name = 'the-email@example.com';
+        $user->save();
+
+        $user = new App\User();
+        $user->password = Hash::make('password');
+        $user->user_name = 'jquintal';
         $user->save();
     }
 
