@@ -19,9 +19,14 @@ class CreateSuppliersTable extends Migration
             $table->string('supplier_contactname')->nullable();
             $table->string('supplier_phone')->nullable();
             $table->string('supplier_email')->nullable();
-            $table->tinyInteger('supplier_archived');
+            $table->tinyInteger('supplier_archived')->default(0);
             $table->timestamps();
         });
+
+        $supplier = new App\Supplier();
+        $supplier->supplier_companyname = 'Estimate Supplier';
+        $supplier->supplier_contactname = 'Assign materials for estimations to me';
+        $supplier->save();
     }
 
     /**

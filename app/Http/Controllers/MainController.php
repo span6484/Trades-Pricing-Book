@@ -48,6 +48,6 @@ class MainController extends Controller
     {
         Auth::logout();
 
-        return redirect('main');
+        return redirect('login');
     }
 }

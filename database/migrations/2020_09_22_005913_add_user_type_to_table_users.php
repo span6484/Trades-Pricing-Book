@@ -20,7 +20,7 @@ class AddUserTypeToTableUsers extends Migration
             $table->dropColumn('user_archived');
             
         });
-        Schema::table('users', function(Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('user_firstlast')->nullable();
             $table->tinyInteger('user_archived')->default(0);
             
@@ -33,11 +33,6 @@ class AddUserTypeToTableUsers extends Migration
         $user->role = 'admin';
         $user->save();
 
-        $user = new App\User();
-        $user->password = Hash::make('password');
-        $user->user_name = 'dpevzner';
-        $user->user_firstlast = 'David Pevzner';
-        $user->save();
     }
 
     /**

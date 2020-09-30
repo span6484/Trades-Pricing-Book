@@ -17,9 +17,74 @@ class CreateDiscountsTable extends Migration
             $table->id('pk_discount_id');
             $table->string('discount_name');
             $table->double('discount_rate');
-            $table->tinyInteger('discount_archived');
+            $table->tinyInteger('discount_archived')->default(0);
             $table->timestamps();
         });
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'NORMAL PRICING - NO DISCOUNT';
+        $discount->discount_rate = '0.00';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'MATES RATES CATEGORY 1';
+        $discount->discount_rate = '0.95';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'MATES RATES CATEGORY 2';
+        $discount->discount_rate = '0.90';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'MATES RATES CATEGORY 3';
+        $discount->discount_rate = '0.80';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'REAL ESTATE / STRATA CATERGORY - 1';
+        $discount->discount_rate = '0.95';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'REAL ESTATE / STRATA CATEGORY - 2';
+        $discount->discount_rate = '0.90';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'REAL ESTATE / STRATA CATEGORY - 3';
+        $discount->discount_rate = '0.85';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'REAL ESTATE / STRATA CATEGORY - 4';
+        $discount->discount_rate = '0.80';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'LOYAL CUSTOMER';
+        $discount->discount_rate = '0.90';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'GENERAL CUSTOMER DISCOUNT';
+        $discount->discount_rate = '0.90';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'PROMOTIONAL DISCOUNT - 1';
+        $discount->discount_rate = '0.95';
+        $discount->save();
+        
+        $discount = new App\Discount();
+        $discount->discount_name = 'PROMOTIONAL DISCOUNT - 2';
+        $discount->discount_rate = '0.90';
+        $discount->save();
+
+        $discount = new App\Discount();
+        $discount->discount_name = 'PROMOTIONAL DISCOUNT - 3';
+        $discount->discount_rate = '0.85';
+        $discount->save();
     }
 
     /**
