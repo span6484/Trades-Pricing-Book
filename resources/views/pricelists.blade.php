@@ -157,7 +157,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                    placeholder="Search price lists">
+                    placeholder="Search description">
             </div>
         </div>
 

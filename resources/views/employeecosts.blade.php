@@ -631,7 +631,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="active_input2" onkeyup="activeFunction2()"
-                    placeholder="Search supplier names">
+                    placeholder="Search sub-contractor name">
             </div>
         </div>
         <div class='table-responsive'>
@@ -741,7 +741,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="archived_input2" onkeyup="archivedFunction2()"
-                    placeholder="Search customer names">
+                    placeholder="Search sub-contractor name">
             </div>
 
         </div>

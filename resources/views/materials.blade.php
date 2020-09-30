@@ -156,7 +156,7 @@
             </div>
         </div>
         <div class='table-responsive'>
-            <table id="archived_table" class="display table table-hover table-sm mt-1">
+            <table id="archived_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortArchived(0)">Item Code</th>
