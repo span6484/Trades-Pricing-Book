@@ -57,14 +57,14 @@
                             <div class="form-group col-sm">
                                 <label for="input">Supplier item code</label>
                                 <input type="text" class="form-control" id="itemCode" name="material_itemcode"
-                                    placeholder="AAA-###">
+                                    placeholder="Enter item code">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Material description</label>
                                 <input type="text" class="form-control" id="materialDescription"
-                                    name="material_description" placeholder="Description">
+                                    name="material_description" placeholder="Enter description">
                             </div>
                         </div>
                         <div class="form-row">
@@ -76,7 +76,7 @@
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" class="form-control" id="materialCost" name="material_cost"
-                                        placeholder="0.00">
+                                        placeholder="0">
                                 </div>
                             </div>
                         </div>

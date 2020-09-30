@@ -30,7 +30,7 @@
     </div>
 
     <!-- Add companycost button -->
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#fullemployeeModal">
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#fullemployeeModal">
         Add Expense
     </button>
 
@@ -63,7 +63,7 @@
                             <div class="form-group col-sm">
                                 <label for="input">Expense name</label>
                                 <input type="text" class="form-control" name="companycost_name"
-                                    placeholder="Warehouse rental">
+                                    placeholder="Enter expense name">
                             </div>
                         </div>
                         <div class="form-row">
@@ -107,8 +107,10 @@
             <table id="active_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
-                        <th scope="col" onclick="sortActive(0)">Expense Name</th>
-                        <th scope="col" onclick="sortActive(1)">Yearly Cost</th>
+                    <th scope="col" onclick="sortArchived(0)">Expense Name</th>
+                        <th scope="col" onclick="sortArchived(1)">Weekly Cost</th>
+                        <th scope="col" onclick="sortArchived(2)">Monthly Cost</th>
+                        <th scope="col" onclick="sortArchived(3)">Yearly Cost</th>
                         <th scope="col">Edit</th>
                     </tr>
                 </thead>
@@ -117,6 +119,8 @@
                     @if($companyCost->companycost_archived == '0')
                     <tr>
                         <td>{{$companyCost->companycost_name}}</td>
+                        <td>${{number_format($companyCost->companycost_yearly/52,2)}}</td>
+                        <td>${{number_format($companyCost->companycost_yearly/12,2)}}</td>
                         <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
                         <td><a
                                 href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
@@ -147,7 +151,10 @@
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortArchived(0)">Expense Name</th>
-                        <th scope="col" onclick="sortArchived(1)">Yearly Cost</th>
+                        <th scope="col" onclick="sortArchived(1)">Weekly Cost</th>
+                        <th scope="col" onclick="sortArchived(2)">Monthly Cost</th>
+                        <th scope="col" onclick="sortArchived(3)">Yearly Cost</th>
+                        
                         <th scope="col">Edit</th>
                     </tr>
                 </thead>
@@ -156,6 +163,8 @@
                     @if($companyCost->companycost_archived == '1')
                     <tr>
                         <td>{{$companyCost->companycost_name}}</td>
+                        <td>${{number_format($companyCost->companycost_yearly/52,2)}}</td>
+                        <td>${{number_format($companyCost->companycost_yearly/12,2)}}</td>
                         <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
                         <td><a
                                 href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>

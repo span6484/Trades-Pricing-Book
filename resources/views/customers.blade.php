@@ -58,31 +58,31 @@
                             <div class="form-group col-sm">
                                 <label for="input">Customer name</label>
                                 <input type="text" class="form-control" id="inputName" name="customer_name"
-                                    placeholder="John Smith">
+                                    placeholder="Enter customer name">
                             </div>
                             <div class="form-group col-sm">
                                 <label for="input">Company name</label>
                                 <input type="text" class="form-control" id="inputCompany" name="customer_company"
-                                    placeholder="Acme Industries">
+                                    placeholder="Enter company">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Phone</label>
                                 <input type="text" class="form-control" id="inputPhone" name="customer_phone"
-                                    placeholder="0412345678">
+                                    placeholder="Enter phone">
                             </div>
                             <div class="form-group col-sm">
                                 <label for="input">Email</label>
                                 <input type="email" class="form-control" id="inputEmail" name="customer_email"
-                                    placeholder="johnsmith@customer.com">
+                                    placeholder="Enter email">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Address</label>
                                 <input type="text" class="form-control" id="inputAddress" name="customer_address"
-                                    placeholder="123 Fake St, Sydney NSW 2000">
+                                    placeholder="Enter address">
                             </div>
                         </div>
                         <div class="form-row">

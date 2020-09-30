@@ -57,7 +57,7 @@
                             <div class="form-group col-sm">
                                 <label for="input">Item #</label>
                                 <input type="text" class="form-control" id="item_number" name="item_number"
-                                    placeholder="ELI-001">
+                                    placeholder="Enter item #">
                             </div>
                         </div>
                         <div class="form-row">
