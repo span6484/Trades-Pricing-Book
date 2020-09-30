@@ -23,10 +23,12 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal" data-target="#supplierModal">
+    <!-- Add supplier button -->
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#supplierModal">
         Add Supplier
     </button>
 
+    <!-- Active/Archived buttons -->
     <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
         <label class="btn btn-secondary active">
             <input type="radio" name="options" id="active" autocomplete="off" checked> Active
@@ -35,6 +37,7 @@
             <input type="radio" name="options" id="archived" autocomplete="off"> Archived
         </label>
     </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="supplierModal" tabindex="-1" role="dialog" aria-labelledby="supplierModalLabel"
@@ -56,28 +59,28 @@
                             <div class="form-group col-sm">
                                 <label for="input">Supplier name</label>
                                 <input type="text" class="form-control" id="companyName" name="supplier_companyname"
-                                    placeholder="Acme Industries">
+                                    placeholder="Company">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Contact name</label>
                                 <input type="text" class="form-control" id="contactName" name="supplier_contactname"
-                                    placeholder="John Smith">
+                                    placeholder="First Last">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Phone</label>
                                 <input type="text" class="form-control" id="supplierPhone" name="supplier_phone"
-                                    placeholder="0412345678">
+                                    placeholder="#">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Email</label>
                                 <input type="text" class="form-control" id="supplierEmail" name="supplier_email"
-                                    placeholder="contact@acme.com.au">
+                                    placeholder="@">
                             </div>
                         </div>
 
@@ -90,22 +93,24 @@
             </div>
         </div>
     </div>
+    <!-- End modal -->
 
+    <!-- Active content -->
     <div id="active_div">
-        <div class='table-responsive'>
-            <div class="row mt-3">
-                <div class="col-sm">
-                    <h1>Suppliers</h1>
-                </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-sm">
-                    <div>
-                        <input type="text" class="form-control float-right" id="active_input" onkeyup="activeFunction()"
-                            placeholder="Search suppliers">
-                    </div>
-                </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Suppliers</p>
             </div>
+
+            <div class="col-sm-5">
+
+                <input type="text" class="form-control float-right" id="active_input" onkeyup="activeFunction()"
+                    placeholder="Search company name">
+
+            </div>
+        </div>
+        <div class='table-responsive'>
             <table id="active_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
@@ -133,21 +138,22 @@
         </div>
     </div>
 
+    <!-- Archived content -->
     <div id="archived_div" style="display: none">
-        <div class='table-responsive'>
-        <div class="row mt-3">
-                <div class="col-sm">
-                    <h1>Archived Suppliers</h1>
-                </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-sm">
-                    <div>
-                        <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
-                            placeholder="Search suppliers">
-                    </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Archived Suppliers</p>
+            </div>
+
+            <div class="col-sm-5">
+                <div>
+                    <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search company name">
                 </div>
             </div>
+        </div>
+        <div class='table-responsive'>
             <table id="archived_table" class="display table table-hover table-sm mt-1">
                 <thead>
                     <tr>
@@ -174,6 +180,7 @@
             </table>
         </div>
     </div>
+</div>
 
 </div>
 
