@@ -14,28 +14,28 @@
         <div class="col-md-3 mt-5">
             <img src="images/Xceed_logo_small_01-copy1.png" class="img-fluid mx-auto mb-5" style="display:block"
                 width="350px" alt="Responsive image">
-                @if(isset(Auth::user()->user_name))
-    <script>
-        window.location = "/main/successlogin";
+            @if(isset(Auth::user()->user_name))
+            <script>
+                window.location = "/main/successlogin";
 
-    </script>
-    @endif
-    @if($message = Session::get('error'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
+            </script>
+            @endif
+            @if($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
 
-    @if(count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+            @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header">Login</div>
                 <div class="card-body">
@@ -73,9 +73,7 @@
                         </div>
                 </div>
                 </form>
-                
             </div>
-            
         </div>
     </div>
 </div>
