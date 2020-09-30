@@ -18,6 +18,10 @@ class CreateGrossmarginsTable extends Migration
             $table->double('gm_rate');
             $table->timestamps();
         });
+
+        $grossmargin = new App\GrossMargin();
+        $grossmargin->gm_rate = 1.739;
+        $grossmargin->save();
     }
 
     /**
