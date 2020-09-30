@@ -28,10 +28,13 @@
         </div>
         @endif
     </div>
+
+    <!-- Add companycost button -->
     <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#fullemployeeModal">
         Add Expense
     </button>
 
+    <!-- Active/archive buttons -->
     <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
         <label class="btn btn-secondary active">
             <input type="radio" name="options" id="active" autocomplete="off" checked> Active
@@ -41,7 +44,7 @@
         </label>
     </div>
 
-    <!-- companycost table -->
+    <!-- companycost modal -->
     <div class="modal fade" id="fullemployeeModal" tabindex="-1" role="dialog" aria-labelledby="fullemployeeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -85,76 +88,84 @@
             </div>
         </div>
     </div>
+    <!-- End modal -->
 
+    <!-- Active content -->
     <div id="active_div">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                        placeholder="Search company costs">
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Company costs</p>
+            </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                    placeholder="Search company costs">
             </div>
         </div>
 
-    <div class='table-responsive'>
-    <h3>Company Costs</h3>
-    <table id="active_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortActive(0)">Expense Name</th>
-                    <th scope="col" onclick="sortActive(1)">Yearly Cost</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($companyCosts as $companyCost)
-                @if($companyCost->companycost_archived == '0')
-                <tr>
-                    <td>{{$companyCost->companycost_name}}</td>
-                    <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
-                    <td><a href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
-                    </td>
-                </tr>
-                @endif
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+        <div class='table-responsive'>
+            <table id="active_table" class="display table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortActive(0)">Expense Name</th>
+                        <th scope="col" onclick="sortActive(1)">Yearly Cost</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($companyCosts as $companyCost)
+                    @if($companyCost->companycost_archived == '0')
+                    <tr>
+                        <td>{{$companyCost->companycost_name}}</td>
+                        <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
+                        <td><a
+                                href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
+                        </td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
+    <!-- Archived content -->
     <div id="archived_div" style="display: none">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search company costs">
-                </div>
+        <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Archived company costs</p>
+            </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                    placeholder="Search company costs">
             </div>
         </div>
-    <div class='table-responsive'>
-    <h3>Archived Company Costs</h3>
-    <table id="archived_table" class="display table table-hover table-sm mt-1">
-            <thead>
-                <tr>
-                    <th scope="col" onclick="sortArchived(0)">Expense Name</th>
-                    <th scope="col" onclick="sortArchived(1)">Yearly Cost</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($companyCosts as $companyCost)
-                @if($companyCost->companycost_archived == '1')
-                <tr>
-                    <td>{{$companyCost->companycost_name}}</td>
-                    <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
-                    <td><a href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
-                    </td>
-                </tr>
-                @endif
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+
+        <div class='table-responsive'>
+            <table id="archived_table" class="display table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" onclick="sortArchived(0)">Expense Name</th>
+                        <th scope="col" onclick="sortArchived(1)">Yearly Cost</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($companyCosts as $companyCost)
+                    @if($companyCost->companycost_archived == '1')
+                    <tr>
+                        <td>{{$companyCost->companycost_name}}</td>
+                        <td>${{number_format($companyCost->companycost_yearly,2)}}</td>
+                        <td><a
+                                href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
+                        </td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endif
