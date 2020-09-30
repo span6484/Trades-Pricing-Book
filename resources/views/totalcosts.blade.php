@@ -37,7 +37,7 @@
                     <td>${{number_format(($total/365)/8,2)}}</td>
                 </tr>
                 @php
-                $NonChargeableOfficeStaffWages = 33244.20;
+                $NonChargeableOfficeStaffWages =0;
                 @endphp
                 <tr>
                     <td>Non Chargeable Office  Staff Wages</td>
@@ -48,7 +48,7 @@
                     <td>${{number_format(($NonChargeableOfficeStaffWages/365)/8,2)}}</td>
                 </tr>
                 @php
-                $highestPaid = 65000;
+                $highestPaid = 0;
                 @endphp
                 <tr>
                     <td>Highest Paid Employee</td>
