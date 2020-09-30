@@ -12,7 +12,7 @@
 
 @elseif (Auth::user() && Auth::user()->role == 'admin')
 <div class=" p-3 mb-5 bg-white number_formated border">
-    <h3 class="mb-4 float-left">Business & Employee Costs</h3>
+    <h3 class="mb-4 float-left">Total business & employee costs</h3>
     <div class='table-responsive'>
         <table class="table table-hover table-sm mt-1">
             <thead>

@@ -38,7 +38,7 @@
         <a href="/{{ 'materials' }}" class="list-group-item list-group-item-action bg-light border-0 border-top">Materials</a>
         <a href="/{{ 'suppliers' }}" class="list-group-item list-group-item-action bg-light border-0">Suppliers</a>
         @if (Auth::user() && Auth::user()->role == 'admin')
-        <h5 href="#" class="border-top mt-2 list-group-item list-group-item-action bg-light border-right-0 border-left-0 border-bottom-0">Admin Options</h5>
+        <h5 href="#" class="border-top mt-4 list-group-item list-group-item-action bg-light border-right-0 border-left-0 border-bottom-0">Admin Options</h5>
         <a href="#costsSubmenu" data-toggle="collapse" aria-expanded="false"
             class="list-group-item list-group-item-action bg-light dropdown-toggle dropdown-menu border-bottom-0">Costs
             & Expenses</a>
