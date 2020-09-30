@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id('pk_user_id');
             $table->string('user_name')->unique();
             $table->string('user_firstlast');
-            $table->string('user_password');
+            $table->string('password');
             $table->tinyInteger('user_access_costsexpenses');
             $table->tinyInteger('user_access_usermanagement');
             $table->tinyInteger('user_access_itemmanagement');

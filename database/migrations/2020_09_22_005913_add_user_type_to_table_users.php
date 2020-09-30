@@ -14,8 +14,20 @@ class AddUserTypeToTableUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('user_type')->after('user_name');
+            $table->string('user_type')->after('user_name')->nullable();
+            $table->dropColumn('user_firstlast');
+            $table->dropColumn('user_archived');
+            
         });
+        Schema::table('users', function(Blueprint $table) {
+            $table->string('user_firstlast')->nullable();
+            $table->tinyInteger('user_archcived')->default(0);
+            
+        });
+        $user = new App\User();
+        $user->password = Hash::make('secret');
+        $user->user_name = 'the-email@example.com';
+        $user->save();
     }
 
     /**
