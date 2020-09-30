@@ -137,7 +137,7 @@
         <div class='table-responsive'>
         <div class="row mt-3">
                 <div class="col-sm">
-                    <h1>Suppliers</h1>
+                    <h1>Archived Suppliers</h1>
                 </div>
                 <div class="col-sm">
                 </div>

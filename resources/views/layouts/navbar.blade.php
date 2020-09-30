@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0 float-right">
             <li class="nav-item active">
-                <a class="nav-link">User Name<span class="sr-only">(current)</span></a>
+                <a class="nav-link">{{ Auth::user()->user_name }}<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"

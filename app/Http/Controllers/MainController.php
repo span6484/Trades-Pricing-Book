@@ -29,7 +29,8 @@ class MainController extends Controller
         
         if(Auth::attempt($user_data))
         {
-            return redirect('main/successlogin');
+
+            return redirect()->route('dashboard')->with('success', 'Login Successful');
         }
         else
         {
@@ -39,7 +40,8 @@ class MainController extends Controller
 
     function successlogin()
     {
-        return view('successlogin');
+
+        return redirect()->route('dashboard')->with('success', 'Login Successful');
     }
 
     function logout()
