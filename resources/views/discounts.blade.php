@@ -63,7 +63,7 @@
                             <div class="form-group col-sm">
                                 <label for="input">Discount Name</label>
                                 <input type="text" class="form-control" name="discount_name"
-                                    placeholder="MATES RATES CATEGORY 2 - 10%">
+                                    placeholder="NAME - %">
                             </div>
                         </div>
                         <div class="form-row">
@@ -75,7 +75,7 @@
                                         <div class="input-group-text">%</div>
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        name="discount_rate" placeholder="0.10">
+                                        name="discount_rate" placeholder="0">
                                 </div>
                             </div>
                         </div>
