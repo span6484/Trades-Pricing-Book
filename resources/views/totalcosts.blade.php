@@ -18,14 +18,17 @@
             <thead>
                 <tr>
                     <th scope="col">Category</th>
+                    <th scope="col">Hourly Cost</th>
+                    <th scope="col">Daily Cost</th>
                     <th scope="col">Weekly Cost</th>
                     <th scope="col">Monthly Cost</th>
                     <th scope="col">Yearly Cost</th>
-                    <th scope="col">Daily Cost</th>
-                    <th scope="col">Hourly Cost</th>
+
+
                 </tr>
             </thead>
             <tbody>
+
                 @php
                 $total = 0;
                 @endphp
@@ -36,96 +39,97 @@
                 @endphp
                 @endif
                 @endforeach
+
                 <tr>
-                    <td>Running Costs without Wages</td>
+                    <td>Company Expenses</td>
+                    <td>${{number_format(($total/365)/8,2)}}</td>
+                    <td>${{number_format($total/365,2)}}</td>
                     <td>${{number_format(($total/365)*7,2)}}</td>
                     <td>${{number_format($total/12.935705,2)}}</td>
                     <td>${{number_format($total,2)}}</td>
-                    <td>${{number_format($total/365,2)}}</td>
-                    <td>${{number_format(($total/365)/8,2)}}</td>
-                </tr>
-                
-                @php
-                $highestPaid = 0;
-                @endphp
 
+
+                </tr>
+
+
+
+
+                <!-- total employee costs -->
                 @php
-                $highestPaidApprentice = 0;
-                $SecondHighestPaidApprentice = 0;
+                $total_employee = 0;
+                $total_cost_less_super=0;
                 @endphp
                 @foreach($employeeCosts as $employeeCost)
+                @if($employeeCost->employee_archived == '0' && $employeeCost->employee_type == 'Employee')
                 @php
-                if ($employeeCost->employee_type == 'Employee' && $employeeCost->employee_archived == '0'){
-                $val = $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
+                $total_employee += $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
                 $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
                 $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
                 $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
                 $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
-                if ($highestPaidApprentice <$val){ $SecondHighestPaidApprentice=$highestPaidApprentice;
-                    $highestPaidApprentice=$val; } elseif (($SecondHighestPaidApprentice < $val) &&
-                    ($highestPaidApprentice!=$val)) { $SecondHighestPaidApprentice=$val; } } @endphp @endforeach <tr>
-                    <td>Highest Paid Employee</td>
-                    <td>${{number_format($highestPaidApprentice/52,2)}}</td>
-                    <td>${{number_format($highestPaidApprentice/12,2)}}</td>
-                    <td>${{number_format($highestPaidApprentice,2)}}</td>
-                    <td>${{number_format($highestPaidApprentice/365,2)}}</td>
-                    <td>${{number_format(($highestPaidApprentice/365)/8,2)}}</td>
-                    </tr>
+                $total_cost_less_super+=$employeeCost->employee_workercomp +
+                $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+                $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone
+                +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost +
+                $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+                $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek*
+                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095;
+                @endphp
+                @endif
+                @endforeach
+                <tr>
+                    <td>Employees</td>
+                    <td>${{number_format(($total_employee/365)/8,2)}}</td>
+                    <td>${{number_format($total_employee/365,2)}}</td>
+                    <td>${{number_format(($total_employee/365)*7,2)}}</td>
+                    <td>${{number_format($total_employee/12.935705,2)}}</td>
+                    <td>${{number_format($total_employee,2)}}</td>
+                </tr>
 
-                    <tr>
-                        <td>Second Highest Paid Employee</td>
-                        <td>${{number_format($SecondHighestPaidApprentice/52,2)}}</td>
-                        <td>${{number_format($SecondHighestPaidApprentice/12,2)}}</td>
-                        <td>${{number_format($SecondHighestPaidApprentice,2)}}</td>
-                        <td>${{number_format($SecondHighestPaidApprentice/365,2)}}</td>
-                        <td>${{number_format(($SecondHighestPaidApprentice/365)/8,2)}}</td>
-                    </tr>
-                    @php
-                    $HighestPaidSubContractor = 0;
-                    $SecondPaidSubContractor = 0;
-                    @endphp
-                    @foreach($employeeCosts as $employeeCost)
-                    @php
-                    if ($employeeCost->employee_type == 'Sub-Contractor' && $employeeCost->employee_archived == '0'){
-                    $val = $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
-                    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
-                    $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
-                    $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
-                    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
-                    if ($HighestPaidSubContractor <$val){ $SecondPaidSubContractor=$HighestPaidSubContractor;
-                        $HighestPaidSubContractor=$val; } elseif (($SecondPaidSubContractor < $val) &&
-                        ($HighestPaidSubContractor!=$val)) { $SecondPaidSubContractor=$val; } } @endphp @endforeach <tr>
-                        <td>Highest Paid Sub Contractor</td>
-                        <td>${{number_format($HighestPaidSubContractor/52,2)}}</td>
-                        <td>${{number_format($HighestPaidSubContractor/12,2)}}</td>
-                        <td>${{number_format($HighestPaidSubContractor,2)}}</td>
-                        <td>${{number_format($HighestPaidSubContractor/365,2)}}</td>
-                        <td>${{number_format(($HighestPaidSubContractor/365)/8,2)}}</td>
-                        </tr>
+                <!-- total sub-contractor costs -->
+                @php
+                $total_subcontractor = 0;
+                $total_cost_less_super=0;
+                @endphp
+                @foreach($employeeCosts as $employeeCost)
+                @if($employeeCost->employee_archived == '0' && $employeeCost->employee_type == 'Sub-Contractor')
+                @php
+                $total_subcontractor += $employeeCost->employee_cash + $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
+                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
+                $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
+                $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
+                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+                $total_cost_less_super+=$employeeCost->employee_workercomp +
+                $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+                $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone
+                +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost +
+                $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+                $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek*
+                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095;
+                @endphp
+                @endif
+                @endforeach
+                <tr>
+                    <td>Sub-Contractors</td>
+                    <td>${{number_format(($total_subcontractor/365)/8,2)}}</td>
+                    <td>${{number_format($total_subcontractor/365,2)}}</td>
+                    <td>${{number_format(($total_subcontractor/365)*7,2)}}</td>
+                    <td>${{number_format($total_subcontractor/12.935705,2)}}</td>
+                    <td>${{number_format($total_subcontractor,2)}}</td>
+                </tr>
 
-                        <tr>
-                            <td>Second Highest Paid Sub Contractor</td>
-                            <td>${{number_format($SecondPaidSubContractor/52,2)}}</td>
-                            <td>${{number_format($SecondPaidSubContractor/12,2)}}</td>
-                            <td>${{number_format($SecondPaidSubContractor,2)}}</td>
-                            <td>${{number_format($SecondPaidSubContractor/365,2)}}</td>
-                            <td>${{number_format(($SecondPaidSubContractor/365)/8,2)}}</td>
-                        </tr>
-                        <tr class="font-weight-bold">
-                            
-                            <td>Total</td>
-                            <td>${{number_format(($total/365)*7+$highestPaidApprentice/52+$SecondHighestPaidApprentice/52+$HighestPaidSubContractor/52+$SecondPaidSubContractor/52,2)}}
-                            </td>
-                            <td>${{number_format($total/12.935705+$highestPaidApprentice/12+$SecondHighestPaidApprentice/12+$HighestPaidSubContractor/12+$SecondPaidSubContractor/12,2)}}
-                            </td>
-                            <td>${{number_format($total+$highestPaidApprentice+$SecondHighestPaidApprentice+$HighestPaidSubContractor+$SecondPaidSubContractor,2)}}
-                            </td>
-                            <td>${{number_format($total/365 +$highestPaidApprentice/365 + $SecondHighestPaidApprentice/365 + $HighestPaidSubContractor/365 + $SecondPaidSubContractor/365 + 0/365,2)}}
-                            </td>
-                            <td>${{number_format($total/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8,2)}}
-                            </td>
-                            
-                        </tr>
+                <tr class="font-weight-bold">
+
+                    <td>Total</td>
+                    <td>${{number_format(($total + $total_employee + $total_subcontractor)/365/8,2)}}</td>
+                    <td>${{number_format(($total + $total_employee + $total_subcontractor)/365,2)}}</td>
+                    <td>${{number_format((($total + $total_employee + $total_subcontractor)/365)*7,2)}}</td>
+                    <td>${{number_format(($total + $total_employee + $total_subcontractor)/12.935705,2)}}</td>
+                    <td>${{number_format($total + $total_employee + $total_subcontractor,2)}}</td>
+
+
+
+                </tr>
             </tbody>
         </table>
     </div>

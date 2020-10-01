@@ -157,7 +157,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                    placeholder="Search price lists">
+                    placeholder="Search Item ID">
             </div>
         </div>
 
@@ -173,6 +173,7 @@
                         <th scope="col" onclick="sortActive(4)">Materials</th>
                         <th scope="col" onclick="sortActive(5)">Estimated Time</th>
                         <th scope="col" onclick="sortActive(6)">Service Call</th>
+                        <th scope="col">Pricing</th>
                         <th scope="col">Edit</th>
                     </tr>
                 </thead>
@@ -188,9 +189,195 @@
                         <td>{{ $priceList->material->material_description }}</td>
                         <td>{{ $priceList->item_estimatedtime }}</td>
                         <td>${{number_format($priceList->item_servicecall,2) }}</td>
-                        <td><a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a>
+                        <td>
+                            <a href data-toggle="modal" data-target="#exampleModal{{ $priceList->pk_item_id }}">
+                                Pricing
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a>
                         </td>
                     </tr>
+
+                    <!-- pricing modal -->
+
+                    <div class="modal fade" id="exampleModal{{ $priceList->pk_item_id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ $priceList->item_number }} |
+                                        {{ $priceList->item_description }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+
+
+
+
+                                    <div class="form-row pb-2">
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Material Cost</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Material Cost</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="materialCost"
+                                                    value="{{ number_format($priceList->material->material_cost,2) }}"
+                                                    disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Gross Margin</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Gross Margin</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">%</div>
+                                                </div>
+                                                @foreach ($grossMargins as $grossMargin)
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="grossMargin" value="{{$grossMargin->gm_rate}}" disabled>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Material Charge</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Material Charge</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="materialCharge"
+                                                    value="{{ number_format($priceList->material->material_cost*$grossMargin->gm_rate,2) }}"
+                                                    disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-row pb-2">
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Charge Rate</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Charge Rate</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                @foreach ($grossMargins as $grossMargin)
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="chargeRate" value="0.00" disabled>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Estimated Time</label>
+                                            <input type="text" class="form-control" id="estimatedTime"
+                                                name="estimatedTime" value="{{ $priceList->item_estimatedtime }} hours"
+                                                disabled>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Labour Charge</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Labour Charge</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="labourCharge" value="0.00" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row pb-2 border-bottom">
+                                        <div class="form-group col-md-8">
+
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Service Call Charge</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Service Call
+                                                Charge</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="serviceCallCharge"
+                                                    value="${{number_format($priceList->item_servicecall,2) }}"
+                                                    disabled>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row pb-2 pt-4">
+
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Price</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Price</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="price" value="0.00" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="input">GST</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">GST</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="gst" value="0.00" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="input">Price Inc GST</label>
+                                            <label class="sr-only" for="inlineFormInputGroup">Price Inc GST</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    name="priceIncGst" value="0.00" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     @endif
                     @endforeach
                     @endforeach
@@ -201,16 +388,16 @@
 
     <!-- Archived content -->
     <div id="archived_div" style="display: none">
-    <div class="row mb-4">
+        <div class="row mb-4">
             <div class="col-sm-7">
                 <p class="h2">Archived {{$categoryName}} items</p>
             </div>
 
             <div class="col-sm-5">
-                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search price lists">
-                </div>
+                <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                    placeholder="Search Item ID">
             </div>
+        </div>
         <div class='table-responsive'>
             <table id="archived_table" class="display table table-hover table-sm">
                 <thead>
