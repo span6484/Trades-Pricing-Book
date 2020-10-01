@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row border-bottom pb-2">
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="input">Phone</label>
                                 <label class="sr-only" for="inlineFormInputGroup">Phone</label>
@@ -148,61 +148,6 @@
                             </div>
                         </div>
 
-                        <h5 class="pt-3 pb-1">Totals</h5>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="employeeweeklypay">Weekly pay</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="employeeweeklypay" placeholder="0.00"
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="yearlypay">Yearly pay</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="yearlypay" placeholder="0.00" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="super">Super</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="super" placeholder="0.00" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="totalLessSuper">Total cost less super</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="totalLessSuper" placeholder="0.00"
-                                        readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="totalPackage">Total package cost</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="totalPackage" placeholder="0.00"
-                                        readonly>
-                                </div>
-                            </div>
-                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -419,7 +364,7 @@
         </label>
     </div>
 
-    <!-- Modal -->
+    <!-- Add sub-contractor Modal -->
     <div class="modal fade" id="subcontractorModal" tabindex="-1" role="dialog"
         aria-labelledby="subcontractorModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -519,7 +464,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row border-bottom pb-2">
+
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="input">Cash</label>
                                 <label class="sr-only" for="inlineFormInputGroup">Cash</label>
@@ -529,91 +475,12 @@
                                     </div>
                                     <input type="text" class="form-control" id="inlineFormInputGroup"
                                         name="employee_cash" placeholder="Cash" value="0">
-                                </div>
-                            </div>
 
-                        </div>
-
-                        <h5 class="pt-3 pb-1">Totals</h5>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="subcontractorweeklyrate">Weekly rate</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="subcontractorweeklyrate"
-                                        placeholder="0.00" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="subcontractoryearlyrate">Yearly rate</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="subcontractoryearlyrate"
-                                        placeholder="0.00" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="subcontractorsuper">Super</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="subcontractorsuper" placeholder="0.00"
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="subcontractortotalLessSuper">Total cost less super</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="subcontractortotalLessSuper"
-                                        placeholder="0.00" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="subcontractorGst">GST</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="subcontractorGst" placeholder="0.00"
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="subcontractorTotalIncGst">Total including GST</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="subcontractorTotalIncGst"
-                                        placeholder="0.00" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="subcontractortotalPackage">Total package cost</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">$</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="subcontractortotalPackage"
-                                        placeholder="0.00" readonly>
                                 </div>
                             </div>
                         </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary">Save Sub-Contractor</button>
