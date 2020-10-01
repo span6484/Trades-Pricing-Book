@@ -7,6 +7,9 @@ use App\PriceList;
 use App\Material;
 use App\Category;
 use App\SubCategory;
+use App\GrossMargin;
+use App\CompanyCost;
+use App\EmployeeCost;
 
 class PriceListController extends Controller
 {
@@ -16,8 +19,9 @@ class PriceListController extends Controller
         $priceLists = PriceList::all();
         $materials = Material::all();
         $subCategories = SubCategory::all();
+        $grossMargins = GrossMargin::all();
   
-        return view('pricelists', compact('pageHeading', 'priceLists', 'category', 'materials', 'subCategories'));
+        return view('pricelists', compact('pageHeading', 'priceLists', 'category', 'materials', 'subCategories', 'grossMargins'));
     }
 
     public function show($id="")
@@ -27,8 +31,11 @@ class PriceListController extends Controller
         $materials = Material::all();
         $subCategories = $category->subCategories;
         $categoryName = $category->category_name;
+        $grossMargins = GrossMargin::all();
+        $companyCosts = CompanyCost::all();
+        $employeeCosts = EmployeeCost::all();
         $page_id = $id;
-        return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName', 'page_id'));
+        return view('pricelists', compact('pageHeading', 'materials', 'subCategories', 'categoryName', 'page_id', 'grossMargins', 'companyCosts', 'employeeCosts'));
     }
 
     public function store(Request $request)

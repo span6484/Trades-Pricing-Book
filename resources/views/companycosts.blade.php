@@ -107,7 +107,7 @@
             <table id="active_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
-                    <th scope="col" onclick="sortArchived(0)">Expense Name</th>
+                        <th scope="col" onclick="sortArchived(0)">Expense Name</th>
                         <th scope="col" onclick="sortArchived(1)">Weekly Cost</th>
                         <th scope="col" onclick="sortArchived(2)">Monthly Cost</th>
                         <th scope="col" onclick="sortArchived(3)">Yearly Cost</th>
@@ -115,6 +115,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $total_package=0;
+                    @endphp
+
                     @foreach($companyCosts as $companyCost)
                     @if($companyCost->companycost_archived == '0')
                     <tr>
@@ -126,8 +130,24 @@
                                 href="{{action('CompanyCostController@edit', $companyCost['pk_companycost_id'])}}">Edit</a>
                         </td>
                     </tr>
+
+                    @php
+                    $total_package += $companyCost->companycost_yearly;
+                    @endphp
+
                     @endif
                     @endforeach
+
+
+
+                    <tr class="font-weight-bold">
+                        <th>Total</th>
+                        <td>${{number_format($total_package/52,2)}}</td>
+                        <td>${{number_format($total_package/12,2)}}</td>
+                        <td>${{number_format($total_package,2)}}</td>
+                        <td></td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
@@ -154,7 +174,7 @@
                         <th scope="col" onclick="sortArchived(1)">Weekly Cost</th>
                         <th scope="col" onclick="sortArchived(2)">Monthly Cost</th>
                         <th scope="col" onclick="sortArchived(3)">Yearly Cost</th>
-                        
+
                         <th scope="col">Edit</th>
                     </tr>
                 </thead>
