@@ -12,7 +12,6 @@
 
     <script type="text/javascript">
         var analytics = <?php echo $companycost_name; ?>;
-        var analytics1 = <?php echo $discount_name; ?>;
         google.charts.load('current', {'packages':['corechart']});
 
         google.charts.setOnLoadCallback(drawChart);
@@ -22,25 +21,142 @@
             var data = google.visualization.arrayToDataTable(analytics);
 
             var options = {
-                title: 'discount name and discount_cost'
+                title: 'Company Costs',
+                colors: ['#009900', '#00C5CD', '#0147FA', '#3E7A5E', '#551A8B','#5DFC0A','#8B7E66','#DCA2CD','#E04006','#E3170D','#E3E3E3','#EAB5C5','#EE3B3B']
             };
 
             //Here can change the diagram type
-            var chart = new google.visualization.ColumnChart(document.getElementById('pie'));
+            var chart = new google.visualization.PieChart(document.getElementById('pie'));
 
             chart.draw(data, options);
         }
 
 
         function drawChart1() {
-            var data = google.visualization.arrayToDataTable(analytics1);
+        var normal = 0;
+        var mates_1 = 0;
+        var mates_2 = 0;
+        var mates_3 = 0;
+        var real_1 = 0;
+        var real_2 = 0;
+        var real_3 = 0;
+        var real_4 = 0;
+        var loyal = 0;
+        var general = 0;
+        var PROMOTIONAL1 = 0;
+        var PROMOTIONAL2 = 0;
+        var PROMOTIONAL3 = 0;
+        <?php
+            foreach($customers as $customer)
+            {
+                if($customer->customer_archived == 0)
+                {
+                    if($customer->fk_discount_id == 1)
+                    {
+                        ?>
+                        normal++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 2)
+                    {
+                        ?>
+                        mates_1++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 3)
+                    {
+                        ?>
+                        mates_2++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 4)
+                    {
+                        ?>
+                        mates_3++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 5)
+                    {
+                        ?>
+                        real_1++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 6)
+                    {
+                        ?>
+                        real_2++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 7)
+                    {
+                        ?>
+                        real_3++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 8)
+                    {
+                        ?>
+                        real_4++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 9)
+                    {
+                        ?>
+                        loyal++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 10)
+                    {
+                        ?>
+                        general++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 11)
+                    {
+                        ?>
+                        PROMOTIONAL1++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 12)
+                    {
+                        ?>
+                        PROMOTIONAL2++;
+                        <?php
+                    }
+                    if($customer->fk_discount_id == 13)
+                    {
+                        ?>
+                        PROMOTIONAL3++;
+                        <?php
+                    }
+                }
+            }
+        ?>
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['NORMAL PRICING - NO DISCOUNT',     normal],
+          ['MATES RATES CATEGORY 1',       mates_1],
+          ['MATES RATES CATEGORY 2',  mates_2],
+          ['MATES RATES CATEGORY 3', mates_3],
+          ['REAL ESTATE / STRATA CATERGORY - 1',    real_1],
+          ['REAL ESTATE / STRATA CATEGORY - 2',  real_2],
+          ['REAL ESTATE / STRATA CATEGORY - 3',  real_3],
+          ['REAL ESTATE / STRATA CATEGORY - 4',  real_4],
+          ['LOYAL CUSTOMER',  loyal],
+          ['GENERAL CUSTOMER DISCOUNT',  general],
+          ['PROMOTIONAL DISCOUNT - 1',  PROMOTIONAL1],
+          ['PROMOTIONAL DISCOUNT - 2',  PROMOTIONAL2],
+          ['PROMOTIONAL DISCOUNT - 3',  PROMOTIONAL3],
+        ]);
+            // var data = google.visualization.arrayToDataTable(analytics1);
 
             var options = {
-                title: 'discount name and discount_cost'
+                title: 'Proportion of Customers Discount'
+                
             };
 
             //Here can change the diagram type
-            var chart = new google.visualization.ColumnChart(document.getElementById('pie1'));
+            var chart = new google.visualization.PieChart(document.getElementById('pie1'));
 
             chart.draw(data, options);
         }
@@ -90,22 +206,81 @@
     <div class="row">
         <div class="col-xl-6">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    @foreach($grossmargin as $grossmargins)
+                    @php
+                    $value = $grossmargins->gm_rate;
+                    @endphp
+                    @endforeach
                     @component('common-components.dashboard2-widget')
-                    @slot('title') Orders @endslot
-                    @slot('total') 1,368 @endslot
+                    @slot('title') Current GM Rate @endslot
+                    @slot('total') {{number_format($value,4)}} @endslot
                     @slot('chartId') radial-chart-1 @endslot
-                    @slot('percentage') 0.8% @endslot
                     @endcomponent
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <!-- code for using the hourly function -->
+                    @php
+                $total = 0;
+                @endphp
+                @foreach($companyCosts as $companyCost)
+                @if($companyCost->companycost_archived == '0')
+                @php
+                $total += $companyCost->companycost_yearly;
+                @endphp
+                @endif
+                @endforeach
+
+                @php
+                $NonChargeableOfficeStaffWages = 0;
+                @endphp
+
+                @php
+                $highestPaid = 0;
+                @endphp
+
+                @php
+                $highestPaidApprentice = 0;
+                $SecondHighestPaidApprentice = 0;
+                @endphp
+                @foreach($employeeCosts as $employeeCost)
+                @php
+                if ($employeeCost->employee_type == 'Employee' && $employeeCost->employee_archived == '0'){
+                $val = $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
+                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
+                $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
+                $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
+                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+                if ($highestPaidApprentice <$val){ $SecondHighestPaidApprentice=$highestPaidApprentice;
+                    $highestPaidApprentice=$val; } elseif (($SecondHighestPaidApprentice < $val) &&
+                    ($highestPaidApprentice!=$val)) { $SecondHighestPaidApprentice=$val; } } @endphp @endforeach @php
+                    $HighestPaidSubContractor=0; $SecondPaidSubContractor=0; @endphp @foreach($employeeCosts as
+                    $employeeCost) @php if ($employeeCost->employee_type == 'Sub-Contractor' &&
+                    $employeeCost->employee_archived == '0'){
+                    $val = $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
+                    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
+                    $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
+                    $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
+                    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+                    if ($HighestPaidSubContractor <$val){ $SecondPaidSubContractor=$HighestPaidSubContractor;
+                        $HighestPaidSubContractor=$val; } elseif (($SecondPaidSubContractor < $val) &&
+                        ($HighestPaidSubContractor!=$val)) { $SecondPaidSubContractor=$val; } } @endphp @endforeach
+
+                    <!-- code for dashboard table2 -->
                     @component('common-components.dashboard2-widget')
-                    @slot('title') Revenue @endslot
-                    @slot('total') $ 32,695 @endslot
+                    @slot('title')Hourly Running Cost @endslot
+                    @slot('total') $ {{number_format($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8, 2)}} @endslot
                     @slot('chartId') radial-chart-2 @endslot
-                    @slot('percentage') 0.6% @endslot
                     @endcomponent
                 </div>
+                <div class="col-md-4">
+                    @component('common-components.dashboard2-widget')
+                    @slot('title') Current Charge Rate @endslot
+                    @slot('total') ${{number_format($value*($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8),4)}}@endslot
+                    @slot('chartId') radial-chart-2 @endslot
+                    @endcomponent
+                </div>
+                
                 <div class="container">
                     <!-- <h3 align="center">Make Google Pie Chart in Laravel</h3><br /> -->
 

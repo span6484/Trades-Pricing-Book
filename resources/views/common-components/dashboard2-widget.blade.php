@@ -14,8 +14,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <p class="mb-0"><span class="badge badge-soft-success mr-2"> {{ $percentage }} <i class="mdi mdi-arrow-up"></i> </span> From previous period</p>
                     </div>
                 </div>
                    
