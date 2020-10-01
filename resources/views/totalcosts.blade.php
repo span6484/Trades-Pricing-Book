@@ -138,14 +138,6 @@
                             <td>${{number_format(($SecondPaidSubContractor/365)/8,2)}}</td>
                         </tr>
                         <tr>
-                            <td>Other business costs</td>
-                            <td>${{0/52}}</td>
-                            <td>${{0/12}}</td>
-                            <td>${{0}}</td>
-                            <td>${{0/365}}</td>
-                            <td>${{(0/365)/8}}</td>
-                        </tr>
-                        <tr>
                             <td>Total</td>
                             <td>${{number_format(($total/365)*7+$highestPaidApprentice/52+$SecondHighestPaidApprentice/52+$HighestPaidSubContractor/52+$SecondPaidSubContractor/52,2)}}
                             </td>
