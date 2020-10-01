@@ -224,15 +224,12 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
             <div class="col-sm-7">
                 <p class="h2">{{$categoryName}} items</p>
             </div>
-
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
                     placeholder="Search Item ID">
             </div>
         </div>
-
         <div class='table-responsive'>
-
             <table id="active_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
@@ -284,11 +281,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
-
-
-
-
                                     <div class="form-row pb-2">
                                         <div class="form-group col-md-4">
                                             <label for="input">Material Cost</label>
@@ -303,7 +295,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                     disabled>
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Gross Margin</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Gross Margin</label>
@@ -317,7 +308,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 @endforeach
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Material Charge</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Material Charge</label>
@@ -332,9 +322,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                     <div class="form-row pb-2">
                                         <div class="form-group col-md-4">
                                             <label for="input">Charge Rate</label>
@@ -351,7 +338,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 @endforeach
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Estimated Time</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Estimated Time</label>
@@ -359,14 +345,11 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">x</div>
                                                 </div>
-
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
                                                     name="estimatedTime"
                                                     value="{{ $priceList->item_estimatedtime }} hours" disabled>
-
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Labour Charge</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Labour Charge</label>
@@ -381,11 +364,8 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="form-row pb-2 border-bottom">
                                         <div class="form-group col-md-8">
-
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="input">Service Call Charge</label>
@@ -395,19 +375,14 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">$</div>
                                                 </div>
-
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
                                                     name="serviceCallCharge"
                                                     value="${{number_format($priceList->item_servicecall,2) }}"
                                                     disabled>
-
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="form-row pb-2 pt-4">
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Price</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Price</label>
@@ -421,7 +396,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                     disabled>
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">GST</label>
                                             <label class="sr-only" for="inlineFormInputGroup">GST</label>
@@ -449,8 +423,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -459,7 +431,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                             </div>
                         </div>
                     </div>
-
                     @endif
                     @endforeach
                     @endforeach
@@ -520,8 +491,7 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                             <a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a>
                         </td>
                     </tr>
-                   
-
+                    
                     <!-- archived pricing modal -->
                     <div class="modal fade" id="exampleModal2{{ $priceList->pk_item_id }}" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -535,7 +505,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
 
                                     <div class="form-row pb-2">
                                         <div class="form-group col-md-4">
@@ -551,7 +520,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                     disabled>
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Gross Margin</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Gross Margin</label>
@@ -565,7 +533,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 @endforeach
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Material Charge</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Material Charge</label>
@@ -580,9 +547,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                     <div class="form-row pb-2">
                                         <div class="form-group col-md-4">
                                             <label for="input">Charge Rate</label>
@@ -599,8 +563,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 @endforeach
                                             </div>
                                         </div>
-
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Estimated Time</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Estimated Time</label>
@@ -608,15 +570,11 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">x</div>
                                                 </div>
-
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
                                                     name="estimatedTime"
                                                     value="{{ $priceList->item_estimatedtime }} hours" disabled>
-
                                             </div>
                                         </div>
-
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Labour Charge</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Labour Charge</label>
@@ -631,11 +589,8 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="form-row pb-2 border-bottom">
                                         <div class="form-group col-md-8">
-
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="input">Service Call Charge</label>
@@ -645,19 +600,14 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">$</div>
                                                 </div>
-
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
                                                     name="serviceCallCharge"
                                                     value="${{number_format($priceList->item_servicecall,2) }}"
                                                     disabled>
-
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="form-row pb-2 pt-4">
-
                                         <div class="form-group col-md-4">
                                             <label for="input">Price</label>
                                             <label class="sr-only" for="inlineFormInputGroup">Price</label>
@@ -671,7 +621,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                     disabled>
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-4">
                                             <label for="input">GST</label>
                                             <label class="sr-only" for="inlineFormInputGroup">GST</label>
@@ -699,8 +648,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -709,11 +656,9 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                             </div>
                         </div>
                     </div>
-
                     @endif
                     @endforeach
                     @endforeach
-
                 </tbody>
             </table>
         </div>

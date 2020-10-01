@@ -183,7 +183,7 @@
                         <th scope="col" onclick="sortActive(4)">Hours per week</th>
                         <th scope="col" onclick="sortActive(5)">Weeks per year</th>
                         <th scope="col" onclick="sortActive(6)">Vehicle</th>
-                        <th scope="col" onclick="sortActive(7)">Other Weekly</th>
+                        <th scope="col" onclick="sortActive(7)">Other Costs</th>
                         <th scope="col" onclick="sortActive(8)">Phone</th>
                         <th scope="col" onclick="sortActive(9)">Super</th>
                         <th scope="col" onclick="sortActive(10)">Workers Comp</th>
@@ -283,7 +283,7 @@
                         <th scope="col" onclick="sortArchived(4)">Hours per week</th>
                         <th scope="col" onclick="sortArchived(5)">Weeks per year</th>
                         <th scope="col" onclick="sortArchived(6)">Vehicle</th>
-                        <th scope="col" onclick="sortArchived(7)">Other Weekly</th>
+                        <th scope="col" onclick="sortArchived(7)">Other Costs</th>
                         <th scope="col" onclick="sortArchived(8)">Phone</th>
                         <th scope="col" onclick="sortArchived(9)">Super</th>
                         <th scope="col" onclick="sortArchived(10)">Workers Comp</th>
@@ -513,7 +513,7 @@
                         <th scope="col" onclick="sortActive2(4)">Hours per week</th>
                         <th scope="col" onclick="sortActive2(5)">Weeks per year</th>
                         <th scope="col" onclick="sortActive2(6)">Vehicle</th>
-                        <th scope="col" onclick="sortActive2(7)">Other Weekly</th>
+                        <th scope="col" onclick="sortActive2(7)">Other Costs</th>
                         <th scope="col" onclick="sortActive2(8)">Cash</th>
                         <th scope="col" onclick="sortActive2(9)">Phone</th>
                         <th scope="col" onclick="sortActive2(10)">Super</th>
@@ -624,7 +624,7 @@
                         <th scope="col" onclick="sortArchived2(4)">Hours per week</th>
                         <th scope="col" onclick="sortArchived2(5)">Weeks per year</th>
                         <th scope="col" onclick="sortArchived2(6)">Vehicle</th>
-                        <th scope="col" onclick="sortArchived2(7)">Other Weekly</th>
+                        <th scope="col" onclick="sortArchived2(7)">Other Costs</th>
                         <th scope="col" onclick="sortArchived2(8)">Cash</th>
                         <th scope="col" onclick="sortArchived2(9)">Phone</th>
                         <th scope="col" onclick="sortArchived2(10)">Super</th>
