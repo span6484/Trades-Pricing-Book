@@ -270,7 +270,7 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                         </td>
                     </tr>
 
-                    <!-- pricing modal -->
+                    <!-- active pricing modal -->
 
                     <div class="modal fade" id="exampleModal{{ $priceList->pk_item_id }}" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -359,10 +359,11 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">x</div>
                                                 </div>
-                                                
+
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    name="estimatedTime" value="{{ $priceList->item_estimatedtime }} hours" disabled>
-                                         
+                                                    name="estimatedTime"
+                                                    value="{{ $priceList->item_estimatedtime }} hours" disabled>
+
                                             </div>
                                         </div>
 
@@ -462,6 +463,7 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                     @endif
                     @endforeach
                     @endforeach
+                    
                 </tbody>
             </table>
         </div>
@@ -518,12 +520,9 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                             <a href="{{url('/pricelists/'.$page_id.'/'.$priceList['pk_item_id'].'/edit')}}">Edit</a>
                         </td>
                     </tr>
-                    @endif
-                    @endforeach
-                    @endforeach
+                   
 
-                    <!-- pricing modal -->
-
+                    <!-- archived pricing modal -->
                     <div class="modal fade" id="exampleModal2{{ $priceList->pk_item_id }}" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -536,9 +535,6 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
-
-
 
 
                                     <div class="form-row pb-2">
@@ -612,10 +608,11 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">x</div>
                                                 </div>
-                                                
+
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    name="estimatedTime" value="{{ $priceList->item_estimatedtime }} hours" disabled>
-                                         
+                                                    name="estimatedTime"
+                                                    value="{{ $priceList->item_estimatedtime }} hours" disabled>
+
                                             </div>
                                         </div>
 
@@ -712,6 +709,10 @@ $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
                             </div>
                         </div>
                     </div>
+
+                    @endif
+                    @endforeach
+                    @endforeach
 
                 </tbody>
             </table>
