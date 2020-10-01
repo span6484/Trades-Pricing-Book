@@ -29,6 +29,7 @@
             </thead>
             <tbody>
 
+            <!-- total company expenses -->
                 @php
                 $total = 0;
                 @endphp
