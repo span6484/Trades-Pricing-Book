@@ -32,7 +32,7 @@
     </div>
 
     <!-- Add employee button -->
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#fullemployeeModal">
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#fullemployeeModal">
         Add Employee
     </button>
 
@@ -262,8 +262,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_phone,2)}}</td>
@@ -362,8 +362,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_phone,2)}}</td>
@@ -403,8 +403,9 @@
 </div>
 
 <div class=" p-3 mb-5 bg-white rounded border">
+
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal"
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal"
         data-target="#subcontractorModal">
         Add Sub-Contractor
     </button>
@@ -433,6 +434,7 @@
 
                     <form method="post" action="{{ url('employeecosts') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="employee_archived" value="0">
                         <input type="hidden" name="employee_type" value="Sub-Contractor">
                         <div class="form-row pb-2">
                             <div class="form-group col-md-6">
@@ -630,7 +632,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="active_input2" onkeyup="activeFunction2()"
-                    placeholder="Search supplier names">
+                    placeholder="Search sub-contractor name">
             </div>
         </div>
         <div class='table-responsive'>
@@ -670,8 +672,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_cash,2)}}</td>
@@ -740,7 +742,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="archived_input2" onkeyup="archivedFunction2()"
-                    placeholder="Search customer names">
+                    placeholder="Search sub-contractor name">
             </div>
 
         </div>
@@ -781,8 +783,8 @@
                         </td>
                         <td>${{number_format($employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear,2)}}
                         </td>
-                        <td>${{number_format($employeeCost->employee_hoursperweek,2)}}</td>
-                        <td>${{number_format($employeeCost->employee_weeksperyear,2)}}</td>
+                        <td>s{{number_format($employeeCost->employee_hoursperweek)}}</td>
+                        <td>{{number_format($employeeCost->employee_weeksperyear)}}</td>
                         <td>${{number_format($employeeCost->employee_vehiclecost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_otherweeklycost,2)}}</td>
                         <td>${{number_format($employeeCost->employee_cash,2)}}</td>

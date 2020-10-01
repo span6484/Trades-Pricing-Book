@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    <button type="button" class="btn btn-primary float-right ml-1" data-toggle="modal" data-target="#quoteTermModal">
+    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal" data-target="#quoteTermModal">
         Add Quote Terms
     </button>
 
@@ -78,17 +78,18 @@
     </div>
 
     <div id="active_div">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
-                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                        placeholder="Search quote terms">
-                </div>
+    <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Quote terms</p>
             </div>
+
+            <div class="col-sm-5">
+                    <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
+                        placeholder="Search term name">
+                </div>
         </div>
         <div class='table-responsive'>
-            <h3>Quote Terms</h3>
-            <table id="active_table" class="display table table-hover table-sm mt-1">
+            <table id="active_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortActive(0)">Term Name</th>
@@ -112,17 +113,19 @@
     </div>
 
     <div id="archived_div" style="display: none">
-        <div class="container float-left mb-3">
-            <div class="row">
-                <div class="col-4">
+    <div class="row mb-4">
+            <div class="col-sm-7">
+                <p class="h2">Archived Quote Terms</p>
+            </div>
+
+            <div class="col-sm-5">
                     <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search quote terms">
-                </div>
+                        placeholder="Search term name">
+
             </div>
         </div>
         <div class='table-responsive'>
-            <h3>Archived Quote Terms</h3>
-            <table id="archived_table" class="display table table-hover table-sm mt-1">
+            <table id="archived_table" class="display table table-hover table-sm">
                 <thead>
                     <tr>
                         <th scope="col" onclick="sortArchived(0)">Term Name</th>

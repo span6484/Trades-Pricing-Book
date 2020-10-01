@@ -59,28 +59,28 @@
                             <div class="form-group col-sm">
                                 <label for="input">Supplier name</label>
                                 <input type="text" class="form-control" id="companyName" name="supplier_companyname"
-                                    placeholder="Company">
+                                    placeholder="Enter company">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Contact name</label>
                                 <input type="text" class="form-control" id="contactName" name="supplier_contactname"
-                                    placeholder="First Last">
+                                    placeholder="Enter contact name">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Phone</label>
                                 <input type="text" class="form-control" id="supplierPhone" name="supplier_phone"
-                                    placeholder="#">
+                                    placeholder="Enter phone">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm">
                                 <label for="input">Email</label>
                                 <input type="text" class="form-control" id="supplierEmail" name="supplier_email"
-                                    placeholder="@">
+                                    placeholder="Enter email">
                             </div>
                         </div>
 
@@ -106,7 +106,7 @@
             <div class="col-sm-5">
 
                 <input type="text" class="form-control float-right" id="active_input" onkeyup="activeFunction()"
-                    placeholder="Search company name">
+                    placeholder="Search supplier name">
 
             </div>
         </div>
@@ -147,10 +147,8 @@
             </div>
 
             <div class="col-sm-5">
-
                     <input type="text" class="form-control float-right" id="archived_input" onkeyup="archivedFunction()"
-                        placeholder="Search company name">
-
+                        placeholder="Search supplier name">
             </div>
         </div>
         <div class='table-responsive'>
