@@ -215,7 +215,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="active_input2" onkeyup="activeFunction2()"
-                    placeholder="Search sub-categories">
+                    placeholder="Search sub-category name">
             </div>
         </div>
 
@@ -254,7 +254,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="archived_input2" onkeyup="archivedFunction2()"
-                    placeholder="Search sub-categories">
+                    placeholder="Search sub-category name">
             </div>
         </div>
         <div class='table-responsive'>
