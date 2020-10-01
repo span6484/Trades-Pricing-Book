@@ -44,36 +44,10 @@
                     <td>${{number_format($total/365,2)}}</td>
                     <td>${{number_format(($total/365)/8,2)}}</td>
                 </tr>
-                @php
-                $NonChargeableOfficeStaffWages =0;
-                @endphp
-                <tr>
-                    <td>Non Chargeable Office Staff Wages</td>
-                    <td>${{number_format(($NonChargeableOfficeStaffWages/365)*7,2)}}</td>
-                    <td>${{number_format($NonChargeableOfficeStaffWages/12.935705,2)}}</td>
-                    <td>${{number_format($NonChargeableOfficeStaffWages,2)}}</td>
-                    <td>${{number_format($NonChargeableOfficeStaffWages/365,2)}}</td>
-                    <td>${{number_format(($NonChargeableOfficeStaffWages/365)/8,2)}}</td>
-                </tr>
+                
                 @php
                 $highestPaid = 0;
                 @endphp
-                <tr>
-                    <td>Highest Paid Employee</td>
-                    <td>${{number_format($highestPaid/52,2)}}</td>
-                    <td>${{number_format($highestPaid/12,2)}}</td>
-                    <td>${{number_format($highestPaid,2)}}</td>
-                    <td>${{number_format($highestPaid/365,2)}}</td>
-                    <td>${{number_format(($highestPaid/365)/8,2)}}</td>
-                </tr>
-                <tr>
-                    <td>Second Highest Paid Employee</td>
-                    <td>${{number_format($highestPaid/52,2)}}</td>
-                    <td>${{number_format($highestPaid/12,2)}}</td>
-                    <td>${{number_format($highestPaid,2)}}</td>
-                    <td>${{number_format($highestPaid/365,2)}}</td>
-                    <td>${{number_format(($highestPaid/365)/8,2)}}</td>
-                </tr>
 
                 @php
                 $highestPaidApprentice = 0;
@@ -90,7 +64,7 @@
                 if ($highestPaidApprentice <$val){ $SecondHighestPaidApprentice=$highestPaidApprentice;
                     $highestPaidApprentice=$val; } elseif (($SecondHighestPaidApprentice < $val) &&
                     ($highestPaidApprentice!=$val)) { $SecondHighestPaidApprentice=$val; } } @endphp @endforeach <tr>
-                    <td>Highest Paid Apprentice</td>
+                    <td>Highest Paid Employee</td>
                     <td>${{number_format($highestPaidApprentice/52,2)}}</td>
                     <td>${{number_format($highestPaidApprentice/12,2)}}</td>
                     <td>${{number_format($highestPaidApprentice,2)}}</td>
@@ -99,7 +73,7 @@
                     </tr>
 
                     <tr>
-                        <td>Second Highest Paid Apprentice</td>
+                        <td>Second Highest Paid Employee</td>
                         <td>${{number_format($SecondHighestPaidApprentice/52,2)}}</td>
                         <td>${{number_format($SecondHighestPaidApprentice/12,2)}}</td>
                         <td>${{number_format($SecondHighestPaidApprentice,2)}}</td>
@@ -137,7 +111,8 @@
                             <td>${{number_format($SecondPaidSubContractor/365,2)}}</td>
                             <td>${{number_format(($SecondPaidSubContractor/365)/8,2)}}</td>
                         </tr>
-                        <tr>
+                        <tr class="font-weight-bold">
+                            
                             <td>Total</td>
                             <td>${{number_format(($total/365)*7+$highestPaidApprentice/52+$SecondHighestPaidApprentice/52+$HighestPaidSubContractor/52+$SecondPaidSubContractor/52,2)}}
                             </td>
@@ -149,6 +124,7 @@
                             </td>
                             <td>${{number_format($total/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8,2)}}
                             </td>
+                            
                         </tr>
             </tbody>
         </table>
