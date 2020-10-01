@@ -57,7 +57,7 @@
                             <div class="form-group col-sm">
                                 <label for="input">Item #</label>
                                 <input type="text" class="form-control" id="item_number" name="item_number"
-                                    placeholder="Enter item #">
+                                    placeholder="ELI-001">
                             </div>
                         </div>
                         <div class="form-row">
@@ -157,7 +157,7 @@
 
             <div class="col-sm-5">
                 <input type="text" class="form-control float-left" id="active_input" onkeyup="activeFunction()"
-                    placeholder="Search description">
+                    placeholder="Search price lists">
             </div>
         </div>
 
@@ -201,16 +201,16 @@
 
     <!-- Archived content -->
     <div id="archived_div" style="display: none">
-        <div class="row mb-4">
+    <div class="row mb-4">
             <div class="col-sm-7">
                 <p class="h2">Archived {{$categoryName}} items</p>
             </div>
 
             <div class="col-sm-5">
-                <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
-                    placeholder="Search price lists">
+                    <input type="text" class="form-control float-left" id="archived_input" onkeyup="archivedFunction()"
+                        placeholder="Search price lists">
+                </div>
             </div>
-        </div>
         <div class='table-responsive'>
             <table id="archived_table" class="display table table-hover table-sm">
                 <thead>
