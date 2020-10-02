@@ -1,11 +1,19 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<h1>Read Me - SCS220-2</h1>
+<p>Hi, If you are reading this you have been selected to continue development of this project for Xceed Electrical.</p>
+<p>This project utilises the Laravel 7 framework for back-end functionality and Bootstrap for front-end CSS. This project has been developed with Laravel Model-View-Controller standard in mind.
+The View (examplefilename.blade.php) files are where you build your pages with HTML.</p>
+<p>The Model files in the app directory (Category.php, Customer.php, Quote.php, etc.) determine what columns of a table in the database are required, the table name, key, and relationships to other tables. These relationships can be varied, but for the purposes of getting the Quote functionality working, will primarily be One-to-Many and Many-to-One. Examples of these two relationships can be seen on the Customer.php and Discount.php Models.
+Controllers are where all the functionality of the framework comes together. Controllers can do many things such as simply generate a page with a unique page heading, or even view, store, edit, update and delete records from a database.</p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<p>You may notice that there are no delete functions in this project. This is because deleting of records such as products, materials, and customers from the database will break any quotes that may reference these deleted records. Instead we opted for archiving, so that even though a product or material may not be used or viewed anymore, an older quote or other record may still be referenced with all necessary data. For a similar reason, this is why snapshots of other table records are taken and saved into tables such as QuoteItem (migration file: database\migrations\2020_09_07_000015_create_quoteitems_table.php). This will enable a created quote item to maintain a record of the pricing at the time the quote was generated, even if the material price, name, description, etc. is changed in the future.<p>
+
+<p>We highly recommend the Laravel documentation. While daunting at first, it does provide some great information (most of the time..). Links to the documentation can be found below.</p>
+
+<p>In addition, we found the Coder's Tape YouTube (https://www.youtube.com/c/CodersTape) video series on Laravel 6 very helpful when starting the project. While most of the functionality explained early in the videos has been completed, you will get a lot out of watching the tutorials to understand the basics of routing through web.php, along with blade templating, and how controllers work.</p>
+
+<p>Good luck!</p>
+
+<p>David & Jason.</p>
 
 ## About Laravel
 

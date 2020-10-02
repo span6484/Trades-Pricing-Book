@@ -31,4 +31,13 @@ class Quote extends Model
         return $this->belongsTo('App\Customer', 'fk_customer_id', 'pk_customer_id');
     }
 
+    // Relationships to be added:
+
+    // One-to-Many:
+    // QuoteItem
+    
+    // Many-to-One:
+    // User
+    // Status
+
 }
