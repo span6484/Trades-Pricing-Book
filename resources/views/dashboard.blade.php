@@ -219,64 +219,86 @@
                     @endcomponent
                 </div>
                 <div class="col-md-4">
-                    <!-- code for using the hourly function -->
-                    @php
-                $total = 0;
-                @endphp
-                @foreach($companyCosts as $companyCost)
-                @if($companyCost->companycost_archived == '0')
-                @php
-                $total += $companyCost->companycost_yearly;
-                @endphp
-                @endif
-                @endforeach
+                    
+                <!-- total company expenses -->
+    @php
+    $total = 0;
+    @endphp
+    @foreach($companyCosts as $companyCost)
+    @if($companyCost->companycost_archived == '0')
+    @php
+    $total += $companyCost->companycost_yearly;
+    @endphp
+    @endif
+    @endforeach
 
-                @php
-                $NonChargeableOfficeStaffWages = 0;
-                @endphp
 
-                @php
-                $highestPaid = 0;
-                @endphp
+    <!-- total employee costs -->
+    @php
+    $total_employee = 0;
+    $total_cost_less_super=0;
+    @endphp
+    @foreach($employeeCosts as $employeeCost)
+    @if($employeeCost->employee_archived == '0' && $employeeCost->employee_type == 'Employee')
+    @php
+    $total_employee += $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
+    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
+    $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
+    $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
+    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+    $total_cost_less_super+=$employeeCost->employee_workercomp +
+    $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+    $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone
+    +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost +
+    $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+    $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek*
+    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095;
+    @endphp
+    @endif
+    @endforeach
 
-                @php
-                $highestPaidApprentice = 0;
-                $SecondHighestPaidApprentice = 0;
-                @endphp
-                @foreach($employeeCosts as $employeeCost)
-                @php
-                if ($employeeCost->employee_type == 'Employee' && $employeeCost->employee_archived == '0'){
-                $val = $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
-                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
-                $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
-                $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
-                $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
-                if ($highestPaidApprentice <$val){ $SecondHighestPaidApprentice=$highestPaidApprentice;
-                    $highestPaidApprentice=$val; } elseif (($SecondHighestPaidApprentice < $val) &&
-                    ($highestPaidApprentice!=$val)) { $SecondHighestPaidApprentice=$val; } } @endphp @endforeach @php
-                    $HighestPaidSubContractor=0; $SecondPaidSubContractor=0; @endphp @foreach($employeeCosts as
-                    $employeeCost) @php if ($employeeCost->employee_type == 'Sub-Contractor' &&
-                    $employeeCost->employee_archived == '0'){
-                    $val = $employeeCost->employee_workercomp + $employeeCost->employee_hoursperweek*
-                    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
-                    $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
-                    $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
-                    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
-                    if ($HighestPaidSubContractor <$val){ $SecondPaidSubContractor=$HighestPaidSubContractor;
-                        $HighestPaidSubContractor=$val; } elseif (($SecondPaidSubContractor < $val) &&
-                        ($HighestPaidSubContractor!=$val)) { $SecondPaidSubContractor=$val; } } @endphp @endforeach
+
+    <!-- total sub-contractor costs -->
+    @php
+    $total_subcontractor = 0;
+    $total_cost_less_super=0;
+    @endphp
+    @foreach($employeeCosts as $employeeCost)
+    @if($employeeCost->employee_archived == '0' && $employeeCost->employee_type == 'Sub-Contractor')
+    @php
+    $total_subcontractor += $employeeCost->employee_cash + $employeeCost->employee_workercomp +
+    $employeeCost->employee_hoursperweek*
+    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095 +
+    $employeeCost->employee_phone +$employeeCost->employee_otherweeklycost +
+    $employeeCost->employee_vehiclecost + $employeeCost->employee_hoursperweek*
+    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear;
+    $total_cost_less_super+=$employeeCost->employee_workercomp +
+    $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+    $employeeCost->employee_weeksperyear*0.095 + $employeeCost->employee_phone
+    +$employeeCost->employee_otherweeklycost + $employeeCost->employee_vehiclecost +
+    $employeeCost->employee_hoursperweek* $employeeCost->employee_basehourly *
+    $employeeCost->employee_weeksperyear - $employeeCost->employee_hoursperweek*
+    $employeeCost->employee_basehourly * $employeeCost->employee_weeksperyear*0.095;
+    @endphp
+    @endif
+    @endforeach
+
+
+    @php
+    $total_business_hourly_cost = $total + $total_employee + $total_subcontractor;
+    @endphp
 
                     <!-- code for dashboard table2 -->
                     @component('common-components.dashboard2-widget')
                     @slot('title')Hourly Running Cost @endslot
-                    @slot('total') $ {{number_format($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8, 2)}} @endslot
+                    @slot('total') ${{number_format($total_business_hourly_cost/365/8, 2)}} @endslot
                     @slot('chartId') radial-chart-2 @endslot
                     @endcomponent
                 </div>
                 <div class="col-md-4">
                     @component('common-components.dashboard2-widget')
                     @slot('title') Current Charge Rate @endslot
-                    @slot('total') ${{number_format($value*($total/365/8 + $NonChargeableOfficeStaffWages/365/8 + $highestPaid/365/8 + $highestPaid/365/8 + $highestPaidApprentice/365/8 + $SecondHighestPaidApprentice/365/8 + $HighestPaidSubContractor/365/8 + $SecondPaidSubContractor/365/8 + 0/365/8),4)}}@endslot
+                    @slot('total') ${{number_format(($total_business_hourly_cost/365/8) * $grossmargins->gm_rate, 2)}}@endslot
                     @slot('chartId') radial-chart-2 @endslot
                     @endcomponent
                 </div>
