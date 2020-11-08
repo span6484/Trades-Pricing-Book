@@ -28,8 +28,8 @@ class AddUserTypeToTableUsers extends Migration
 
         $user = new App\User();
         $user->password = Hash::make('password');
-        $user->user_name = 'jconceicao';
-        $user->user_firstlast = 'Jayson Conceicao';
+        $user->user_name = 'admin';
+        $user->user_firstlast = 'Admin User';
         $user->role = 'admin';
         $user->save();
 
