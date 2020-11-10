@@ -13,7 +13,7 @@ Controllers are where all the functionality of the framework comes together. Con
 
 <p>Good luck!</p>
 
-<p>David & Jason.</p>
+<p>Shao & Jason & DV.</p>
 
 ## About Laravel
 
