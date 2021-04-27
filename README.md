@@ -11,6 +11,7 @@ Controllers are where all the functionality of the framework comes together. Con
 
 <p>In addition, we found the Coder's Tape YouTube (https://www.youtube.com/c/CodersTape) video series on Laravel 6 very helpful when starting the project. While most of the functionality explained early in the videos has been completed, you will get a lot out of watching the tutorials to understand the basics of routing through web.php, along with blade templating, and how controllers work.</p>
 
+<p> Notice that before we run the serve, we need to update the composer via  composer update, make sure the composer is the newest version</p>
 <p>Good luck!</p>
 
 <p>Shao & Jason & DV.</p>
